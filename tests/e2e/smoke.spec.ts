@@ -59,16 +59,22 @@ test('home: blocks to scale, a sideways strip, rice and spend on the same page',
   expect(Math.round(million!.width * million!.height)).toBeLessThan(1_010);
   const billion = await page.locator('#b-billion .block').boundingBox();
   expect(Math.round(billion!.width * billion!.height)).toBeGreaterThan(990_000);
-  // the strip is a horizontal scroll container: scrolling it sideways moves the bar
+  // desktop: the strip is a horizontal scroll container; phones: the bar runs downward
   const counter = page.locator('#counter');
   await expect(counter).toHaveText(/€0|\$0/);
-  await page.locator('#strip').scrollIntoViewIfNeeded();
-  await page.evaluate(() => { document.getElementById('strip')!.scrollLeft = 500; });
+  await expect(page.locator('#strip')).toHaveClass(isMobile ? /axis-y/ : /axis-x/);
+  if (isMobile) {
+    const top = await page.evaluate(() => document.getElementById('strip')!.getBoundingClientRect().top + window.scrollY);
+    await page.evaluate((y) => window.scrollTo(0, y + 500), top);
+  } else {
+    await page.locator('#strip').scrollIntoViewIfNeeded();
+    await page.evaluate(() => { document.getElementById('strip')!.scrollLeft = 500; });
+  }
   await expect.poll(async () => (await counter.textContent()) ?? '').not.toMatch(/^[€$]0$/);
   await expect(page.locator('.seg-label').first()).toBeVisible();
   await expect(page.locator('.marker.objection').first()).toBeVisible();
   await expect.poll(() => page.url()).toMatch(/#x=\d+/);
-  // a vertical mouse wheel over the strip moves it sideways (desktop only: phones swipe)
+  // a vertical mouse wheel over the sideways strip moves it (desktop only: phones just scroll)
   if (!isMobile) {
     await page.locator('#strip').hover();
     await page.mouse.wheel(0, 300);

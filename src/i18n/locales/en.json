@@ -123,7 +123,7 @@
     "medianWealth": "This is the net wealth of the median German household: {value}.",
     "million": "This is one million: {value}.",
     "lifetime": "This is what a median earner in Germany makes in a whole working life, 45 years: {value}.",
-    "germanyIntro": "Now the largest fortune in Germany: {name}, {value}. It no longer fits on the screen. Keep scrolling: from here on, the page moves sideways.",
+    "germanyIntro": "Now the largest fortune in Germany: {name}, {value}. It no longer fits on the screen. Keep scrolling.",
     "bar": {
       "germany": "{name}, the largest fortune in Germany",
       "world": "{name}, the largest fortune on Earth"
@@ -131,7 +131,7 @@
     "worldIntro": "That was {deName}. This bar is {ratio} times as long. Keep scrolling.",
     "counter": "scrolled so far",
     "counterAria": "Money scrolled so far: {money}",
-    "regionLabel": "Wealth to scale. Keep scrolling down, or use the arrow keys, to move sideways along the bar.",
+    "regionLabel": "Wealth to scale. Keep scrolling to move along the bar; on wide screens it runs sideways, on phones downward.",
     "nowAt": "You are looking at: {label}",
     "labels": {
       "median_income_de": "One year of median full-time earnings, Germany",

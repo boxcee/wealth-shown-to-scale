@@ -123,7 +123,7 @@
     "medianWealth": "Das ist das Nettovermögen des deutschen Medianhaushalts: {value}.",
     "million": "Das ist eine Million: {value}.",
     "lifetime": "So viel verdient ein Medianverdiener in Deutschland in einem ganzen Arbeitsleben, 45 Jahre: {value}.",
-    "germanyIntro": "Jetzt das größte Vermögen in Deutschland: {name}, {value}. Es passt nicht mehr auf den Bildschirm. Scroll weiter: Ab hier bewegt sich die Seite seitwärts.",
+    "germanyIntro": "Jetzt das größte Vermögen in Deutschland: {name}, {value}. Es passt nicht mehr auf den Bildschirm. Scroll weiter.",
     "bar": {
       "germany": "{name}, das größte Vermögen in Deutschland",
       "world": "{name}, das größte Vermögen der Welt"
@@ -131,7 +131,7 @@
     "worldIntro": "Das war {deName}. Dieser Balken ist {ratio}-mal so lang. Scroll weiter.",
     "counter": "bisher gescrollt",
     "counterAria": "Bisher gescrolltes Geld: {money}",
-    "regionLabel": "Vermögen im Maßstab. Scroll weiter nach unten oder nutze die Pfeiltasten, um seitwärts am Balken entlangzufahren.",
+    "regionLabel": "Vermögen im Maßstab. Scroll weiter, um am Balken entlangzufahren; auf breiten Bildschirmen läuft er seitwärts, auf dem Handy nach unten.",
     "nowAt": "Du siehst gerade: {label}",
     "labels": {
       "median_income_de": "Ein Jahr Median-Vollzeitverdienst, Deutschland",

@@ -119,11 +119,17 @@ body.home .site-header { position: static; }
 .block-item p { max-width: 62ch; margin: 0 0 0.6rem; }
 .block { background: var(--bar-ref); display: block; }
 .block.million, .block.billion { background: var(--bar-million); }
-.strip { height: 100vh; height: 100dvh; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; background: var(--bg); outline-offset: -3px; }
-.strip-inner { height: 100%; position: relative; }
-.strip-sticky { position: sticky; left: 0; height: 100%; }
+.strip.axis-x { height: 100vh; height: 100dvh; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; background: var(--bg); outline-offset: -3px; }
+.strip.axis-x .strip-inner { height: 100%; position: relative; }
+.strip.axis-x .strip-sticky { position: sticky; left: 0; height: 100%; }
+.strip.axis-y { position: relative; background: var(--bg); }
+.strip.axis-y .strip-inner { position: relative; height: 100%; }
+.strip.axis-y .strip-sticky { position: sticky; top: 0; height: 100vh; height: 100dvh; width: 100%; }
 .strip-stage { position: absolute; inset: 0; overflow: hidden; }
 .strip-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.strip.axis-y .marker { z-index: 2; }
+.strip.axis-y .seg-label { z-index: 1; }
+.strip.axis-y .strip-hud { right: 84px; }
 .strip-overlay { position: absolute; inset: 0; pointer-events: none; }
 .seg-label { position: absolute; max-width: min(84vw, 34rem); padding: 0.4rem 0.7rem; background: color-mix(in srgb, var(--card) 92%, transparent); border: 1px solid var(--line); border-radius: 8px; font-size: 0.95rem; line-height: 1.35; pointer-events: auto; }
 .seg-label strong { display: block; font-size: 1.05rem; }
@@ -133,9 +139,13 @@ body.home .site-header { position: static; }
 .marker.objection { border-left-color: var(--bar-world); }
 .marker.objection h4 { margin: 0 0 0.25rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
 .marker .tick { position: absolute; left: -4px; top: 100%; width: 4px; height: 14px; background: var(--accent); }
-.scale-ruler { position: absolute; left: 0; right: 0; height: 22px; font-size: 0.72rem; color: var(--muted); pointer-events: none; }
-.scale-ruler span { position: absolute; top: 6px; transform: translateX(-50%); white-space: nowrap; }
-.scale-ruler span::before { content: ''; position: absolute; left: 50%; bottom: 100%; width: 1px; height: 6px; background: var(--muted); }
+.scale-ruler { position: absolute; font-size: 0.72rem; color: var(--muted); pointer-events: none; }
+.scale-ruler.axis-x { height: 22px; }
+.scale-ruler.axis-x span { position: absolute; top: 6px; transform: translateX(-50%); white-space: nowrap; }
+.scale-ruler.axis-x span::before { content: ''; position: absolute; left: 50%; bottom: 100%; width: 1px; height: 6px; background: var(--muted); }
+.scale-ruler.axis-y { width: 80px; }
+.scale-ruler.axis-y span { position: absolute; left: 8px; transform: translateY(-50%); white-space: nowrap; }
+.scale-ruler.axis-y span::before { content: ''; position: absolute; right: 100%; top: 50%; width: 6px; height: 1px; background: var(--muted); }
 .strip-hud { position: absolute; left: 0; right: 0; bottom: 0; height: 72px; display: flex; align-items: center; gap: 1rem; padding: 0 1rem; pointer-events: none; }
 .counter { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 1.15rem; background: color-mix(in srgb, var(--card) 92%, transparent); border: 1px solid var(--line); border-radius: 8px; padding: 0.3rem 0.7rem; white-space: nowrap; }
 .counter small { font-weight: 400; color: var(--muted); display: block; font-size: 0.72rem; }
