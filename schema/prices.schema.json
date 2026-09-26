@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wealth-shown-to-scale/schema/prices.schema.json",
+  "title": "Spend-simulator prices",
+  "type": "object",
+  "required": ["meta", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": { "$ref": "meta.schema.json" },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "category", "price", "price_year", "inflation_adjust", "max_quantity"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "category": { "type": "string", "enum": ["consumer", "society", "climate", "global"] },
+          "icon": { "type": "string" },
+          "price": { "$ref": "value.schema.json" },
+          "price_year": { "type": "integer", "minimum": 1990 },
+          "inflation_adjust": {
+            "type": "boolean",
+            "description": "true: the UI can rebase the price to the latest CPI year."
+          },
+          "max_quantity": { "type": "integer", "minimum": 1 }
+        }
+      }
+    }
+  }
+}

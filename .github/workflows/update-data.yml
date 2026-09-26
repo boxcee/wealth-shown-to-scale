@@ -1,0 +1,93 @@
+name: Update data (monthly)
+
+on:
+  schedule:
+    # 06:17 UTC on the 1st of every month
+    - cron: '17 6 1 * *'
+  workflow_dispatch:
+    inputs:
+      threshold:
+        description: 'Plausibility threshold (fraction, e.g. 0.4 = 40 %)'
+        default: '0.4'
+        required: false
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Fetch, validate, plausibility-check
+        id: pipeline
+        env:
+          PLAUSIBILITY_THRESHOLD: ${{ github.event.inputs.threshold || '0.4' }}
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
+        run: npm run update-data
+
+      - name: Check source links (informational)
+        continue-on-error: true
+        run: node --import tsx scripts/check-links.ts
+
+      - name: Tests still pass with the new data
+        run: npm test
+
+      - name: Commit last-known-good data
+        id: commit
+        run: |
+          git config user.name "data-pipeline[bot]"
+          git config user.email "data-pipeline@users.noreply.github.com"
+          git add data DATA-CHANGELOG.md
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No data changes."
+          else
+            git commit -m "data: monthly update $(date -u +%Y-%m-%d)"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open or update the review issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('.pipeline/report.json', 'utf8'));
+            const needsHuman = report.fetchers.some(f => f.status === 'failed') || report.review.length || report.stale.length || report.validation.some(v => !v.ok);
+            if (!needsHuman) { core.info('Nothing needs a human.'); return; }
+            let body = fs.readFileSync('.pipeline/issue.md', 'utf8');
+            if (fs.existsSync('.pipeline/links.md')) {
+              body += '\n<details><summary>Source link check</summary>\n\n' + fs.readFileSync('.pipeline/links.md', 'utf8') + '\n</details>\n';
+            }
+            body += `\n_Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}_\n`;
+            const title = `Data review needed (${report.date.slice(0, 7)})`;
+            const { data: open } = await github.rest.issues.listForRepo({ ...context.repo, state: 'open', labels: 'data-review', per_page: 20 });
+            const existing = open.find(i => i.title === title);
+            if (existing) {
+              await github.rest.issues.update({ ...context.repo, issue_number: existing.number, body });
+              core.info(`Updated issue #${existing.number}`);
+            } else {
+              const { data: issue } = await github.rest.issues.create({ ...context.repo, title, body, labels: ['data-review'] });
+              core.info(`Opened issue #${issue.number}`);
+            }
+
+  deploy:
+    needs: update
+    if: needs.update.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

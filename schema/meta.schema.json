@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wealth-shown-to-scale/schema/meta.schema.json",
+  "title": "File metadata",
+  "type": "object",
+  "required": ["title", "updated_at", "default_max_age_months"],
+  "additionalProperties": false,
+  "properties": {
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "updated_at": { "type": "string", "format": "date" },
+    "default_max_age_months": { "type": "integer", "minimum": 1 },
+    "pipeline": { "type": "string", "description": "Which fetcher maintains this file, or 'manual'." }
+  }
+}

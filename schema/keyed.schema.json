@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wealth-shown-to-scale/schema/keyed.schema.json",
+  "title": "Keyed collection of sourced values",
+  "description": "Used by reference.json, distribution.json, exchange_rates.json, inflation.json, rice.json.",
+  "type": "object",
+  "required": ["meta", "values"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": { "$ref": "meta.schema.json" },
+    "values": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": { "pattern": "^[a-z0-9_]+$" },
+      "additionalProperties": { "$ref": "value.schema.json" }
+    }
+  }
+}

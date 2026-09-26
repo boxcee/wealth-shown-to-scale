@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wealth-shown-to-scale/schema/credits.schema.json",
+  "title": "Credits: original projects, data sources, libraries",
+  "type": "object",
+  "required": ["meta", "originals", "libraries"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": { "$ref": "meta.schema.json" },
+    "originals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "author", "url", "url_status", "link_checked_at", "license", "relationship"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "author": { "type": "string" },
+          "url": { "type": ["string", "null"], "format": "uri" },
+          "url_status": { "type": "string", "enum": ["ok", "offline", "unverified", "none"] },
+          "mirror_url": { "type": ["string", "null"], "format": "uri" },
+          "repo_url": { "type": ["string", "null"], "format": "uri" },
+          "link_checked_at": { "type": "string", "format": "date" },
+          "license": { "type": "string" },
+          "relationship": { "type": "string", "enum": ["reimplementation", "inspiration"] }
+        }
+      }
+    },
+    "libraries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "url", "license", "scope"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "license": { "type": "string" },
+          "scope": { "type": "string", "enum": ["build", "runtime", "test", "pipeline"] }
+        }
+      }
+    }
+  }
+}

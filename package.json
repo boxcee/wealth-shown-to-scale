@@ -1,0 +1,35 @@
+{
+  "name": "wealth-shown-to-scale",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Extreme wealth, shown to scale: a bilingual (EN/DE) static site with a 1-pixel-per-1,000 side-scroll, a rice visualisation, a spend simulator, a Germany chapter, a tax chapter and steel-manned objections. Data is refreshed monthly by a GitHub Actions pipeline.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run check:i18n && npm run validate-data && vite build && node --import tsx scripts/build-pages.ts",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json",
+    "test": "npm run typecheck && npm run check:i18n && npm run validate-data && vitest run",
+    "test:e2e": "playwright test",
+    "check:i18n": "node --import tsx scripts/check-i18n.ts",
+    "validate-data": "node --import tsx scripts/validate-data.ts",
+    "update-data": "node --import tsx scripts/update-data.ts",
+    "update-data:dry": "node --import tsx scripts/update-data.ts --dry-run",
+    "og": "node --import tsx scripts/build-og.ts",
+    "lighthouse": "node --import tsx scripts/lighthouse.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
+  }
+}

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+playwright-report/
+test-results/
+.lighthouse/
+*.log
+.DS_Store
+.env
+.env.*
+data/.cache/
+.pipeline/

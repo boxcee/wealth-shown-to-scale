@@ -1,0 +1,457 @@
+{
+  "meta": {
+    "title": "Top 10 richest Germans",
+    "description": "The ten largest fortunes with German citizenship in the Forbes Real-Time Billionaires list (Forbes citizenship field). Family entries are flagged. Manager Magazin figures are attached as alternative sources where available.",
+    "updated_at": "2026-09-26",
+    "default_max_age_months": 2,
+    "pipeline": "scripts/fetchers/forbes.ts"
+  },
+  "people": [
+    {
+      "id": "dieter-schwarz",
+      "name": "Dieter Schwarz",
+      "rank": 1,
+      "country": "Germany",
+      "source_of_wealth": "Retail",
+      "profile_url": "https://www.forbes.com/profile/dieter-schwarz/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 56654551000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/dieter-schwarz/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 67200000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/dieter-schwarz/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          },
+          {
+            "value": 46500000000,
+            "currency": "EUR",
+            "source": "Manager Magazin, Die 500 reichsten Deutschen 2025 (via Wikipedia: Liste der reichsten Deutschen)",
+            "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2025-10",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "andreas-von-bechtolsheim",
+      "name": "Andreas von Bechtolsheim & family",
+      "rank": 2,
+      "country": "Germany",
+      "source_of_wealth": "Google",
+      "profile_url": "https://www.forbes.com/profile/andreas-von-bechtolsheim/",
+      "is_family": true,
+      "persons_named": null,
+      "wealth": {
+        "value": 41478778000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/andreas-von-bechtolsheim/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 27900000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/andreas-von-bechtolsheim/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          },
+          {
+            "value": 18200000000,
+            "currency": "EUR",
+            "source": "Manager Magazin 2025 (via Wikipedia)",
+            "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2025-10",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "reinhold-wuerth",
+      "name": "Reinhold Wuerth & family",
+      "rank": 3,
+      "country": "Germany",
+      "source_of_wealth": "Fasteners",
+      "profile_url": "https://www.forbes.com/profile/reinhold-wuerth/",
+      "is_family": true,
+      "persons_named": null,
+      "wealth": {
+        "value": 27261824000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/reinhold-wuerth/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 30100000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/reinhold-wuerth/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          },
+          {
+            "value": 14400000000,
+            "currency": "EUR",
+            "source": "Manager Magazin 2025 (via Wikipedia) — Familie Reinhold Würth",
+            "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2025-10",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "susanne-klatten",
+      "name": "Susanne Klatten",
+      "rank": 4,
+      "country": "Germany",
+      "source_of_wealth": "BMW, pharmaceuticals",
+      "profile_url": "https://www.forbes.com/profile/susanne-klatten/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 23946011000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/susanne-klatten/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 29700000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/susanne-klatten/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          },
+          {
+            "value": 36100000000,
+            "currency": "EUR",
+            "source": "Manager Magazin 2025 (via Wikipedia) — reported jointly for Susanne Klatten and Stefan Quandt",
+            "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2025-10",
+            "is_estimate": true,
+            "notes": "Joint figure for two siblings; Forbes lists them separately."
+          }
+        ]
+      }
+    },
+    {
+      "id": "stefan-quandt",
+      "name": "Stefan Quandt",
+      "rank": 5,
+      "country": "Germany",
+      "source_of_wealth": "BMW",
+      "profile_url": "https://www.forbes.com/profile/stefan-quandt/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 23017122000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/stefan-quandt/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 30100000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/stefan-quandt/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          },
+          {
+            "value": 36100000000,
+            "currency": "EUR",
+            "source": "Manager Magazin 2025 (via Wikipedia) — reported jointly for Susanne Klatten and Stefan Quandt",
+            "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2025-10",
+            "is_estimate": true,
+            "notes": "Joint figure for two siblings; Forbes lists them separately."
+          }
+        ]
+      }
+    },
+    {
+      "id": "beate-heister",
+      "name": "Beate Heister",
+      "rank": 6,
+      "country": "Germany",
+      "source_of_wealth": "Supermarkets",
+      "profile_url": "https://www.forbes.com/profile/beate-heister/",
+      "is_family": false,
+      "persons_named": 1,
+      "wealth": {
+        "value": 17078716000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/beate-heister/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 19100000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/beate-heister/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          },
+          {
+            "value": 27700000000,
+            "currency": "EUR",
+            "source": "Manager Magazin 2025 (via Wikipedia) — reported jointly for the families of Karl Albrecht jr. and Beate Heister",
+            "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2025-10",
+            "is_estimate": true,
+            "notes": "Joint figure for two family branches; Forbes lists them separately."
+          }
+        ]
+      }
+    },
+    {
+      "id": "karl-albrecht-jr",
+      "name": "Karl Albrecht Jr. & family",
+      "rank": 7,
+      "country": "Germany",
+      "source_of_wealth": "Supermarkets",
+      "profile_url": "https://www.forbes.com/profile/karl-albrecht-jr/",
+      "is_family": true,
+      "persons_named": 1,
+      "wealth": {
+        "value": 17078716000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/karl-albrecht-jr/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 19100000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/karl-albrecht-jr/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          },
+          {
+            "value": 27700000000,
+            "currency": "EUR",
+            "source": "Manager Magazin 2025 (via Wikipedia) — reported jointly for the families of Karl Albrecht jr. and Beate Heister",
+            "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2025-10",
+            "is_estimate": true,
+            "notes": "Joint figure for two family branches; Forbes lists them separately."
+          }
+        ]
+      }
+    },
+    {
+      "id": "theo-albrecht-jr",
+      "name": "Theo Albrecht Jr & family",
+      "rank": 8,
+      "country": "Germany",
+      "source_of_wealth": "Aldi, Trader Joe's",
+      "profile_url": "https://www.forbes.com/profile/theo-albrecht-jr/",
+      "is_family": true,
+      "persons_named": null,
+      "wealth": {
+        "value": 16020636000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/theo-albrecht-jr/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 18000000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/theo-albrecht-jr/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          },
+          {
+            "value": 17600000000,
+            "currency": "EUR",
+            "source": "Manager Magazin 2025 (via Wikipedia) — families of Theo Albrecht jr. and Babette Albrecht",
+            "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2025-10",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "georg-schaeffler",
+      "name": "Georg Schaeffler",
+      "rank": 9,
+      "country": "Germany",
+      "source_of_wealth": "Auto parts",
+      "profile_url": "https://www.forbes.com/profile/georg-schaeffler/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 15772723000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/georg-schaeffler/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 19200000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/georg-schaeffler/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          },
+          {
+            "value": 10100000000,
+            "currency": "EUR",
+            "source": "Manager Magazin 2025 (via Wikipedia) — Georg und Maria-Elisabeth Schaeffler jointly",
+            "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2025-10",
+            "is_estimate": true,
+            "notes": "Joint figure for mother and son; Forbes lists them separately."
+          }
+        ]
+      }
+    },
+    {
+      "id": "ludwig-merckle",
+      "name": "Ludwig Merckle",
+      "rank": 10,
+      "country": "Germany",
+      "source_of_wealth": "Pharmaceuticals",
+      "profile_url": "https://www.forbes.com/profile/ludwig-merckle/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 14943176000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/ludwig-merckle/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 18300000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/ludwig-merckle/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          }
+        ]
+      }
+    }
+  ]
+}

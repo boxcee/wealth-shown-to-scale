@@ -1,0 +1,377 @@
+{
+  "meta": {
+    "title": "Spend-simulator prices",
+    "description": "Everything you can 'buy' in the spend simulator. Each price carries its source and price year; where inflation_adjust is true the UI can rebase it to the latest consumer price index year of the price currency (DE HICP for EUR, US CPI-U for USD).",
+    "updated_at": "2026-09-26",
+    "default_max_age_months": 24,
+    "pipeline": "manual"
+  },
+  "items": [
+    {
+      "id": "iphone_17_pro",
+      "category": "consumer",
+      "icon": "📱",
+      "price_year": 2025,
+      "inflation_adjust": false,
+      "max_quantity": 1000000,
+      "price": {
+        "value": 1299,
+        "unit": "currency",
+        "currency": "EUR",
+        "source": "Apple Newsroom (DE), 9 September 2025: Apple präsentiert iPhone 17 Pro und iPhone 17 Pro Max – ab 1.299 € inkl. MwSt.",
+        "source_url": "https://www.apple.com/de/newsroom/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max-the-most-powerful-and-advanced-pro-models-ever/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-09",
+        "definition": "German launch price of the iPhone 17 Pro (base storage), including VAT.",
+        "is_estimate": false,
+        "auto": false
+      }
+    },
+    {
+      "id": "deutschlandticket_year",
+      "category": "consumer",
+      "icon": "🚆",
+      "price_year": 2026,
+      "inflation_adjust": false,
+      "max_quantity": 100000000,
+      "price": {
+        "value": 756,
+        "unit": "currency_per_year",
+        "currency": "EUR",
+        "source": "Verkehrsministerkonferenz, 18 September 2025: Deutschlandticket costs 63 € per month from 1 January 2026 (reported by Tagesspiegel)",
+        "source_url": "https://www.tagesspiegel.de/politik/beschluss-der-verkehrsministerkonferenz-preis-des-deutschlandtickets-soll-2026-auf-63-euro-steigen-14349887.html",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026",
+        "definition": "One year of the Deutschlandticket (nationwide local public transport pass): 12 × 63 €.",
+        "is_estimate": false,
+        "derived": {
+          "formula": "63 € × 12",
+          "inputs": []
+        },
+        "auto": false
+      }
+    },
+    {
+      "id": "median_salary_year_de",
+      "category": "consumer",
+      "icon": "🧑‍💼",
+      "price_year": 2025,
+      "inflation_adjust": false,
+      "max_quantity": 100000000,
+      "price": {
+        "value": 54066,
+        "unit": "currency_per_year",
+        "currency": "EUR",
+        "source": "Statistisches Bundesamt (Destatis), Pressemitteilung Nr. 113 vom April 2026",
+        "source_url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/04/PD26_113_621.html",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025",
+        "definition": "One year of median gross earnings of a full-time employee in Germany (2025), i.e. what it costs to pay a median earner for a year (before employer social contributions).",
+        "is_estimate": false,
+        "auto": false
+      }
+    },
+    {
+      "id": "a320neo",
+      "category": "consumer",
+      "icon": "✈️",
+      "price_year": 2018,
+      "inflation_adjust": true,
+      "max_quantity": 100000,
+      "price": {
+        "value": 110600000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Airbus, 2018 average list prices (press release, January 2018): A320neo 110.6 million USD",
+        "source_url": "https://www.airbus.com/sites/g/files/jlcbta136/files/2021-07/new-airbus-list-prices-2018.pdf",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2018",
+        "definition": "Airbus published average list price of an A320neo in 2018 (the last year Airbus published list prices; airlines typically negotiate large discounts).",
+        "is_estimate": false,
+        "auto": false,
+        "max_age_months": 240
+      }
+    },
+    {
+      "id": "record_transfer_neymar",
+      "category": "consumer",
+      "icon": "⚽",
+      "price_year": 2017,
+      "inflation_adjust": true,
+      "max_quantity": 100000,
+      "price": {
+        "value": 222000000,
+        "unit": "currency",
+        "currency": "EUR",
+        "source": "Wikipedia, List of most expensive association football transfers: Neymar, FC Barcelona → Paris Saint-Germain, 2017, €222 million",
+        "source_url": "https://en.wikipedia.org/wiki/List_of_most_expensive_association_football_transfers",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2017",
+        "definition": "Record football transfer fee (release clause paid for Neymar in August 2017).",
+        "is_estimate": false,
+        "auto": false,
+        "max_age_months": 240
+      }
+    },
+    {
+      "id": "ice4_train",
+      "category": "consumer",
+      "icon": "🚄",
+      "price_year": 2024,
+      "inflation_adjust": false,
+      "max_quantity": 100000,
+      "price": {
+        "value": 43800000,
+        "unit": "currency",
+        "currency": "EUR",
+        "source": "Deutsche Bahn, Medienpaket ICE 4: rund sechs Milliarden Euro für 137 Züge",
+        "source_url": "https://www.deutschebahn.com/de/presse/suche_Medienpakete/medienpaket_ice4-6854650",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2024",
+        "definition": "Average price of one ICE 4 high-speed train, calculated as the total programme cost (about 6 billion €) divided by 137 trains of different lengths.",
+        "is_estimate": true,
+        "estimate_by": "Calculation from DB's stated total (formula shown)",
+        "derived": {
+          "formula": "6 000 000 000 € / 137",
+          "inputs": []
+        },
+        "auto": false,
+        "max_age_months": 120
+      }
+    },
+    {
+      "id": "teacher_year",
+      "category": "society",
+      "icon": "🧑‍🏫",
+      "price_year": 2025,
+      "inflation_adjust": false,
+      "max_quantity": 10000000,
+      "price": {
+        "value": 66104,
+        "unit": "currency_per_year",
+        "currency": "EUR",
+        "source": "Statistisches Bundesamt (Destatis), Verdiensterhebung 2025, GENESIS table 62361-0034: median gross annual earnings incl. special payments, full-time, occupational group 841 (teaching at general schools)",
+        "source_url": "https://www-genesis.destatis.de/datenbank/online/statistic/62361/table/62361-0034",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025",
+        "definition": "One year of median gross pay of a full-time teacher at a general school in Germany (2025), excluding employer contributions and pension provisions for civil-servant teachers, which raise the true public cost.",
+        "is_estimate": false,
+        "auto": false,
+        "max_age_months": 15,
+        "refresh_hint": "GENESIS table 62361-0034, updated yearly."
+      }
+    },
+    {
+      "id": "kita_place_year",
+      "category": "society",
+      "icon": "🧸",
+      "price_year": 2023,
+      "inflation_adjust": true,
+      "max_quantity": 10000000,
+      "price": {
+        "value": 10534,
+        "unit": "currency_per_year",
+        "currency": "EUR",
+        "source": "Derived: Destatis Bildungsfinanzbericht 2025 (public spending on child day care 2023: 42.76 bn €) divided by Destatis count of children in day care on 1 March 2024 (4.06 million)",
+        "source_url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/12/PD25_445_21711.html",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2023",
+        "definition": "Approximate public cost of one child-care (Kita) place per year in Germany: total public spending on child day care (2023) divided by the number of children in day care (about 4.06 million). Actual cost per place varies strongly by age group and Land (IW Köln reports 10 330 € in Thüringen to 14 309 € in Berlin per child in care, 2023).",
+        "is_estimate": true,
+        "estimate_by": "Calculation from two Destatis figures (formula shown)",
+        "derived": {
+          "formula": "42 760 000 000 € / 4 059 400 children (Destatis: https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/10/PD25_392_225.html)",
+          "inputs": []
+        },
+        "auto": false,
+        "max_age_months": 36
+      }
+    },
+    {
+      "id": "school_pupil_year",
+      "category": "society",
+      "icon": "🎒",
+      "price_year": 2023,
+      "inflation_adjust": true,
+      "max_quantity": 100000000,
+      "price": {
+        "value": 9800,
+        "unit": "currency_per_year",
+        "currency": "EUR",
+        "source": "Statistisches Bundesamt (Destatis), Ausgaben je Schülerin und Schüler an öffentlichen Schulen 2023: 9 800 €",
+        "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bildung-Forschung-Kultur/Bildungsfinanzen-Ausbildungsfoerderung/Publikationen/_publikationen-innen-bildungsausgaben.html",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2023",
+        "definition": "Public expenditure per pupil at public schools in Germany in 2023, all school types (general schools alone: 10 500 €).",
+        "is_estimate": false,
+        "auto": false,
+        "max_age_months": 36,
+        "refresh_hint": "Destatis 'Ausgaben je Schülerin und Schüler', published yearly."
+      }
+    },
+    {
+      "id": "social_housing_unit",
+      "category": "society",
+      "icon": "🏢",
+      "price_year": 2024,
+      "inflation_adjust": true,
+      "max_quantity": 10000000,
+      "price": {
+        "value": 294000,
+        "unit": "currency",
+        "currency": "EUR",
+        "source": "Pestel-Institut / ARGE Kiel, Kurzstudie 'Sozialer Wohnungsbau und Wohnungsbedarf' (for the Verbändebündnis Wohnungsbau): construction cost of a new rental flat in a large city about 3 980 €/m² plus about 880 €/m² land, together almost 4 900 €/m²",
+        "source_url": "https://www.impulse-fuer-den-wohnungsbau.de/fileadmin/images/Studien/kurzstudie-400000-wohnungen/kurzstudie-sozialer-wohnungsbau-und-wohnungsbedarf.pdf",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2024",
+        "definition": "Cost of building one 60 m² social-housing flat in a German large city, including land: 60 m² × 4 900 €/m². The study puts the public subsidy needed to reach a social rent of 6.50 €/m² at about 126 000 € per such flat.",
+        "is_estimate": true,
+        "estimate_by": "Pestel-Institut cost estimate; per-flat figure calculated from the study's per-m² cost",
+        "derived": {
+          "formula": "60 m² × 4 900 €/m²",
+          "inputs": []
+        },
+        "auto": false,
+        "max_age_months": 36
+      }
+    },
+    {
+      "id": "buergergeld_year",
+      "category": "society",
+      "icon": "🧾",
+      "price_year": 2026,
+      "inflation_adjust": false,
+      "max_quantity": 100000000,
+      "price": {
+        "value": 6756,
+        "unit": "currency_per_year",
+        "currency": "EUR",
+        "source": "Bundesregierung, Regelbedarfe 2026: Alleinstehende erhalten weiterhin 563 Euro im Monat",
+        "source_url": "https://www.bundesregierung.de/breg-de/aktuelles/nullrunde-buergergeld-2383676",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026",
+        "definition": "One year of the basic income support standard rate (Regelbedarfsstufe 1) for a single adult in Germany: 12 × 563 €, excluding housing and heating costs.",
+        "is_estimate": false,
+        "derived": {
+          "formula": "563 € × 12",
+          "inputs": []
+        },
+        "auto": false,
+        "max_age_months": 14
+      }
+    },
+    {
+      "id": "school_investment_backlog_de",
+      "category": "society",
+      "icon": "🏫",
+      "price_year": 2025,
+      "inflation_adjust": false,
+      "max_quantity": 10,
+      "price": {
+        "value": 67800000000,
+        "unit": "currency",
+        "currency": "EUR",
+        "source": "KfW Research, KfW-Kommunalpanel 2025: investment backlog in school buildings 67.8 billion €",
+        "source_url": "https://www.bundestag.de/resource/blob/1157306/KfW-Kommunalpanel-2025.pdf",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025",
+        "definition": "Investment backlog reported by German municipalities for school buildings (survey January–March 2025; total municipal backlog 215.7 billion €).",
+        "is_estimate": true,
+        "estimate_by": "KfW / Difu municipal survey",
+        "auto": false,
+        "max_age_months": 18,
+        "refresh_hint": "KfW-Kommunalpanel, published every summer."
+      }
+    },
+    {
+      "id": "federal_budget_de",
+      "category": "society",
+      "icon": "🏛️",
+      "price_year": 2026,
+      "inflation_adjust": false,
+      "max_quantity": 10,
+      "price": {
+        "value": 524540000000,
+        "unit": "currency_per_year",
+        "currency": "EUR",
+        "source": "Deutscher Bundestag, Haushaltsgesetz 2026: Ausgaben von 524,54 Milliarden Euro",
+        "source_url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw48-de-haushaltsgesetz-2026-dritte-lesung-1126152",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026",
+        "definition": "Total expenditure of the German federal budget 2026.",
+        "is_estimate": false,
+        "auto": false,
+        "max_age_months": 14
+      }
+    },
+    {
+      "id": "wind_turbine_onshore",
+      "category": "climate",
+      "icon": "🌬️",
+      "price_year": 2024,
+      "inflation_adjust": true,
+      "max_quantity": 1000000,
+      "price": {
+        "value": 5825000,
+        "unit": "currency",
+        "currency": "EUR",
+        "source": "Deutscher Bundestag, Wissenschaftliche Dienste, WD 5-3000-085/25 (20 November 2025): specific main investment costs of onshore wind turbines including foundation 910–1 420 €/kW in 2024 (citing Deutsche WindGuard)",
+        "source_url": "https://www.bundestag.de/resource/blob/1134246/WD-5-085-25.pdf",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2024",
+        "definition": "Main investment cost of one 5 MW onshore wind turbine in Germany: 5 000 kW × 1 165 €/kW (midpoint of the 910–1 420 €/kW range reported for 2024). Excludes ancillary costs (grid connection, planning, roads), which add roughly a third.",
+        "is_estimate": true,
+        "estimate_by": "Deutsche WindGuard cost survey; per-turbine figure calculated as shown",
+        "derived": {
+          "formula": "5 000 kW × (910 + 1 420) / 2 €/kW",
+          "inputs": []
+        },
+        "auto": false,
+        "max_age_months": 36
+      }
+    },
+    {
+      "id": "malaria_net",
+      "category": "global",
+      "icon": "🦟",
+      "price_year": 2026,
+      "inflation_adjust": false,
+      "max_quantity": 1000000000,
+      "price": {
+        "value": 2,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Against Malaria Foundation: An LLIN costs US$2.00",
+        "source_url": "https://www.againstmalaria.com/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026",
+        "definition": "Cost of one long-lasting insecticidal bed net as stated by the Against Malaria Foundation (purchase price; distribution costs are covered separately).",
+        "is_estimate": false,
+        "auto": false,
+        "max_age_months": 24
+      }
+    },
+    {
+      "id": "end_hunger_year",
+      "category": "global",
+      "icon": "🌾",
+      "price_year": 2020,
+      "inflation_adjust": true,
+      "max_quantity": 100,
+      "price": {
+        "value": 33000000000,
+        "unit": "currency_per_year",
+        "currency": "USD",
+        "source": "Ceres2030 (Cornell, IFPRI, IISD), 2020: ending hunger sustainably by 2030 requires an additional 33 billion USD per year (14 bn from donors, 19 bn from affected countries)",
+        "source_url": "https://www.cgiar.org/news-events/news/big-costs-bigger-rewards-how-33-billion-in-spending-each-year-can-help-end-hunger-sustainably-by-2030",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2020",
+        "definition": "Additional annual spending the Ceres2030 research consortium estimated as necessary (2020–2030) to end hunger for 490 million people and double smallholder incomes.",
+        "is_estimate": true,
+        "estimate_by": "Ceres2030 research consortium",
+        "auto": false,
+        "max_age_months": 120
+      }
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "meta": {
+    "title": "Wealth and tax distribution shares",
+    "description": "Survey-based distribution figures. They come from studies that are not updated monthly and are therefore kept as static values with an as_of date.",
+    "updated_at": "2026-09-26",
+    "default_max_age_months": 36,
+    "pipeline": "manual"
+  },
+  "values": {
+    "de_bottom50_net_wealth_share": {
+      "value": 2.4,
+      "unit": "percent",
+      "currency": null,
+      "source": "Deutsche Bundesbank, Monatsbericht April 2025: Ergebnisse der Vermögensbefragung 2023 (PHF)",
+      "source_url": "https://publikationen.bundesbank.de/publikationen-de/berichte-studien/monatsberichte/monatsbericht-april-2025-954594?article=vermoegen-und-finanzen-privater-haushalte-in-deutschland-ergebnisse-der-vermoegensbefragung-2023--954598",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2023",
+      "definition": "Share of total household net wealth held by the less wealthy half of households in Germany (PHF 2023). Survey data under-cover the very top, so the true share of the bottom half is, if anything, lower.",
+      "is_estimate": false,
+      "auto": false,
+      "refresh_hint": "Next PHF wave results (Bundesbank Monatsbericht)."
+    },
+    "de_top10_net_wealth_share": {
+      "value": 54,
+      "unit": "percent",
+      "currency": null,
+      "source": "Deutsche Bundesbank, Monatsbericht April 2025: Ergebnisse der Vermögensbefragung 2023 (PHF)",
+      "source_url": "https://publikationen.bundesbank.de/publikationen-de/berichte-studien/monatsberichte/monatsbericht-april-2025-954594?article=vermoegen-und-finanzen-privater-haushalte-in-deutschland-ergebnisse-der-vermoegensbefragung-2023--954598",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2023",
+      "definition": "Share of total household net wealth held by the wealthiest 10 % of households in Germany (PHF 2023; 55 % in 2017, 56 % in 2021).",
+      "is_estimate": false,
+      "auto": false
+    },
+    "de_gini_net_wealth": {
+      "value": 0.724,
+      "unit": "ratio",
+      "currency": null,
+      "source": "Deutsche Bundesbank, Bundesbank-Studie: Vermögen in Deutschland steigen nominal, gehen aber real zurück (10. April 2025)",
+      "source_url": "https://www.bundesbank.de/de/aufgaben/themen/bundesbank-studie-vermoegen-in-deutschland-steigen-nominal-gehen-aber-real-zurueck-ungleichheit-bleibt-unveraendert-954622",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2023",
+      "definition": "Gini coefficient of household net wealth in Germany, 0 = perfect equality, 1 = one household owns everything (PHF 2023, unchanged from 2021).",
+      "is_estimate": false,
+      "auto": false
+    },
+    "de_top10_income_tax_share": {
+      "value": 57,
+      "unit": "percent",
+      "currency": null,
+      "source": "Bundesministerium der Finanzen, Datensammlung zur Steuerpolitik 2024",
+      "source_url": "https://www.bundesfinanzministerium.de/Datenportal/Daten/offene-daten/steuern-zoelle/Datensammlung-zur-Steuerpolitik-2024/Datensammlung-zur-Steuerpolitik.html",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2024",
+      "definition": "Share of total wage and income tax revenue paid by the 10 % of taxpayers with the highest incomes (BMF model calculation). Relates to income tax only, not to consumption taxes or social contributions.",
+      "is_estimate": true,
+      "estimate_by": "BMF / Fraunhofer FIT microsimulation",
+      "auto": false,
+      "max_age_months": 24,
+      "refresh_hint": "BMF Datensammlung zur Steuerpolitik, updated yearly."
+    },
+    "de_inheritance_tax_assessed_2024": {
+      "value": 13300000000,
+      "unit": "currency_per_year",
+      "currency": "EUR",
+      "source": "Statistisches Bundesamt (Destatis), Pressemitteilung Nr. 320 vom August 2025: Festgesetzte Erbschaft- und Schenkungsteuer 2024 um 12,3 % auf 13,3 Milliarden Euro gestiegen",
+      "source_url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/08/PD25_320_736.html",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2024",
+      "definition": "Inheritance and gift tax assessed by German tax offices in 2024. In the same year, exemptions for business assets under § 13a ErbStG amounted to 4.0 billion € for inheritances and 13.1 billion € for gifts.",
+      "is_estimate": false,
+      "auto": false,
+      "max_age_months": 30,
+      "refresh_hint": "Destatis Erbschaft- und Schenkungsteuerstatistik, published each summer (2025 figures: https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/08/PD26_306_736.html)."
+    },
+    "de_inheritance_tax_exempt_business_2024": {
+      "value": 17100000000,
+      "unit": "currency_per_year",
+      "currency": "EUR",
+      "source": "Statistisches Bundesamt (Destatis), Pressemitteilung Nr. 320 vom August 2025 (Steuerbegünstigungen nach § 13a ErbStG: 4,0 Mrd. € bei Erbschaften, 13,1 Mrd. € bei Schenkungen)",
+      "source_url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/08/PD25_320_736.html",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2024",
+      "definition": "Sum of tax exemptions granted for business assets under § 13a ErbStG in 2024 (inheritances 4.0 bn € + gifts 13.1 bn €). This is the exempted asset value, not forgone tax revenue.",
+      "is_estimate": false,
+      "derived": {
+        "formula": "4.0 bn € (Erbschaften) + 13.1 bn € (Schenkungen)",
+        "inputs": [
+          "de_inheritance_tax_assessed_2024"
+        ]
+      },
+      "auto": false,
+      "max_age_months": 30
+    },
+    "norway_wealth_tax_leavers_2022_2023": {
+      "value": 82,
+      "unit": "count",
+      "currency": null,
+      "source": "Canadian Affairs (24 October 2025), citing Norwegian Finance Ministry data reported by Reuters: 82 wealthy Norwegians with a combined net wealth of about 46 billion kroner left in 2022–2023",
+      "source_url": "https://www.canadianaffairs.news/2025/10/24/norways-wealth-tax-drove-out-the-rich-without-breaking-the-bank/",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2023",
+      "definition": "Number of wealthy Norwegians who emigrated in 2022–2023 after the wealth tax rate rose from 0.85 % to 1.1 % in 2022, according to Finance Ministry data. Used to give the 'they will leave' objection its strongest empirical form.",
+      "is_estimate": false,
+      "auto": false,
+      "max_age_months": 60,
+      "notes": "Secondary source (press) for a government figure; the primary Reuters article sits behind a paywall."
+    },
+    "bmw_dividend_per_share_fy2025": {
+      "value": 4.4,
+      "unit": "currency",
+      "currency": "EUR",
+      "source": "Der Aktionär, 12 March 2026: BMW mit Jahreszahlen – die Dividende steigt (je Stammaktie um 0,10 Euro auf 4,40 Euro)",
+      "source_url": "https://www.deraktionaer.de/artikel/aktien/bmw-mit-jahreszahlen-die-dividende-steigt-20397076.html",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2025",
+      "definition": "Proposed BMW dividend per ordinary share for the 2025 financial year. The Quandt/Klatten siblings are the largest shareholders and, according to the article, the main beneficiaries; the article does not quantify their individual payout, so no per-person amount is shown.",
+      "is_estimate": false,
+      "auto": false,
+      "max_age_months": 18,
+      "refresh_hint": "BMW Group annual report / dividend proposal each March."
+    }
+  }
+}

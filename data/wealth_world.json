@@ -1,0 +1,371 @@
+{
+  "meta": {
+    "title": "Top 10 richest people worldwide",
+    "description": "The ten largest fortunes in the Forbes Real-Time Billionaires list, refreshed monthly. Alternative sources (Forbes annual list, Manager Magazin for Germans) are stored per person so the UI can show the range.",
+    "updated_at": "2026-09-26",
+    "default_max_age_months": 2,
+    "pipeline": "scripts/fetchers/forbes.ts"
+  },
+  "people": [
+    {
+      "id": "elon-musk",
+      "name": "Elon Musk",
+      "rank": 1,
+      "country": "United States",
+      "source_of_wealth": "Tesla, SpaceX",
+      "profile_url": "https://www.forbes.com/profile/elon-musk/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 928957789000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/elon-musk/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 839000000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/elon-musk/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "jeff-bezos",
+      "name": "Jeff Bezos",
+      "rank": 2,
+      "country": "United States",
+      "source_of_wealth": "Amazon",
+      "profile_url": "https://www.forbes.com/profile/jeff-bezos/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 369554817000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/jeff-bezos/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 224000000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/jeff-bezos/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "larry-page",
+      "name": "Larry Page",
+      "rank": 3,
+      "country": "United States",
+      "source_of_wealth": "Google",
+      "profile_url": "https://www.forbes.com/profile/larry-page/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 282261222000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/larry-page/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 257000000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/larry-page/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "michael-dell",
+      "name": "Michael Dell",
+      "rank": 4,
+      "country": "United States",
+      "source_of_wealth": "Dell Technologies",
+      "profile_url": "https://www.forbes.com/profile/michael-dell/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 273669246000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/michael-dell/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 141000000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/michael-dell/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "sergey-brin",
+      "name": "Sergey Brin",
+      "rank": 5,
+      "country": "United States",
+      "source_of_wealth": "Google",
+      "profile_url": "https://www.forbes.com/profile/sergey-brin/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 259759778000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/sergey-brin/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 237000000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/sergey-brin/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "mark-zuckerberg",
+      "name": "Mark Zuckerberg",
+      "rank": 6,
+      "country": "United States",
+      "source_of_wealth": "Facebook",
+      "profile_url": "https://www.forbes.com/profile/mark-zuckerberg/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 257627683000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/mark-zuckerberg/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 222000000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/mark-zuckerberg/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "jensen-huang",
+      "name": "Jensen Huang",
+      "rank": 7,
+      "country": "United States",
+      "source_of_wealth": "Nvidia",
+      "profile_url": "https://www.forbes.com/profile/jensen-huang/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 194895216000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/jensen-huang/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 154000000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/jensen-huang/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "larry-ellison",
+      "name": "Larry Ellison",
+      "rank": 8,
+      "country": "United States",
+      "source_of_wealth": "Oracle",
+      "profile_url": "https://www.forbes.com/profile/larry-ellison/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 181102881000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/larry-ellison/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 190000000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/larry-ellison/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "steve-ballmer",
+      "name": "Steve Ballmer",
+      "rank": 9,
+      "country": "United States",
+      "source_of_wealth": "Microsoft",
+      "profile_url": "https://www.forbes.com/profile/steve-ballmer/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 160241463000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/steve-ballmer/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 126000000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/steve-ballmer/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "warren-buffett",
+      "name": "Warren Buffett",
+      "rank": 10,
+      "country": "United States",
+      "source_of_wealth": "Berkshire Hathaway",
+      "profile_url": "https://www.forbes.com/profile/warren-buffett/",
+      "is_family": false,
+      "persons_named": null,
+      "wealth": {
+        "value": 143675122000,
+        "unit": "currency",
+        "currency": "USD",
+        "source": "Forbes Real-Time Billionaires, 2026-09-26",
+        "source_url": "https://www.forbes.com/profile/warren-buffett/",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2026-09-26",
+        "definition": "Estimated net worth in US dollars according to Forbes (real-time list): publicly known stakes in listed companies valued at current share prices, private companies valued by Forbes using comparable listed firms, plus known other assets, minus known debts. Family entries pool the wealth of several relatives.",
+        "is_estimate": true,
+        "estimate_by": "Forbes",
+        "auto": true,
+        "max_age_months": 2,
+        "refresh_hint": "https://www.forbes.com/forbesapi/person/rtb/0/position/true.json?fields=uri,finalWorth,personName,countryOfCitizenship,source,rank,timestamp&limit=4000",
+        "alt_sources": [
+          {
+            "value": 149000000000,
+            "currency": "USD",
+            "source": "Forbes, The World's Billionaires 2026 (annual list, snapshot of early 2026)",
+            "source_url": "https://www.forbes.com/profile/warren-buffett/",
+            "retrieved_at": "2026-09-26",
+            "as_of": "2026-03",
+            "is_estimate": true
+          }
+        ]
+      }
+    }
+  ]
+}

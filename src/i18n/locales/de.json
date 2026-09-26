@@ -1,0 +1,562 @@
+{
+  "meta": {
+    "siteName": "Reichtum, maßstabsgetreu",
+    "tagline": "Ein Pixel ist {scale}. Scroll bis zum Ende des größten Vermögens der Welt."
+  },
+  "nav": {
+    "scroll": "Scrollen",
+    "rice": "Reis",
+    "spend": "Ausgeben",
+    "germany": "Deutschland",
+    "taxes": "Steuern",
+    "objections": "Einwände",
+    "methodology": "Methodik",
+    "credits": "Credits",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "language": "Sprache",
+    "currency": "Währung",
+    "skipToContent": "Zum Inhalt springen",
+    "menu": "Menü",
+    "home": "Start"
+  },
+  "pages": {
+    "scroll": {
+      "title": "Reichtum, maßstabsgetreu",
+      "description": "Extremer Reichtum zum Seitwärtsscrollen: 1 Pixel = 1.000 Euro oder Dollar, jede Zahl mit Quelle."
+    },
+    "rice": {
+      "title": "Vermögen in Reiskörnern",
+      "description": "Ein Reiskorn sind 100.000. Wie viele Säcke ist ein Milliardär? Mit Quellen, maßstabsgetreu, in Euro oder Dollar."
+    },
+    "spend": {
+      "title": "Das Geld eines Milliardärs ausgeben",
+      "description": "Kauf Lehrkräfte, Windräder, Sozialwohnungen und iPhones von einem echten Vermögen und sieh, wie wenig es das schmälert."
+    },
+    "germany": {
+      "title": "Deutschland im Verhältnis",
+      "description": "Die zehn reichsten Deutschen im Vergleich mit dem Medianhaushalt, dem Medianverdiener und der ärmeren Hälfte des Landes."
+    },
+    "taxes": {
+      "title": "Steuern: nominal und effektiv",
+      "description": "Was das Gesetz Milliardären vorschreibt, was sie laut Forschung zahlen, und was du zu ihrem Satz zahlen würdest."
+    },
+    "objections": {
+      "title": "Einwände, in ihrer stärksten Form",
+      "description": "Die üblichen Gegenargumente in ihrer besten Version, mit datenbasierten Antworten und dem ehrlichen Hinweis, wo sie recht haben."
+    },
+    "methodology": {
+      "title": "Methodik und Quellen",
+      "description": "Jede Zahl, ihre Quelle, ihre Definition, ihr Stand, die Update-Pipeline und die bekannten Schwächen."
+    },
+    "credits": {
+      "title": "Credits",
+      "description": "Die Originalprojekte, die diese Seite nachbaut und von denen sie inspiriert ist, die Datenquellen und die Open-Source-Bibliotheken."
+    },
+    "imprint": {
+      "title": "Impressum",
+      "description": "Anbieterkennzeichnung (Platzhalter)."
+    },
+    "privacy": {
+      "title": "Datenschutz",
+      "description": "Datenschutzerklärung: kein Tracking, keine Cookies, keine externen Anfragen."
+    }
+  },
+  "common": {
+    "estimate": "Schätzung (siehe Quelle)",
+    "estimateLong": "Diese Zahl ist eine Schätzung der genannten Quelle, kein gemessener Wert.",
+    "estimateShort": "Schätzung",
+    "source": "Quelle",
+    "retrieved": "Abgerufen",
+    "asOf": "Bezugszeitraum",
+    "definition": "Definition",
+    "notes": "Anmerkungen",
+    "converted": "Umgerechnet",
+    "convertedNote": "Originalwert {original} in {currency}, umgerechnet zum EZB-Referenzkurs aus der Methodik.",
+    "altSources": "Andere Quellen",
+    "range": "Bandbreite der Quellen",
+    "derivedFormula": "Rechenweg",
+    "showSource": "Quelle und Definition anzeigen",
+    "close": "Schließen",
+    "loading": "Daten werden geladen…",
+    "loadError": "Die Datendateien konnten nicht geladen werden. Bitte lade die Seite neu.",
+    "noData": "Keine belastbaren Daten",
+    "family": "Familie",
+    "familyNote": "Dieser Eintrag fasst das Vermögen mehrerer Familienmitglieder zusammen.",
+    "perCapita": "pro genannter Person",
+    "perCapitaUnknown": "Die Quelle nennt nicht, wie viele Personen sich dieses Vermögen teilen; deshalb gibt es keinen Pro-Kopf-Wert.",
+    "staleShort": "ältere Daten",
+    "staleTitle": "Diese Zahl bezieht sich auf {date} und ist älter als das Aktualisierungsintervall für ihren Typ. Es ist der neueste uns bekannte veröffentlichte Wert.",
+    "staleBanner": {
+      "one": "{count} Zahl auf dieser Seite ist älter als ihr Aktualisierungsintervall. Sie ist markiert und bleibt der neueste veröffentlichte Wert.",
+      "other": "{count} Zahlen auf dieser Seite sind älter als ihr Aktualisierungsintervall. Sie sind markiert und bleiben die neuesten veröffentlichten Werte."
+    },
+    "times": "{n}-fach",
+    "years": {
+      "one": "{n} Jahr",
+      "other": "{n} Jahre"
+    },
+    "months": {
+      "one": "{n} Monat",
+      "other": "{n} Monate"
+    },
+    "yes": "Ja",
+    "no": "Nein",
+    "readMore": "Mehr lesen",
+    "dataUpdated": "Daten zuletzt aktualisiert am {date}",
+    "inCurrency": "Beträge in {currency}, umgerechnet zum EZB-Kurs von {rate} USD je EUR ({date}).",
+    "objection": "Einwand",
+    "answer": "Antwort",
+    "trueCore": "Wo der Einwand recht hat",
+    "with": "mit",
+    "without": "ohne",
+    "and": "und"
+  },
+  "intro": {
+    "title": "Wie viel ist eine Milliarde? Scroll und finde es heraus.",
+    "lead": "Jeder Balken auf dieser Seite ist im selben Maßstab gezeichnet: ein Pixel ist {scale}. Der mittlere Vollzeitverdiener in Deutschland bekommt {medianIncome} im Jahr, ein Balken von etwa {medianPx} Pixeln. Der reichste Mensch der Welt ist {topName} mit {topWealth}. Scroll weiter.",
+    "credit": "Eine Neuauflage von „Wealth, shown to scale“ von Matt Korostoff, ergänzt um Humphrey Yangs Reis-Visualisierung und Neal Agarwals „Spend Bill Gates' Money“. Siehe {creditsLink}.",
+    "creditsLinkText": "Credits",
+    "howTo": "Scroll mit Mausrad, Trackpad, Pfeiltasten oder durch Ziehen. Mit der Sprungliste springst du voraus, mit Play scrollt die Seite von selbst."
+  },
+  "scroll": {
+    "counter": "Bisher gescrollt",
+    "counterAria": "Bisher gescrolltes Geld: {money}",
+    "scale": "Maßstab",
+    "scaleOption": "1 px = {money}",
+    "currency": "Währung",
+    "jump": "Springe zu…",
+    "play": "Auto-Scroll",
+    "pause": "Pause",
+    "speed": "Tempo",
+    "speedSlow": "langsam",
+    "speedNormal": "normal",
+    "speedFast": "schnell",
+    "position": "Position",
+    "share": "Link zu dieser Stelle kopieren",
+    "shared": "Link kopiert",
+    "regionLabel": "Vermögens-Scroll. Mit den Pfeiltasten bewegen, Bild auf und Bild ab für größere Schritte, Pos1 und Ende für Anfang und Ende.",
+    "nowAt": "Du siehst gerade: {label}",
+    "sections": {
+      "reference": "Referenzgrößen",
+      "world": "Die zehn reichsten Menschen der Welt",
+      "germany": "Die zehn reichsten Menschen in Deutschland",
+      "end": "Das Ende"
+    },
+    "segments": {
+      "median_income_de": "Ein Jahr Median-Vollzeitverdienst, Deutschland",
+      "median_income_us": "Ein Jahr Median-Haushaltseinkommen, USA",
+      "median_wealth_de": "Median-Nettovermögen eines Haushalts, Deutschland",
+      "median_wealth_us": "Median-Nettovermögen einer Familie, USA",
+      "million": "Eine Million",
+      "lifetime_de": "Brutto-Lebenseinkommen eines Medianverdieners, Deutschland (45 Jahre)",
+      "lifetime_us": "Mittleres Lebenseinkommen, USA, Highschool-Abschluss",
+      "world": "{rank}. {name}",
+      "germany": "{rank}. {name}"
+    },
+    "segmentSub": {
+      "million": "So sieht eine Million aus. Alles davor passt auf ein paar Bildschirme.",
+      "lifetime": "Ein ganzes Arbeitsleben. Merk dir die Breite dieses Balkens.",
+      "person": "{source} · {country}"
+    },
+    "markers": {
+      "median1000": "Du hast jetzt {money} passiert: 1.000 Jahre Medianverdienst in Deutschland.",
+      "medianHouseholds": "{money}: das Nettovermögen von {n} deutschen Medianhaushalten.",
+      "lifetime100": "{money}: 100 Arbeitsleben eines Medianverdieners.",
+      "schoolBacklog": "{money}: der gesamte Investitionsrückstand der Schulgebäude in Deutschland laut KfW-Kommunalpanel.",
+      "endHunger": "{money}: die zusätzlichen Jahresausgaben, mit denen das Ceres2030-Konsortium den Hunger von 490 Millionen Menschen beenden würde.",
+      "federalBudget": "{money}: der gesamte Bundeshaushalt 2026.",
+      "worldTotal": "Die zehn reichsten Menschen der Welt: zusammen {money}.",
+      "germanyTotal": "Die zehn reichsten Deutschen: zusammen {money}.",
+      "bottom50": "{money}: ungefähr das gesamte Nettovermögen der ärmeren Hälfte aller deutschen Haushalte ({share} von {total})."
+    },
+    "objectionCard": "Ein Einwand",
+    "readFull": "Ganze Antwort",
+    "end": {
+      "title": "Du bist am Ende.",
+      "text": "Du hast {money} gescrollt. In diesem Maßstab sind das {px} Pixel, etwa {km} Kilometer Bildschirm.",
+      "next": "Weiter: dieselben Vermögen als {riceLink}, oder {spendLink}.",
+      "riceLink": "Reiskörner",
+      "spendLink": "versuch, sie auszugeben"
+    },
+    "rangeNote": "Bandbreite der Quellen: {range}"
+  },
+  "rice": {
+    "title": "Vermögen in Reiskörnern",
+    "lead": "Im Februar 2020 legte Humphrey Yang für je {grainValue} ein Reiskorn auf den Tisch und wog Jeff Bezos' Vermögen ab: rund 26 Kilogramm. Hier ist dieselbe Idee mit heutigen Zahlen, in {currency}.",
+    "grainValue": "Ein Reiskorn entspricht",
+    "grainWeight": "Ein Korn wiegt {weight} (Quelle und Bandbreite im Tooltip). Ein Schälchen fasst {bowl}, ein Sack {sack}, ein Lkw {truck}. Diese Behältergrößen sind Definitionen, keine Messwerte.",
+    "choose": "Wähle ein Vermögen",
+    "grains": {
+      "one": "{n} Korn",
+      "other": "{n} Körner"
+    },
+    "bowls": {
+      "one": "{n} Schälchen",
+      "other": "{n} Schälchen"
+    },
+    "sacks": {
+      "one": "{n} Sack",
+      "other": "{n} Säcke"
+    },
+    "trucks": {
+      "one": "{n} Lkw-Ladung",
+      "other": "{n} Lkw-Ladungen"
+    },
+    "weight": "{kg} kg Reis",
+    "tonnes": "{t} Tonnen Reis",
+    "drawn": "Jeder Punkt unten ist ein Korn.",
+    "tooMany": "Zu viele Körner, um sie einzeln zu zeichnen. Jedes Symbol unten steht für {unit}.",
+    "explain": "So wird gerechnet: Vermögen ÷ Wert pro Korn = Körner; Körner × Korngewicht = Masse; Masse ÷ Behältergröße = Behälter. Alle Eingangswerte haben eine Quelle.",
+    "options": {
+      "median_wealth_de": "Deutscher Medianhaushalt (Nettovermögen)",
+      "median_income_de": "Ein Jahr Median-Vollzeitverdienst, Deutschland",
+      "millionaire": "Ein Millionär",
+      "germany_top": "Reichster Deutscher: {name}",
+      "germany_top10": "Die zehn reichsten Deutschen zusammen",
+      "world_top": "Reichster Mensch der Welt: {name}"
+    }
+  },
+  "spend": {
+    "title": "Das Geld eines Milliardärs ausgeben",
+    "lead": "Wähle ein Vermögen und kauf Dinge: Konsumgüter, aber auch Lehrkräfte, Kita-Plätze, Sozialwohnungen und Klima-Infrastruktur. Jeder Preis trägt Quelle und Jahr.",
+    "budget": "Wessen Geld?",
+    "remaining": "Übrig",
+    "spent": "Ausgegeben",
+    "percentSpent": "{pct} des Vermögens ausgegeben",
+    "inflation": "Ältere Preise auf Verbraucherpreise von {year} umrechnen",
+    "inflationNote": "Preise aus früheren Jahren werden mit dem Verbraucherpreisindex der Preiswährung hochgerechnet (HVPI Deutschland für Euro-Preise, CPI-U für Dollar-Preise). Originalpreis und Jahr stehen im Tooltip.",
+    "category": {
+      "consumer": "Konsum",
+      "society": "Gesellschaft",
+      "climate": "Klima",
+      "global": "Global"
+    },
+    "buy": "Kaufen",
+    "sell": "Verkaufen",
+    "quantity": "Anzahl von {item}",
+    "reset": "Zurücksetzen",
+    "each": "je",
+    "perYear": "pro Jahr",
+    "summary": "Du hast {n} Dinge für {money} gekauft. Es bleiben {remaining}: {pct} des Vermögens sind noch da.",
+    "summaryEmpty": "Noch nichts gekauft.",
+    "cantAfford": "Nicht genug Geld übrig.",
+    "items": {
+      "iphone_17_pro": "iPhone 17 Pro",
+      "deutschlandticket_year": "Ein Jahr Deutschlandticket",
+      "median_salary_year_de": "Einen Medianverdiener ein Jahr bezahlen",
+      "a320neo": "Airbus A320neo (Listenpreis 2018)",
+      "record_transfer_neymar": "Rekord-Fußballtransfer (Neymar, 2017)",
+      "ice4_train": "ICE 4 Hochgeschwindigkeitszug",
+      "teacher_year": "Jahresgehalt einer Lehrkraft",
+      "kita_place_year": "Ein Kita-Platz für ein Jahr",
+      "school_pupil_year": "Ein Schuljahr für ein Kind",
+      "social_housing_unit": "Eine Sozialwohnung bauen (60 m²)",
+      "buergergeld_year": "Ein Jahr Grundsicherung (Regelsatz) für eine Person",
+      "school_investment_backlog_de": "Den gesamten Sanierungsstau der Schulen in Deutschland beheben",
+      "federal_budget_de": "Den ganzen Bundeshaushalt für ein Jahr bezahlen",
+      "wind_turbine_onshore": "Ein 5-MW-Windrad an Land",
+      "malaria_net": "Ein Moskitonetz gegen Malaria",
+      "end_hunger_year": "Ein Jahr der Mehrausgaben, die den Welthunger beenden würden"
+    }
+  },
+  "germany": {
+    "title": "Deutschland im Verhältnis",
+    "lead": "Die zehn größten deutschen Vermögen laut Forbes, gemessen am Medianhaushalt, am Medianverdiener und an der ärmeren Hälfte des Landes. Familieneinträge fassen mehrere Personen zusammen und sind gekennzeichnet.",
+    "benchmarks": "Vergleichsgrößen",
+    "medianWealth": "Median-Nettovermögen der Haushalte (2023)",
+    "meanWealth": "Durchschnittliches Nettovermögen der Haushalte (2023)",
+    "medianIncome": "Median-Bruttoverdienst Vollzeit (2025)",
+    "bottom50": "Vermögensanteil der ärmeren Hälfte der Haushalte",
+    "top10share": "Anteil der vermögendsten 10 %",
+    "gini": "Gini-Koeffizient der Nettovermögen",
+    "table": {
+      "rank": "#",
+      "name": "Name",
+      "source": "Vermögensquelle",
+      "wealth": "Vermögen",
+      "vsMedian": "× Medianhaushalt",
+      "vsMean": "× Durchschnittshaushalt",
+      "incomeYears": "Jahre Medianverdienst",
+      "perCapita": "Pro genannter Person"
+    },
+    "sum": "Die zehn Reichsten zusammen",
+    "sumText": "Zusammen halten die zehn {money}. Das sind {households} Medianhaushalte oder {years} Jahre Median-Vollzeitverdienst.",
+    "bottomText": "Die ärmere Hälfte aller deutschen Haushalte, rund {n} Haushalte, hält etwa {share} des gesamten Haushaltsnettovermögens. Mit dem Durchschnittsvermögen der Bundesbank und der Haushaltszahl des Mikrozensus sind das größenordnungsmäßig {money}: Die zehn Reichsten halten davon rund {ratio}.",
+    "bottomCaveat": "Vorbehalt: Die Bundesbank-Befragung erfasst die Spitze der Verteilung unvollständig; die Gesamtsumme ist eine Näherung, das Verhältnis eine Größenordnung, keine exakte Zahl.",
+    "familyHeading": "Familien und Erben",
+    "familyText": "Forbes führt manche Vermögen pro Person und manche als „& family“. Das Manager Magazin fasst ganze Familien zusammen. Wo eine Quelle die Personen nennt, zeigt die Tabelle einen Pro-Kopf-Wert; sonst steht das dabei. Die Manager-Magazin-Liste (Oktober 2025) enthält außerdem Vermögen, die Forbes nicht unter deutscher Staatsangehörigkeit führt:",
+    "missingItem": "{name}: {money} ({source})",
+    "rangeHeading": "Dieselbe Person, andere Schätzung",
+    "rangeText": "Vermögenslisten sind Schätzungen. Wo wir mehrere Quellen haben, zeigt der Tooltip an jeder Zahl die Bandbreite. Unterschiede von 10–30 % zwischen Forbes und Manager Magazin sind normal: Bewertungsstichtage, Wechselkurse und die Bewertung nicht börsennotierter Firmen unterscheiden sich.",
+    "taxShare": "Die 10 % der Steuerpflichtigen mit den höchsten Einkommen zahlen {share} der deutschen Lohn- und Einkommensteuer. Das ist nur die Einkommensteuer, und genau das ist der Punkt: Vermögen ist kein Einkommen, und die meisten Vermögen oben tauchen in der Einkommensstatistik erst auf, wenn sie verkauft oder ausgeschüttet werden."
+  },
+  "taxes": {
+    "title": "Steuern: nominal und effektiv",
+    "lead": "Zwei Fragen werden ständig vermischt: Welchen Satz schreibt das Gesetz vor, und welchen Anteil ihres ökonomischen Zuwachses geben sehr Reiche tatsächlich ab? Die Antwort hängt komplett vom Nenner ab; deshalb sagt diese Seite immer, welcher gerade gilt.",
+    "definitions": {
+      "title": "Drei Definitionen, nie vermischt",
+      "a": "(a) Steuer ÷ zu versteuerndes Einkommen. Was in der Steuererklärung steht. Unrealisierte Wertzuwächse und einbehaltene Unternehmensgewinne sind hier kein Einkommen.",
+      "b": "(b) Steuer ÷ ökonomisches Einkommen, inklusive unrealisierter Wertzuwächse und einbehaltener Gewinne. So messen Ökonomen, um wie viel jemand in einem Jahr reicher geworden ist.",
+      "c": "(c) Steuer ÷ Vermögen. Gezahlte Steuer als Anteil am Vermögensbestand. Die Größe in der Debatte um eine Milliardärsteuer.",
+      "corp": "Jede Definition gibt es mit und ohne zugerechnete Unternehmenssteuern. Die Gewinne einer Firma werden besteuert, bevor sie beim Eigentümer ankommen; ob man das als seine Steuer zählt, ist eine echte Entscheidung, deshalb zeigen wir beide Varianten."
+    },
+    "nominal": {
+      "title": "Nominale Sätze 2026",
+      "tax": "Steuer",
+      "de": "Deutschland",
+      "us": "USA (Bund)",
+      "income": "Spitzensteuersatz Einkommen",
+      "capital": "Kapitalerträge (Dividenden, realisierte Gewinne)",
+      "corporate": "Unternehmensgewinne",
+      "inheritance": "Erbschaft und Schenkung (Höchstsatz)",
+      "wealth": "Jährliche Vermögensteuer",
+      "incomeNoteDe": "45 % ab {threshold} zu versteuerndem Einkommen, plus 5,5 % Solidaritätszuschlag = 47,5 %.",
+      "incomeNoteUs": "37 % ab {threshold} zu versteuerndem Einkommen (Alleinstehende). Steuern der Bundesstaaten kommen dazu und sind nicht gezeigt.",
+      "capitalNoteDe": "25 % Abgeltungsteuer plus Soli = 26,375 %. Nur bei Ausschüttung oder Verkauf.",
+      "capitalNoteUs": "20 % plus 3,8 % Net Investment Income Tax = 23,8 %. Nur bei Verkauf; im Erbfall wird der Einstandswert hochgesetzt.",
+      "corporateNoteDe": "15 % Körperschaftsteuer + Soli + Gewerbesteuer zum durchschnittlichen Hebesatz ≈ 30 %. Die Körperschaftsteuer sinkt bis 2032 auf 10 %.",
+      "corporateNoteUs": "21 % Bund; Steuern der Bundesstaaten kommen dazu.",
+      "inheritanceNoteDe": "7–30 % für Ehepartner und Kinder, bis 50 % für andere, nach Freibeträgen. Betriebsvermögen kann zu 85–100 % verschont werden.",
+      "inheritanceNoteUs": "40 % oberhalb eines Freibetrags von {exemption} pro Person.",
+      "wealthNoteDe": "Seit 1997 nicht mehr erhoben.",
+      "wealthNoteUs": "Auf Bundesebene keine.",
+      "tradeTaxLine": "Gewerbesteuer beim durchschnittlichen Hebesatz 2024 (409 %): {rate} des Gewerbeertrags, zusätzlich zu 15,825 % Körperschaftsteuer inklusive Soli."
+    },
+    "effective": {
+      "title": "Was sehr Vermögende laut Forschung tatsächlich zahlen",
+      "group": "Wer",
+      "rate": "Satz",
+      "denominator": "Nenner",
+      "corporate": "Unternehmenssteuern",
+      "numerator": "Gezählte Steuern",
+      "period": "Zeitraum",
+      "compare": "Vergleich",
+      "denom": {
+        "taxable_income": "(a) zu versteuerndes Einkommen",
+        "economic_income": "(b) ökonomisches Einkommen",
+        "wealth": "(c) Vermögen"
+      },
+      "included": "enthalten",
+      "excluded": "nicht enthalten",
+      "note": "Sätze in verschiedenen Zeilen sind nur vergleichbar, wenn Nenner und Behandlung der Unternehmenssteuern übereinstimmen. Vermögensbezogene Sätze (c) wirken winzig, weil Vermögen ein Bestand ist, kein Fluss: 0,5 % des Vermögens können ein großer Anteil am Zuwachs eines Jahres sein – oder ein kleiner.",
+      "groups": {
+        "us_propublica_true_tax_rate": "25 reichste Amerikaner (ProPublica, IRS-Daten)",
+        "us_cea_top400": "400 reichste US-Familien (Wirtschaftsrat des Weißen Hauses)",
+        "us_saez_zucman_top400": "400 reichste US-Haushalte (Saez & Zucman)",
+        "world_eutax_billionaires": "Milliardäre weltweit (EU Tax Observatory)",
+        "world_zucman_g20": "Milliardäre weltweit (Zucman, G20-Bericht)",
+        "de_nwst_model_billionaire": "Modell-Milliardär Deutschland (Netzwerk Steuergerechtigkeit)",
+        "de_retained_profits_owner_level": "Deutscher Holding-Eigentümer, Gewinne thesauriert (was das Gesetz ergibt)"
+      },
+      "comparisons": {
+        "us_saez_zucman_top400": "Untere 50 % der US-Haushalte: {rate}",
+        "de_nwst_model_billionaire": "Dasselbe Modell 1996: etwa {rate}"
+      }
+    },
+    "calc": {
+      "title": "Was würdest du zum Satz eines Milliardärs zahlen?",
+      "lead": "Gib ein Bruttojahreseinkommen ein. Der Rechner wendet den Einkommensteuertarif 2026 (oder die US-Bundesstufen) an und optional die Arbeitnehmer-Sozialabgaben. Dann legt er die effektiven Sätze aus der Forschung oben auf dasselbe Einkommen. Vermögensbezogene Sätze werden auf Vermögen angewendet, nie auf Einkommen.",
+      "country": "Steuersystem",
+      "income": "Bruttojahreseinkommen",
+      "useMedian": "Median einsetzen",
+      "socialToggle": "Arbeitnehmer-Sozialabgaben einrechnen",
+      "yourTax": "Deine Einkommensteuer",
+      "yourTaxSoli": "inkl. Solidaritätszuschlag",
+      "yourSocial": "Deine Sozialabgaben",
+      "yourTotal": "Abzüge gesamt",
+      "yourRate": "Das sind {rate} deines Bruttoeinkommens.",
+      "atRate": "Mit {rate} ({who}) würdest du {money} statt {actual} zahlen.",
+      "atRateDiff": "Unterschied: {diff} pro Jahr.",
+      "wealthTitle": "Vermögensbezogene Sätze, auf Vermögen angewendet",
+      "wealthLead": "Das EU Tax Observatory misst die Steuern von Milliardären als Anteil ihres Vermögens. Für einen fairen Vergleich wenden wir diesen Anteil auf das Nettovermögen eines Medianhaushalts an ({wealth}):",
+      "wealthLine": "{rate} von {wealth} = {money} pro Jahr ({who}). Deine tatsächlichen Abzüge: {actual}.",
+      "assumptions": "Annahmen: alleinstehend, keine Kinder, keine weiteren Einkünfte; Deutschland: Arbeitnehmer-Pauschbetrag 1.230 € und Sozialabgaben vor Steuer abgezogen, Krankenversicherung mit durchschnittlichem Zusatzbeitrag; USA: Standardabzug, nur Bundessteuer, keine Bundesstaatensteuer. Sozialabgaben in den USA sind die Arbeitnehmeranteile für Social Security und Medicare. Gerundet.",
+      "socialNote": "Sozialabgaben kaufen Rente, Kranken- und Arbeitslosenversicherung; ob man sie als „Steuer“ zählt, ist umstritten, deshalb gibt es beide Sichten."
+    },
+    "germanSpecifics": {
+      "title": "Vier deutsche Besonderheiten",
+      "items": [
+        {
+          "h": "Die Vermögensteuer ist seit 1997 ausgesetzt",
+          "p": "Das Bundesverfassungsgericht entschied 1995 (2 BvL 37/91), dass die weit unter Marktwert liegende Bewertung von Immobilien gegenüber anderem Vermögen gegen den Gleichheitssatz verstößt, und gab dem Gesetzgeber bis Ende 1996 Zeit für eine Reform. Sie kam nicht. Das Vermögensteuergesetz existiert weiter, wird aber seitdem nicht angewendet. Schätzungen zum Aufkommen einer neuen Vermögensteuer reichen von etwa 10–30 Mrd. € (Netzwerk Steuergerechtigkeit, Variante nur für Milliardäre) bis zu weit mehr für breite Varianten (DIW)."
+        },
+        {
+          "h": "Betriebsvermögen ist bei der Erbschaftsteuer weitgehend verschont",
+          "p": "Nach §§ 13a und 13b ErbStG geht Betriebsvermögen zu 85 % oder sogar 100 % steuerfrei über, wenn der Betrieb fortgeführt und die Lohnsumme gehalten wird. Allein 2024 betrafen die Verschonungen nach § 13a {exempt} übertragenes Vermögen, während insgesamt {assessed} Erbschaft- und Schenkungsteuer festgesetzt wurden. Sehr große Erwerbe können zusätzlich eine Verschonungsbedarfsprüfung oder ein Abschmelzmodell beantragen."
+        },
+        {
+          "h": "Thesaurierung in Holdings und Stiftungen",
+          "p": "Wer ein Unternehmen über eine Holding hält, zahlt keine persönliche Steuer auf Gewinne, solange sie in der Holding bleiben; Dividenden zwischen Kapitalgesellschaften sind zu 95 % steuerfrei (§ 8b KStG). Die rund 30 % auf Unternehmensebene sind die ganze Rechnung, bis Geld ausgeschüttet wird. Familienstiftungen können Unternehmen über Generationen halten und zahlen nur alle 30 Jahre eine Erbersatzsteuer."
+        },
+        {
+          "h": "Wegzugsbesteuerung",
+          "p": "Wer mit mindestens 1 % an einer Kapitalgesellschaft beteiligt ist und ins Ausland zieht, wird besteuert, als hätte er die Anteile verkauft (§ 6 AStG). Das begrenzt den Weg „dann gehen sie eben“ für die größten Vermögen, erzeugt aber auch Lock-in-Effekte und Streit über Bewertung und Stundung."
+        }
+      ]
+    }
+  },
+  "objections": {
+    "title": "Einwände, in ihrer stärksten Form",
+    "lead": "Eine Seite wie diese überzeugt nur, wenn sie den besten Gegenargumenten standhält. Hier sind sie in ihrer stärksten Form, jeweils mit einer datenbasierten Antwort und dem ehrlichen Hinweis, wo sie einen wahren Kern haben.",
+    "items": {
+      "paper": {
+        "title": "„Das ist kein Cash, nur Papiervermögen.“",
+        "steelman": "Fast alle diese Vermögen sind Anteile an einem einzigen Unternehmen. Niemand hat {topWealth} auf dem Konto. Würde der Eigentümer verkaufen, bräche der Kurs ein; die Zahl ist eine Bewertungsfiktion, die sich in einem schlechten Jahr halbieren kann, wie 2022 bei mehreren Personen geschehen.",
+        "answer": "Stimmt, und für das meiste, was Vermögen tut, ist es egal. Aktien lassen sich beleihen: Banken geben Lombardkredite auf börsennotierte Anteile zu niedrigen Zinsen, so finanzieren Eigentümer Konsum, ohne zu verkaufen oder Kapitalertragsteuer zu zahlen („Buy, Borrow, Die“). Elon Musk hatte laut Teslas eigenen Berichten rund 236 Millionen Tesla-Aktien als Kreditsicherheit hinterlegt, wie das Handelsblatt berichtete. Anteile bedeuten außerdem Kontrolle über Unternehmen mit Hunderttausenden Beschäftigten, und sie zahlen Dividenden: BMW schlug für das Geschäftsjahr 2025 {bmwDividend} je Stammaktie vor, und die Geschwister Quandt und Klatten sind als größte Aktionäre die Hauptprofiteure. Nicht Bargeld macht Vermögen mächtig.",
+        "core": "Bewertungen schwanken. Deshalb zeigt diese Seite die Bandbreite der Quellen, und die Vermögen sind die aktuelle Schätzung, kein garantierter Verkaufserlös. Ein Notverkauf eines großen Pakets brächte tatsächlich weniger."
+      },
+      "valuation": {
+        "title": "„Die Bewertungen sind unzuverlässig.“",
+        "steelman": "Forbes, Bloomberg und Manager Magazin nennen für dieselbe Person verschiedene Zahlen, manchmal 30 % auseinander. Nicht börsennotierte Firmen wie Lidl oder Aldi haben keinen Kurs; ihr „Wert“ ist eine Schätzung anhand vergleichbarer börsennotierter Firmen. Schulden, Trusts und Familienverträge sind oft unsichtbar.",
+        "answer": "Richtig, deshalb trägt jedes Vermögen hier Quelle, Datum und, wo vorhanden, die Bandbreite der Quellen; tipp auf das ⓘ. Forbes zum Beispiel schätzt Dieter Schwarz auf {schwarzForbes}, das Manager Magazin auf {schwarzMM}. Aber die Unsicherheit liegt bei einigen zehn Prozent, während der Abstand zu einem Medianhaushalt ein Faktor von Hunderttausenden ist. Ob der reichste Deutsche 400.000 oder 550.000 Medianhaushalte besitzt, ändert nichts am Bild.",
+        "core": "Bei nicht börsennotierten Vermögen sind die Fehlerbalken breit, und Rangfolgen innerhalb der Top Ten sollte man nicht wörtlich nehmen. Zahlen mit mehr als zwei signifikanten Stellen suggerieren eine Genauigkeit, die es nicht gibt."
+      },
+      "earned": {
+        "title": "„Sie haben es verdient und das Risiko getragen; das Geld steckt in Firmen, die Arbeitsplätze schaffen.“",
+        "steelman": "Gründer wie Musk, Huang oder die Albrechts haben Unternehmen aufgebaut, die Millionen beschäftigen und Dinge herstellen, die Menschen wollen. Ihr Vermögen ist niemandem weggenommen; es ist der Marktwert dessen, was sie geschaffen haben. Es zu besteuern heißt, die Unternehmen, die Jobs und künftige Innovation zu besteuern.",
+        "answer": "Zwei der zehn reichsten Deutschen haben ihre Unternehmen selbst aufgebaut; die anderen haben geerbt (Klatten, Quandt, Albrecht, Heister, Schaeffler, Merckle). Auch bei Gründern ist der Ertrag nicht proportional zur Leistung: Erträge dieser Größe entstehen aus Eigentum an einem Gewinner, einer Mischung aus Können, Timing, Glück und öffentlichen Gütern wie Straßen, Gerichten, Bildung und Forschung. Und „das Geld steckt in Firmen“ spricht gegen die Besteuerung der Firmen, nicht des Eigentümers: 2 % auf den Anteil eines Gründers lassen sich aus Dividenden oder einem kleinen Verkauf zahlen, ohne die Firma anzutasten, so wie dieselben Eigentümer ihren eigenen Konsum finanzieren.",
+        "core": "Unternehmen aufzubauen ist real und wertvoll, Steuern auf die Substanz eines Betriebs können ihn zerstören, und jede Vermögensteuer muss so gebaut sein, dass sie den Eigentümer trifft, nicht das Betriebskapital. Das ist eine Designbedingung, kein Argument gegen das Messen der Größenordnung."
+      },
+      "zerosum": {
+        "title": "„Reichtum ist kein Nullsummenspiel.“",
+        "steelman": "Wenn der Tesla-Kurs steigt, wird niemand ärmer. Vermögen wachsen, weil Firmen wertvoller wurden, und Aktien kann jeder halten. Einen Milliardär mit dem Medianhaushalt zu vergleichen unterstellt, der eine habe dem anderen etwas genommen, und das ist falsch.",
+        "answer": "Richtig: Der Vergleich behauptet keinen Diebstahl. Er zeigt Größenordnungen. Reichtum ist kein Nullsummenspiel, aber seine Verteilung zählt trotzdem, weil Vermögen politischen Einfluss, Medien, Wohnraum und Boden kauft, von dem es eine feste Menge gibt, und weil die ärmere Hälfte der deutschen Haushalte rund {bottom50} des Haushaltsvermögens besitzt: Sie „hält Aktien“ in keinem nennenswerten Umfang. Auch ein Nicht-Nullsummenspiel kann die Hälfte der Spieler mit fast nichts zurücklassen.",
+        "core": "Steigende Vermögen spiegeln meist steigende Unternehmenswerte, keine Umverteilung. Wer sagt „die Reichen haben es den Armen genommen“, behauptet etwas anderes als diese Seite."
+      },
+      "leave": {
+        "title": "„Bei höheren Steuern wandern sie ab.“",
+        "steelman": "Kapital ist mobil. Norwegen erhöhte 2022 die Vermögensteuer, und Dutzende reiche Norweger zogen in die Schweiz; die Bemessungsgrundlage schrumpft, und das Land hat am Ende weniger Einnahmen und weniger Investoren.",
+        "answer": "Norwegen ist der beste Fall für diesen Einwand, und die Zahlen sind überschaubar: {norwayLeavers} Vermögende gingen 2022–2023 von mehreren Tausend Steuerpflichtigen, und die Einnahmen aus der Vermögensteuer stiegen kräftig, weil die Basis breit ist. Die Forschung (Kleven, Landais, Muñoz & Stantcheva, Journal of Economic Perspectives 2020) findet steuergetriebene Migration, aber in kleinem Umfang für die meisten Gruppen, besonders wo Wegzugsteuern existieren. Deutschland besteuert die unrealisierten Gewinne jedes Wegziehenden mit mindestens 1 % Beteiligung (§ 6 AStG), was das Auswandern mit einem Firmenvermögen teuer macht.",
+        "core": "Manche gehen tatsächlich, und Aufkommensschätzungen, die Verhalten ignorieren, überzeichnen. Das Design entscheidet: Wegzugsbesteuerung, internationale Koordination und Bewertungsregeln bestimmen, ob eine Steuer funktioniert."
+      },
+      "twopercent": {
+        "title": "„2 % von einer Milliarde sind mehr als 45 % von 80.000 €.“",
+        "steelman": "Absolut zahlen Reiche enorme Summen. Die obersten 10 % der Verdiener zahlen {taxShare} der deutschen Einkommensteuer. Ein Milliardär, der „nur“ 2 % einer Milliarde zahlt, gibt 20 Millionen € ab, das finanziert Hunderte Lehrkräfte. Die 45 % des Medianverdieners sind eine Schlagzeile; in absolutem Geld sind sie dagegen nichts.",
+        "answer": "Beides stimmt. Die absoluten Summen sind groß, und der Ausgaben-Simulator dieser Seite zeigt genau, wie viel eine Milliarde kauft. Steuersysteme beruhen aber auf Leistungsfähigkeit: auf einem Satz, nicht auf einem Betrag, denn 45 % von 80.000 € verändern, wie eine Familie lebt, und 2 % von einer Milliarde verändern nichts daran, wie der Eigentümer lebt. Der relevante Vergleich ist der Anteil an den Ressourcen: Die obersten 10 % zahlen {taxShare} der Einkommensteuer und halten {top10share} des Nettovermögens, und die Einkommensteuer erreicht Vermögen erst, wenn es verkauft wird. Die Statistik „sie zahlen ohnehin den Großteil der Einkommensteuer“ handelt von Einkommen, und die Vermögen auf dieser Seite sind kein Einkommen.",
+        "core": "Die absoluten Beträge sind tatsächlich hoch, und jedes Umverteilungsargument, das so tut, als zahlten Reiche nichts, ist falsch. Effektive Sätze ganz oben liegen nur unter den Definitionen (b) und (c) unter denen der Mitte; unter Definition (a) liegen sie darüber."
+      },
+      "mittelstand": {
+        "title": "„Viele deutsche Vermögen sind Familienunternehmen und Mittelstand.“",
+        "steelman": "Anders als bei US-Tech-Gründern steckt deutsches Vermögen in Lidl, Aldi, BMW, Würth, Merck: langlebige, beschäftigungsintensive Firmen, die reinvestieren und bleiben. Ihre Eigentümer zu besteuern bedroht genau das Modell, das die deutsche Wirtschaft widerstandsfähig macht.",
+        "answer": "Deshalb kennzeichnet diese Seite Familieneinträge und zeigt Pro-Kopf-Werte, wo Quellen die Personen nennen. Aber „Mittelstand“ und „die zehn größten Vermögen“ sind verschiedene Gruppen: Hinter den Top Ten stehen Firmen mit Zehn- oder Hunderttausenden Beschäftigten, die zu den größten Unternehmen Europas gehören. Die Erbschaftsteuer-Verschonung für Betriebsvermögen (§ 13a ErbStG) stellte 2024 {exempt} steuerfrei, und die Destatis-Statistik zeigt, dass die größten Verschonungen auf die größten Übertragungen entfallen, nicht auf kleine Betriebe.",
+        "core": "Familieneigentum mit langem Horizont ist eine echte Stärke, und Regeln, die zum Verkauf zwingen, um Steuern zu zahlen, würden ihr schaden. Stundungs- und Ratenregeln gibt es genau deshalb; die Frage ist, ob eine unbegrenzte Verschonung nötig ist, um sie zu schützen."
+      }
+    }
+  },
+  "methodology": {
+    "title": "Methodik und Quellen",
+    "principle": "Glaubwürdigkeit vor Wirkung. Jede Zahl auf dieser Seite hat eine Quelle, ein Abrufdatum, einen Bezugszeitraum und eine Definition, sichtbar über das ⓘ daneben. Schätzungen sind mit ≈ markiert. Wo belastbare Daten fehlen, sagt die Seite das, statt zu raten.",
+    "sections": {
+      "scale": {
+        "h": "Maßstab und Umrechnung",
+        "p": [
+          "Balken werden in einem einstellbaren Maßstab gezeichnet (Standard: ein Pixel = 1.000 in der Anzeigewährung). Beträge werden mit dem täglichen EZB-Referenzkurs zwischen US-Dollar und Euro umgerechnet ({rate} USD je EUR am {date}); die Originalwährung steht immer im Tooltip.",
+          "„Gescrolltes“ Geld ist die Summe aller Balken links vom Bildschirmrand, nicht die Pixeldistanz, weil zwischen den Balken Lücken liegen."
+        ]
+      },
+      "wealth": {
+        "h": "Vermögensdaten",
+        "p": [
+          "Hauptquelle für einzelne Vermögen ist die Forbes-Echtzeitliste, die die Pipeline einmal im Monat liest. Die deutschen Top Ten sind die zehn größten Einträge, deren Forbes-Feld „Staatsangehörigkeit“ Deutschland lautet; Personen, die Forbes unter anderer Staatsangehörigkeit führt (zum Beispiel Klaus-Michael Kühne in der Echtzeitliste), fehlen und werden gesondert genannt.",
+          "Alternative Schätzungen sind pro Person hinterlegt: die Forbes-Jahresliste und, für Deutsche, die Manager-Magazin-Liste vom Oktober 2025 (aus dem Wikipedia-Abzug, weil das Magazin hinter einer Bezahlschranke liegt). Der Tooltip zeigt die Bandbreite. Regel bei Konflikten: Die aktuellste seriöse Schätzung ist die Hauptzahl; ältere oder Familien-Sammelwerte erscheinen als Bandbreite.",
+          "Familieneinträge fassen mehrere Personen zusammen. Ein Pro-Kopf-Wert wird nur gezeigt, wo eine Quelle die Personen nennt; sonst sagt die Seite, dass keine belastbaren Daten vorliegen."
+        ]
+      },
+      "reference": {
+        "h": "Referenzwerte",
+        "p": [
+          "Median und Durchschnitt des Haushaltsnettovermögens in Deutschland: Bundesbank-Studie PHF 2023. Medianverdienst: Destatis-Verdiensterhebung. US-Haushaltseinkommen: Census Bureau. US-Familienvermögen: Survey of Consumer Finances 2022 der Fed (die Welle 2025 war noch nicht veröffentlicht). Das Lebenseinkommen in Deutschland ist eine transparente Multiplikation (Median × 45 Jahre), gegengeprüft mit dem IAB; in den USA die Schätzung des Georgetown CEW."
+        ]
+      },
+      "prices": {
+        "h": "Preise",
+        "p": [
+          "Jeder Posten im Ausgaben-Simulator hat ein Preisjahr. Ältere Preise lassen sich auf das aktuellste Verbraucherpreisindex-Jahr ihrer Währung umbasieren (Eurostat-HVPI für Deutschland, BLS CPI-U für die USA); der Schalter ist standardmäßig aus, und der Tooltip zeigt immer das Original."
+        ]
+      },
+      "taxes": {
+        "h": "Steuern",
+        "p": [
+          "Nominale Sätze stammen aus den Gesetzestexten (gesetze-im-internet.de, IRS). Effektive Sätze stammen aus namentlich genannten Studien, jede markiert mit ihrem Nenner ((a) zu versteuerndes Einkommen, (b) ökonomisches Einkommen, (c) Vermögen) und der Angabe, ob Unternehmenssteuern dem Eigentümer zugerechnet sind. Der Rechner setzt die Tarifformel 2026 (§ 32a EStG) und die US-Bundesstufen 2026 mit den genannten Vereinfachungen um."
+        ]
+      },
+      "pipeline": {
+        "h": "Update-Pipeline",
+        "p": [
+          "Ein GitHub-Actions-Workflow läuft am Ersten jedes Monats (und auf Knopfdruck). Er ruft EZB-Kurse, Eurostat-HVPI, BLS-CPI und die Forbes-Listen ab, validiert jede Datei gegen ein JSON-Schema und committet nur Werte, die eine Plausibilitätsprüfung bestehen: Weicht ein abgerufener Wert um mehr als {threshold} vom letzten guten Wert ab, wird er nicht geschrieben, sondern in einem Issue zur Prüfung aufgelistet. Werte, die sich nicht automatisch abrufen lassen (Befragungen, Studien, Gesetzesparameter), tragen ein Höchstalter; überschreiten sie es, listet dasselbe Issue sie mit einem Hinweis, wo das Update zu finden ist.",
+          "Jede Änderung steht in DATA-CHANGELOG.md im Repository."
+        ]
+      },
+      "weaknesses": {
+        "h": "Bekannte Schwächen",
+        "p": [
+          "Vermögenslisten sind Schätzungen mit breiten Fehlerbalken bei nicht börsennotierten Firmen. Befragungsdaten erfassen die Spitze unvollständig, sodass Anteile wie „die ärmere Hälfte hält 2,4 %“ eher noch zu günstig für die Spitze sind. Der Vergleich eines deutschen Vollzeit-Medianverdieners mit einem US-Medianhaushalt mischt eine Personen- und eine Haushaltsgröße; beide sind beschriftet. Der Steuerrechner ignoriert die Steuern der US-Bundesstaaten, Kirchensteuer und Kinder in Deutschland sowie alle Abzüge jenseits der Pauschalen. Studien zu effektiven Steuersätzen sind umstritten; die Kontroverse ist im Einwände-Kapitel zusammengefasst."
+        ]
+      }
+    },
+    "dataTable": {
+      "h": "Alle Daten dieser Seite",
+      "file": "Datei",
+      "key": "Eintrag",
+      "value": "Wert",
+      "asOf": "Zeitraum",
+      "retrieved": "Abgerufen",
+      "source": "Quelle",
+      "estimate": "Schätzung"
+    },
+    "changelog": "Changelog der Zahlen",
+    "repo": "Quellcode und Daten auf GitHub"
+  },
+  "credits": {
+    "title": "Credits",
+    "lead": "Diese Seite baut drei bekannte Visualisierungen nach und kombiniert sie. Nichts wurde daraus kopiert; jeder Teil ist neu implementiert, und die Daten sind neu.",
+    "originals": "Originalprojekte",
+    "relationship": {
+      "reimplementation": "Von Grund auf nachgebaut",
+      "inspiration": "Inspiriert von"
+    },
+    "linkStatus": {
+      "ok": "Link geprüft am {date}",
+      "offline": "Original-URL war bei der Prüfung am {date} offline; der Spiegel-Link funktioniert",
+      "unverified": "konnte nicht verifiziert werden",
+      "none": "kein Link"
+    },
+    "license": "Lizenz",
+    "mirror": "Spiegel",
+    "repo": "Repository",
+    "korostoffNote": "Matt Korostoffs Seite setzte 1 Pixel = 1.000 $ und scrollte durch das Vermögen der 400 reichsten Amerikaner. Diese Seite behält seinen Maßstab und sein Format, ergänzt virtuelles Scrollen (Browser können keine milliardenpixelbreiten Elemente darstellen), Euro-Umrechnung, deutsche Daten und Tooltips mit Quellen.",
+    "yangNote": "Humphrey Yangs zwei TikTok-Videos (Februar 2020) nutzten ein Reiskorn für 100.000 $ und endeten mit rund 58 Pfund Reis für Jeff Bezos' 122 Milliarden. Das Reis-Kapitel verwendet seinen Maßstab als Standard.",
+    "agarwalNote": "Neal Agarwals „Spend Bill Gates' Money“ (2017) ist die Vorlage für den Ausgaben-Simulator. Unserer ergänzt gesellschaftliche Posten, Preise mit Quellen und Inflationsbereinigung.",
+    "otherFormats": "Wir haben nach weiteren bekannten Originalen dieser Formate gesucht. Die „Spend the money“-Idee hat viele Klone von neal.fun; die Reis-Idee wurde nach Yang von anderen wiederholt; frühere Originale, die zu nennen wären, haben wir nicht gefunden.",
+    "dataSources": "Datenquellen",
+    "libraries": "Open-Source-Bibliotheken",
+    "libScope": {
+      "build": "Build",
+      "runtime": "Laufzeit",
+      "test": "Tests",
+      "pipeline": "Daten-Pipeline"
+    }
+  },
+  "imprint": {
+    "title": "Impressum (Platzhalter)",
+    "p": [
+      "Angaben gemäß § 5 DDG – vom Betreiber der Seite zu ergänzen:",
+      "Name und Anschrift des Betreibers",
+      "Kontakt: E-Mail-Adresse",
+      "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: Name und Anschrift",
+      "Dies ist eine nichtkommerzielle, privat betriebene Informationsseite."
+    ]
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung (Platzhalter)",
+    "p": [
+      "Diese Seite ist eine statische Website auf GitHub Pages. Sie setzt keine Cookies, nutzt keine Analyse-Tools und stellt zur Laufzeit keine Anfragen an Dritte; die einzigen Anfragen betreffen die eigenen Dateien und Daten der Seite.",
+      "GitHub als Hosting-Anbieter verarbeitet Verbindungsdaten (IP-Adresse, User-Agent, Zeitpunkt) in seinen Server-Logs. Details stehen in der Datenschutzerklärung von GitHub. Vom Betreiber zu ergänzen: Name und Anschrift des Verantwortlichen, Kontakt, Rechtsgrundlage (Art. 6 Abs. 1 lit. f DSGVO), Betroffenenrechte."
+    ]
+  },
+  "footer": {
+    "text": "Open Source, MIT-Lizenz. Datenstand {date}. Keine Cookies, kein Tracking.",
+    "github": "GitHub"
+  }
+}

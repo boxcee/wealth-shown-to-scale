@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Credits: original projects and libraries",
+    "description": "Projects this site re-implements or is inspired by, with link status, and the open-source libraries used. Links are re-checked by the pipeline (scripts/check-links.ts).",
+    "updated_at": "2026-09-26",
+    "default_max_age_months": 12,
+    "pipeline": "manual"
+  },
+  "originals": [
+    {
+      "id": "korostoff",
+      "title": "Wealth, shown to scale",
+      "author": "Matt Korostoff",
+      "url": "https://mkorostoff.github.io/1-pixel-wealth/",
+      "url_status": "offline",
+      "mirror_url": "https://hacktivis.me/git/mirror/1-pixel-wealth/",
+      "repo_url": "https://github.com/MKorostoff/1-pixel-wealth",
+      "link_checked_at": "2026-09-26",
+      "license": "No license file found in the repository mirror (all rights reserved by default); nothing copied. Re-implemented from scratch.",
+      "relationship": "reimplementation"
+    },
+    {
+      "id": "yang",
+      "title": "Jeff Bezos' wealth visualised in grains of rice (TikTok, February 2020)",
+      "author": "Humphrey Yang (@humphreytalks)",
+      "url": "https://www.tiktok.com/@humphreytalks/video/6798276393634467077",
+      "url_status": "ok",
+      "mirror_url": "https://www.buzzfeednews.com/article/tanyachen/tiktok-jeff-bezos-wealth-rice-grains-video",
+      "repo_url": null,
+      "link_checked_at": "2026-09-26",
+      "license": "Video content, all rights reserved; only the idea (one grain = 100 000 USD) is reused.",
+      "relationship": "inspiration"
+    },
+    {
+      "id": "agarwal",
+      "title": "Spend Bill Gates' Money",
+      "author": "Neal Agarwal (neal.fun)",
+      "url": "https://neal.fun/spend/",
+      "url_status": "ok",
+      "mirror_url": null,
+      "repo_url": null,
+      "link_checked_at": "2026-09-26",
+      "license": "Proprietary (no public source or license); only the format is reused. Own implementation.",
+      "relationship": "inspiration"
+    }
+  ],
+  "libraries": [
+    { "name": "Vite", "url": "https://vite.dev/", "license": "MIT", "scope": "build" },
+    { "name": "TypeScript", "url": "https://www.typescriptlang.org/", "license": "Apache-2.0", "scope": "build" },
+    { "name": "Vitest", "url": "https://vitest.dev/", "license": "MIT", "scope": "test" },
+    { "name": "Playwright", "url": "https://playwright.dev/", "license": "Apache-2.0", "scope": "test" },
+    { "name": "Ajv", "url": "https://ajv.js.org/", "license": "MIT", "scope": "pipeline" },
+    { "name": "tsx", "url": "https://github.com/privatenumber/tsx", "license": "MIT", "scope": "pipeline" }
+  ]
+}

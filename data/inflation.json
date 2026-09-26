@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "Consumer price indices",
+    "description": "Annual average consumer price indices used to inflation-adjust prices: HICP for Germany (Eurostat, 2015 = 100) and CPI-U for the United States (BLS, 1982–84 = 100).",
+    "updated_at": "2026-09-26",
+    "default_max_age_months": 14,
+    "pipeline": "scripts/fetchers/inflation.ts"
+  },
+  "values": {
+    "de_hicp_annual": {
+      "value": 131.9,
+      "unit": "index",
+      "currency": null,
+      "source": "Eurostat, HICP – annual data (prc_hicp_aind), Germany, all-items, annual average index (2015 = 100), dataset updated 2026-02-06",
+      "source_url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_aind/default/table",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2025",
+      "definition": "Harmonised Index of Consumer Prices for Germany, annual average, 2015 = 100. A euro price from year A is rebased to year B by multiplying with index(B) / index(A).",
+      "is_estimate": false,
+      "auto": true,
+      "max_age_months": 14,
+      "refresh_hint": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?geo=DE&coicop=CP00&unit=INX_A_AVG&lastTimePeriod=16",
+      "series": {
+        "2010": 92.7,
+        "2011": 95,
+        "2012": 97,
+        "2013": 98.6,
+        "2014": 99.3,
+        "2015": 100,
+        "2016": 100.4,
+        "2017": 102.1,
+        "2018": 104,
+        "2019": 105.5,
+        "2020": 105.8,
+        "2021": 109.2,
+        "2022": 118.7,
+        "2023": 125.9,
+        "2024": 129,
+        "2025": 131.9
+      }
+    },
+    "us_cpi_u_annual": {
+      "value": 321.943,
+      "unit": "index",
+      "currency": null,
+      "source": "U.S. Bureau of Labor Statistics, CPI-U all items, U.S. city average, not seasonally adjusted (series CUUR0000SA0), annual average of monthly values; latest month 2026-08: 334.98",
+      "source_url": "https://www.bls.gov/cpi/",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2025",
+      "definition": "Consumer Price Index for All Urban Consumers, 1982–84 = 100, annual average calculated from the published monthly values (October 2025 was never published because of the federal funding lapse; 2025 is the average of the other eleven months). A dollar price from year A is rebased to year B by multiplying with index(B) / index(A).",
+      "is_estimate": false,
+      "auto": true,
+      "max_age_months": 14,
+      "refresh_hint": "https://api.bls.gov/publicAPI/v2/timeseries/data/CUUR0000SA0",
+      "series": {
+        "2017": 245.12,
+        "2018": 251.107,
+        "2019": 255.657,
+        "2020": 258.811,
+        "2021": 270.97,
+        "2022": 292.655,
+        "2023": 304.702,
+        "2024": 313.689,
+        "2025": 321.943
+      }
+    }
+  }
+}

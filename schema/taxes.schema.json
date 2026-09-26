@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wealth-shown-to-scale/schema/taxes.schema.json",
+  "title": "Tax data",
+  "type": "object",
+  "required": ["meta", "nominal", "effective", "parameters"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": { "$ref": "meta.schema.json" },
+    "nominal": {
+      "type": "object",
+      "description": "Statutory rates, keyed by country then tax type.",
+      "propertyNames": { "pattern": "^(DE|US)$" },
+      "additionalProperties": {
+        "type": "object",
+        "propertyNames": { "pattern": "^[a-z0-9_]+$" },
+        "additionalProperties": { "$ref": "value.schema.json" }
+      }
+    },
+    "effective": {
+      "type": "array",
+      "description": "Effective tax rates of the very wealthy according to research.",
+      "items": {
+        "type": "object",
+        "required": ["id", "country", "group", "denominator", "includes_corporate_tax", "numerator", "rate"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "country": { "type": "string", "enum": ["DE", "US", "WORLD", "FR"] },
+          "group": { "type": "string", "description": "Whose rate: e.g. 'top 400 US households'." },
+          "denominator": {
+            "type": "string",
+            "enum": ["taxable_income", "economic_income", "wealth"],
+            "description": "(a) tax / taxable income, (b) tax / economic income incl. unrealised gains or retained profits, (c) tax / wealth."
+          },
+          "includes_corporate_tax": { "type": "boolean" },
+          "numerator": { "type": "string", "description": "Which taxes are counted." },
+          "period": { "type": "string" },
+          "rate": { "$ref": "value.schema.json" },
+          "rate_low": { "type": "number" },
+          "rate_high": { "type": "number" },
+          "comparison_group": { "type": "string" },
+          "comparison_rate": { "type": "number" }
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Parameters for the interactive calculator (tariff formulas, social contributions).",
+      "propertyNames": { "pattern": "^(DE|US)$" },
+      "additionalProperties": {
+        "type": "object",
+        "propertyNames": { "pattern": "^[a-z0-9_]+$" },
+        "additionalProperties": { "$ref": "value.schema.json" }
+      }
+    }
+  }
+}

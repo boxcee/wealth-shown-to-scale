@@ -1,0 +1,562 @@
+{
+  "meta": {
+    "siteName": "Wealth, shown to scale",
+    "tagline": "One pixel is {scale}. Scroll until you reach the end of the richest fortune on Earth."
+  },
+  "nav": {
+    "scroll": "Scroll",
+    "rice": "Rice",
+    "spend": "Spend",
+    "germany": "Germany",
+    "taxes": "Taxes",
+    "objections": "Objections",
+    "methodology": "Methodology",
+    "credits": "Credits",
+    "imprint": "Imprint",
+    "privacy": "Privacy",
+    "language": "Language",
+    "currency": "Currency",
+    "skipToContent": "Skip to content",
+    "menu": "Menu",
+    "home": "Home"
+  },
+  "pages": {
+    "scroll": {
+      "title": "Wealth, shown to scale",
+      "description": "A side-scrolling visualisation of extreme wealth: 1 pixel = 1,000 dollars or euros, with every number sourced."
+    },
+    "rice": {
+      "title": "Wealth in grains of rice",
+      "description": "One grain of rice is 100,000. How many sacks is a billionaire? Sourced, to scale, in euros or dollars."
+    },
+    "spend": {
+      "title": "Spend a billionaire's money",
+      "description": "Buy teachers, wind turbines, social housing and iPhones with a real fortune and see how little it dents it."
+    },
+    "germany": {
+      "title": "Germany in proportion",
+      "description": "The ten richest Germans compared with the median household, the median earner and the poorer half of the country."
+    },
+    "taxes": {
+      "title": "Taxes: nominal versus effective",
+      "description": "What the law says billionaires pay, what research finds they pay, and what you would pay at their rate."
+    },
+    "objections": {
+      "title": "Objections, steel-manned",
+      "description": "The strongest versions of the usual counter-arguments, with data-based answers and an honest note on where they have a point."
+    },
+    "methodology": {
+      "title": "Methodology and sources",
+      "description": "Every number, its source, its definition, its date, the update pipeline and the known weaknesses."
+    },
+    "credits": {
+      "title": "Credits",
+      "description": "The original projects this site rebuilds and is inspired by, the data sources and the open-source libraries."
+    },
+    "imprint": {
+      "title": "Imprint",
+      "description": "Legal notice (placeholder)."
+    },
+    "privacy": {
+      "title": "Privacy",
+      "description": "Privacy notice: no tracking, no cookies, no external requests."
+    }
+  },
+  "common": {
+    "estimate": "Estimate (see source)",
+    "estimateLong": "This figure is an estimate by the cited source, not a measured value.",
+    "estimateShort": "estimate",
+    "source": "Source",
+    "retrieved": "Retrieved",
+    "asOf": "Reference period",
+    "definition": "Definition",
+    "notes": "Notes",
+    "converted": "Converted",
+    "convertedNote": "Original figure {original} in {currency}, converted at the ECB reference rate shown in the methodology.",
+    "altSources": "Other sources",
+    "range": "Range across sources",
+    "derivedFormula": "Calculation",
+    "showSource": "Show source and definition",
+    "close": "Close",
+    "loading": "Loading data…",
+    "loadError": "The data files could not be loaded. Please reload the page.",
+    "noData": "No reliable data",
+    "family": "Family",
+    "familyNote": "This entry pools the wealth of several family members.",
+    "perCapita": "per named person",
+    "perCapitaUnknown": "The source does not say how many people share this fortune, so no per-person figure is shown.",
+    "staleShort": "older data",
+    "staleTitle": "This figure refers to {date} and is older than the update interval for its type. It is the latest published value we know of.",
+    "staleBanner": {
+      "one": "{count} figure on this page is older than its update interval. It is marked and remains the latest published value.",
+      "other": "{count} figures on this page are older than their update interval. They are marked and remain the latest published values."
+    },
+    "times": "{n}×",
+    "years": {
+      "one": "{n} year",
+      "other": "{n} years"
+    },
+    "months": {
+      "one": "{n} month",
+      "other": "{n} months"
+    },
+    "yes": "Yes",
+    "no": "No",
+    "readMore": "Read more",
+    "dataUpdated": "Data last updated {date}",
+    "inCurrency": "Amounts in {currency}, converted at the ECB rate of {rate} USD per EUR ({date}).",
+    "objection": "Objection",
+    "answer": "Answer",
+    "trueCore": "Where it has a point",
+    "with": "with",
+    "without": "without",
+    "and": "and"
+  },
+  "intro": {
+    "title": "How much is a billion? Scroll and find out.",
+    "lead": "Every bar on this page is drawn to the same scale: one pixel is {scale}. The median full-time earner in Germany makes {medianIncome} a year, a bar about {medianPx} pixels wide. The richest person on Earth is {topName} with {topWealth}. Keep scrolling.",
+    "credit": "A rebuild of “Wealth, shown to scale” by Matt Korostoff, plus Humphrey Yang's rice visualisation and Neal Agarwal's “Spend Bill Gates' Money”. See {creditsLink}.",
+    "creditsLinkText": "Credits",
+    "howTo": "Scroll with your mouse wheel, trackpad, arrow keys or by dragging. Use the jump list to skip ahead, or press play to let the page scroll for you."
+  },
+  "scroll": {
+    "counter": "Scrolled so far",
+    "counterAria": "Money scrolled so far: {money}",
+    "scale": "Scale",
+    "scaleOption": "1 px = {money}",
+    "currency": "Currency",
+    "jump": "Jump to…",
+    "play": "Auto-scroll",
+    "pause": "Pause",
+    "speed": "Speed",
+    "speedSlow": "slow",
+    "speedNormal": "normal",
+    "speedFast": "fast",
+    "position": "Position",
+    "share": "Copy link to this spot",
+    "shared": "Link copied",
+    "regionLabel": "Wealth scroll. Use the arrow keys to move, Page Up and Page Down for larger steps, Home and End to jump to the start or end.",
+    "nowAt": "You are looking at: {label}",
+    "sections": {
+      "reference": "Reference sizes",
+      "world": "The ten richest people in the world",
+      "germany": "The ten richest people in Germany",
+      "end": "The end"
+    },
+    "segments": {
+      "median_income_de": "One year of median full-time earnings, Germany",
+      "median_income_us": "One year of median household income, USA",
+      "median_wealth_de": "Median household net wealth, Germany",
+      "median_wealth_us": "Median family net worth, USA",
+      "million": "One million",
+      "lifetime_de": "Gross lifetime earnings of a median earner, Germany (45 years)",
+      "lifetime_us": "Median lifetime earnings, US high-school diploma",
+      "world": "{rank}. {name}",
+      "germany": "{rank}. {name}"
+    },
+    "segmentSub": {
+      "million": "This is what a million looks like. Everything before it fits inside a few screens.",
+      "lifetime": "A whole working life. Remember the width of this bar.",
+      "person": "{source} · {country}"
+    },
+    "markers": {
+      "median1000": "You have now passed {money}: 1,000 years of median earnings in Germany.",
+      "medianHouseholds": "{money}: the net wealth of {n} median German households.",
+      "lifetime100": "{money}: 100 working lives of a median earner.",
+      "schoolBacklog": "{money}: the entire investment backlog of Germany's school buildings, according to the KfW municipal panel.",
+      "endHunger": "{money}: the additional annual spending the Ceres2030 consortium estimated would end hunger for 490 million people.",
+      "federalBudget": "{money}: the whole German federal budget for 2026.",
+      "worldTotal": "The ten richest people in the world: {money} in total.",
+      "germanyTotal": "The ten richest Germans: {money} in total.",
+      "bottom50": "{money}: roughly the combined net wealth of the poorer half of all German households ({share} of {total})."
+    },
+    "objectionCard": "An objection",
+    "readFull": "Full answer",
+    "end": {
+      "title": "You have reached the end.",
+      "text": "You scrolled {money}. At this scale that is {px} pixels, about {km} kilometres of screen.",
+      "next": "Next: see the same fortunes as {riceLink}, or {spendLink}.",
+      "riceLink": "grains of rice",
+      "spendLink": "try spending them"
+    },
+    "rangeNote": "Range across sources: {range}"
+  },
+  "rice": {
+    "title": "Wealth in grains of rice",
+    "lead": "In February 2020 Humphrey Yang put one grain of rice on the table for every {grainValue} and weighed out Jeff Bezos' fortune: about 26 kilograms. Here is the same idea with today's numbers, in {currency}.",
+    "grainValue": "One grain of rice equals",
+    "grainWeight": "One grain weighs {weight} (source and range in the tooltip). One bowl holds {bowl}, one sack {sack}, one truck {truck}. These container sizes are definitions, not measurements.",
+    "choose": "Choose a fortune",
+    "grains": {
+      "one": "{n} grain",
+      "other": "{n} grains"
+    },
+    "bowls": {
+      "one": "{n} bowl",
+      "other": "{n} bowls"
+    },
+    "sacks": {
+      "one": "{n} sack",
+      "other": "{n} sacks"
+    },
+    "trucks": {
+      "one": "{n} truck",
+      "other": "{n} truckloads"
+    },
+    "weight": "{kg} kg of rice",
+    "tonnes": "{t} tonnes of rice",
+    "drawn": "Every dot below is one grain.",
+    "tooMany": "Too many grains to draw individually. Each icon below stands for one {unit}.",
+    "explain": "How this is calculated: fortune ÷ value per grain = grains; grains × grain weight = mass; mass ÷ container size = containers. All inputs have a source.",
+    "options": {
+      "median_wealth_de": "Median German household (net wealth)",
+      "median_income_de": "One year of median full-time earnings, Germany",
+      "millionaire": "A millionaire",
+      "germany_top": "Richest German: {name}",
+      "germany_top10": "Ten richest Germans combined",
+      "world_top": "Richest person on Earth: {name}"
+    }
+  },
+  "spend": {
+    "title": "Spend a billionaire's money",
+    "lead": "Pick a fortune and buy things: consumer goods, but also teachers, child-care places, social housing and climate infrastructure. Prices carry their source and year.",
+    "budget": "Whose money?",
+    "remaining": "Remaining",
+    "spent": "Spent",
+    "percentSpent": "{pct} of the fortune spent",
+    "inflation": "Rebase older prices to {year} consumer prices",
+    "inflationNote": "Prices from earlier years are multiplied by the consumer price index of the price currency (HICP Germany for euro prices, CPI-U for dollar prices). Original price and year are in the tooltip.",
+    "category": {
+      "consumer": "Consumer",
+      "society": "Society",
+      "climate": "Climate",
+      "global": "Global"
+    },
+    "buy": "Buy",
+    "sell": "Sell",
+    "quantity": "Quantity of {item}",
+    "reset": "Reset",
+    "each": "each",
+    "perYear": "per year",
+    "summary": "You bought {n} things for {money}. That leaves {remaining}: {pct} of the fortune is still there.",
+    "summaryEmpty": "Nothing bought yet.",
+    "cantAfford": "Not enough money left.",
+    "items": {
+      "iphone_17_pro": "iPhone 17 Pro",
+      "deutschlandticket_year": "One year of Deutschlandticket (public transport pass)",
+      "median_salary_year_de": "Pay a median earner for a year",
+      "a320neo": "Airbus A320neo (2018 list price)",
+      "record_transfer_neymar": "Record football transfer (Neymar, 2017)",
+      "ice4_train": "ICE 4 high-speed train",
+      "teacher_year": "One teacher's annual salary",
+      "kita_place_year": "One child-care (Kita) place for a year",
+      "school_pupil_year": "One pupil's schooling for a year",
+      "social_housing_unit": "Build one social-housing flat (60 m²)",
+      "buergergeld_year": "One year of basic income support for one person",
+      "school_investment_backlog_de": "Clear the entire school-building backlog in Germany",
+      "federal_budget_de": "Fund the whole German federal budget for a year",
+      "wind_turbine_onshore": "One 5 MW onshore wind turbine",
+      "malaria_net": "One anti-malaria bed net",
+      "end_hunger_year": "One year of the extra spending needed to end world hunger"
+    }
+  },
+  "germany": {
+    "title": "Germany in proportion",
+    "lead": "The ten largest German fortunes according to Forbes, set against the median household, the median earner and the poorer half of the country. Family entries pool several people and are marked.",
+    "benchmarks": "Benchmarks",
+    "medianWealth": "Median household net wealth (2023)",
+    "meanWealth": "Mean household net wealth (2023)",
+    "medianIncome": "Median full-time gross earnings (2025)",
+    "bottom50": "Share of net wealth held by the poorer half of households",
+    "top10share": "Share held by the wealthiest 10 %",
+    "gini": "Gini coefficient of net wealth",
+    "table": {
+      "rank": "#",
+      "name": "Name",
+      "source": "Source of wealth",
+      "wealth": "Net worth",
+      "vsMedian": "× median household",
+      "vsMean": "× mean household",
+      "incomeYears": "Years of median earnings",
+      "perCapita": "Per named person"
+    },
+    "sum": "Ten richest combined",
+    "sumText": "Together the ten hold {money}. That is {households} median households, or {years} years of median full-time earnings.",
+    "bottomText": "The poorer half of all German households, about {n} households, holds roughly {share} of total household net wealth. Using the Bundesbank's mean wealth and the Mikrozensus household count, that is on the order of {money}: the ten richest hold about {ratio} of it.",
+    "bottomCaveat": "Caveat: the Bundesbank survey under-covers the very top, so the total is an approximation; the ratio is an order of magnitude, not a precise figure.",
+    "familyHeading": "Families and heirs",
+    "familyText": "Forbes lists some fortunes per person and some as “& family”. Manager Magazin pools whole families. Where a source names the people, the table shows a per-person value; otherwise it says so. The Manager Magazin list (October 2025) also contains fortunes Forbes does not list under German citizenship:",
+    "missingItem": "{name}: {money} ({source})",
+    "rangeHeading": "Same person, different estimates",
+    "rangeText": "Wealth lists are estimates. Where we have several sources, the tooltip on each figure shows the range. Differences of 10–30 % between Forbes and Manager Magazin are normal: valuation dates, exchange rates and how private companies are valued all differ.",
+    "taxShare": "The 10 % of taxpayers with the highest incomes pay {share} of German wage and income tax. That is income tax only, which is the point: wealth is not income, and most of the fortunes above do not appear in income statistics until they are sold or paid out."
+  },
+  "taxes": {
+    "title": "Taxes: nominal versus effective",
+    "lead": "Two questions get mixed up constantly: what rate does the law prescribe, and what share of their economic gains do the very rich actually hand over? The answer depends entirely on the denominator, so this page always says which one is used.",
+    "definitions": {
+      "title": "Three definitions, never mixed",
+      "a": "(a) Tax ÷ taxable income. What the tax return shows. Unrealised gains and retained corporate profits are not income here.",
+      "b": "(b) Tax ÷ economic income, including unrealised gains and retained profits. The way economists measure how much richer someone got in a year.",
+      "c": "(c) Tax ÷ wealth. Tax paid as a share of the stock of wealth. Used in the billionaire-tax debate.",
+      "corp": "Each can be computed with or without corporate taxes attributed to the owner. A company's profits are taxed before they reach the shareholder; whether you count that as the owner's tax is a genuine choice, so both variants are shown."
+    },
+    "nominal": {
+      "title": "Statutory rates, 2026",
+      "tax": "Tax",
+      "de": "Germany",
+      "us": "United States (federal)",
+      "income": "Top income tax rate",
+      "capital": "Capital income (dividends, realised gains)",
+      "corporate": "Corporate profits",
+      "inheritance": "Inheritance and gifts (top rate)",
+      "wealth": "Annual wealth tax",
+      "incomeNoteDe": "45 % above {threshold} taxable income, plus 5.5 % solidarity surcharge = 47.5 %.",
+      "incomeNoteUs": "37 % above {threshold} taxable income (single). State income taxes come on top and are not shown.",
+      "capitalNoteDe": "25 % flat withholding tax plus surcharge = 26.375 %. Only when paid out or sold.",
+      "capitalNoteUs": "20 % plus 3.8 % net investment income tax = 23.8 %. Only when sold; basis is stepped up at death.",
+      "corporateNoteDe": "15 % corporate tax + surcharge + trade tax at the average municipal multiplier ≈ 30 %. Corporate tax falls to 10 % by 2032.",
+      "corporateNoteUs": "21 % federal; state corporate taxes come on top.",
+      "inheritanceNoteDe": "7–30 % for spouses and children, up to 50 % for others, after allowances. Business assets can be 85–100 % exempt.",
+      "inheritanceNoteUs": "40 % above an exemption of {exemption} per person.",
+      "wealthNoteDe": "Not levied since 1997.",
+      "wealthNoteUs": "None at federal level.",
+      "tradeTaxLine": "Trade tax at the 2024 average municipal multiplier (409 %): {rate} of trade income, on top of the 15.825 % corporate tax including surcharge."
+    },
+    "effective": {
+      "title": "What the very wealthy actually pay, according to research",
+      "group": "Who",
+      "rate": "Rate",
+      "denominator": "Denominator",
+      "corporate": "Corporate taxes",
+      "numerator": "Taxes counted",
+      "period": "Period",
+      "compare": "Comparison",
+      "denom": {
+        "taxable_income": "(a) taxable income",
+        "economic_income": "(b) economic income",
+        "wealth": "(c) wealth"
+      },
+      "included": "included",
+      "excluded": "excluded",
+      "note": "Rates in different rows are not comparable with each other unless denominator and corporate-tax treatment match. Wealth-based rates (c) look tiny because wealth is a stock, not a flow: 0.5 % of wealth can be a large share of one year's income growth — or a small one.",
+      "groups": {
+        "us_propublica_true_tax_rate": "25 richest Americans (ProPublica, IRS files)",
+        "us_cea_top400": "400 wealthiest US families (White House CEA)",
+        "us_saez_zucman_top400": "400 richest US households (Saez & Zucman)",
+        "world_eutax_billionaires": "Global billionaires (EU Tax Observatory)",
+        "world_zucman_g20": "Global billionaires (Zucman, G20 report)",
+        "de_nwst_model_billionaire": "Model German billionaire (Netzwerk Steuergerechtigkeit)",
+        "de_retained_profits_owner_level": "German holding owner, profits retained (what the law implies)"
+      },
+      "comparisons": {
+        "us_saez_zucman_top400": "Bottom 50 % of US households: {rate}",
+        "de_nwst_model_billionaire": "Same model in 1996: about {rate}"
+      }
+    },
+    "calc": {
+      "title": "What would you pay at a billionaire's rate?",
+      "lead": "Enter a gross annual income. The calculator applies the 2026 German income-tax tariff (or the US federal brackets) and, optionally, employee social contributions. Then it applies the effective rates from the research above to the same income. Wealth-based rates are applied to net wealth, never to income.",
+      "country": "Tax system",
+      "income": "Gross annual income",
+      "useMedian": "Use median",
+      "socialToggle": "Include employee social contributions",
+      "yourTax": "Your income tax",
+      "yourTaxSoli": "incl. solidarity surcharge",
+      "yourSocial": "Your social contributions",
+      "yourTotal": "Total deductions",
+      "yourRate": "That is {rate} of your gross income.",
+      "atRate": "At {rate} ({who}) you would pay {money} instead of {actual}.",
+      "atRateDiff": "Difference: {diff} per year.",
+      "wealthTitle": "Wealth-based rates, applied to wealth",
+      "wealthLead": "The EU Tax Observatory measures billionaires' taxes as a share of their wealth. To compare fairly, apply that share to a median household's net wealth ({wealth}):",
+      "wealthLine": "{rate} of {wealth} = {money} per year ({who}). Your actual deductions: {actual}.",
+      "assumptions": "Assumptions: single, no children, no other income; Germany: employee lump sum of 1,230 € and social contributions deducted before tax, health insurance at the average supplementary contribution; USA: standard deduction, federal tax only, no state tax. Social contributions in the US are Social Security and Medicare employee shares. Rounded.",
+      "socialNote": "Social contributions buy pension, health and unemployment cover; whether to count them as ‘tax’ is contested, so both views are offered."
+    },
+    "germanSpecifics": {
+      "title": "Four German specifics",
+      "items": [
+        {
+          "h": "The wealth tax has been suspended since 1997",
+          "p": "The Constitutional Court ruled in 1995 (2 BvL 37/91) that valuing real estate far below other assets violated equal treatment and gave the legislature until the end of 1996 to fix it. It did not. The Wealth Tax Act still exists but has not been applied since. Estimates of what a reintroduced tax could raise range from about 10–30 billion € (Netzwerk Steuergerechtigkeit, billionaire-only variant) to far more for broad variants (DIW)."
+        },
+        {
+          "h": "Business assets are largely exempt from inheritance tax",
+          "p": "Under §§ 13a and 13b ErbStG, business assets pass 85 % or even 100 % tax-free if the business is continued and payroll is maintained. In 2024 alone, exemptions under § 13a covered {exempt} of transferred assets while total inheritance and gift tax assessed was {assessed}. Very large transfers can additionally apply for a needs test or a reduction."
+        },
+        {
+          "h": "Retained profits in holdings and foundations",
+          "p": "A person who holds a company through a holding company pays no personal tax on profits as long as they stay inside the holding; dividends between corporations are 95 % exempt (§ 8b KStG). The corporate-level tax of about 30 % is the whole bill until money is paid out. Family foundations can hold companies across generations and pay a substitute inheritance tax only every 30 years."
+        },
+        {
+          "h": "Exit taxation",
+          "p": "Whoever moves abroad while holding at least 1 % of a company is taxed as if they had sold those shares (§ 6 AStG). This limits the ‘they will just leave’ route for the largest fortunes, but it also creates lock-in and disputes over valuation and deferral."
+        }
+      ]
+    }
+  },
+  "objections": {
+    "title": "Objections, steel-manned",
+    "lead": "A site like this only convinces if it survives the best counter-arguments. Here they are in their strongest form, each with a data-based answer and an honest note on where it has a point.",
+    "items": {
+      "paper": {
+        "title": "“It is not cash, it is paper wealth.”",
+        "steelman": "Nearly all of these fortunes are shares in one company. Nobody has {topWealth} in a bank account. If the owner tried to sell, the price would collapse; the number is a mark-to-market fiction that could halve in a bad year, as it did for several people in 2022.",
+        "answer": "True, and irrelevant for most of what wealth does. Shares can be borrowed against: banks lend against listed stock at low rates, which is how owners fund consumption without selling or paying capital gains tax (‘buy, borrow, die’). Elon Musk had pledged about 236 million Tesla shares as loan collateral according to Tesla's own filings, as reported by Handelsblatt. Shares also carry control over companies with hundreds of thousands of employees, and they pay dividends: BMW proposed {bmwDividend} per ordinary share for the 2025 financial year, and the Quandt/Klatten siblings, the largest shareholders, are the main beneficiaries. Cash is not what makes wealth powerful.",
+        "core": "Valuations move. This site shows the range across sources for that reason, and the fortunes shown are the current estimate, not a guaranteed sale price. A forced sale of a large stake would indeed fetch less."
+      },
+      "valuation": {
+        "title": "“The valuations are unreliable.”",
+        "steelman": "Forbes, Bloomberg and Manager Magazin all produce different numbers for the same person, sometimes 30 % apart. Private companies like Lidl or Aldi have no share price; their ‘value’ is a guess based on comparable listed firms. Debts, trusts and family agreements are often invisible.",
+        "answer": "Correct, so every fortune here carries its source, its date and, where we have it, the range across sources; hover the ⓘ. For example, Forbes puts Dieter Schwarz at {schwarzForbes}, Manager Magazin at {schwarzMM}. But the uncertainty is a matter of tens of per cent, while the gap to a median household is a factor of hundreds of thousands. Whether the richest German owns 400,000 or 550,000 median households' worth changes nothing about the picture.",
+        "core": "For private fortunes the error bars are wide, and rankings among the top ten should not be taken literally. Numbers with more than two significant digits suggest a precision that does not exist."
+      },
+      "earned": {
+        "title": "“They earned it and took the risk; the money is in companies that create jobs.”",
+        "steelman": "Founders like Musk, Huang or the Albrechts built companies that employ millions and produce things people want. Their wealth is not taken from anyone; it is the market value of what they created. Taxing it means taxing the companies, the jobs and future innovation.",
+        "answer": "Two of the ten richest Germans built their companies; the others inherited them (Klatten, Quandt, Albrecht, Heister, Schaeffler, Merckle). Even for founders the return is not proportional to effort: returns of this size come from owning equity in a winner, which is a mix of skill, timing, luck and public goods such as roads, courts, education and research. And ‘the money is in companies’ argues against taxing the companies, not against taxing the owner: a 2 % tax on a founder's stake can be paid from dividends or a small sale without touching the firm, as the same owners already do for their own spending.",
+        "core": "Company-building is real and valuable, taxes on business substance can destroy it, and any wealth tax has to be designed so it hits the owner, not the working capital. That is a design constraint, not an argument against measuring the scale."
+      },
+      "zerosum": {
+        "title": "“Wealth is not a zero-sum game.”",
+        "steelman": "When Tesla's share price rises, no one gets poorer. Fortunes grow because companies became more valuable, and everyone can hold shares. Comparing a billionaire to the median household implies the one took from the other, which is false.",
+        "answer": "Correct: the comparison does not claim theft. It claims scale. Wealth is not zero-sum, but its distribution still matters because wealth buys political influence, media, housing and land, of which there is a fixed amount, and because the poorer half of German households owns about {bottom50} of household wealth: they do not ‘hold shares’ in any meaningful amount. A non-zero-sum game can still leave half the players with almost nothing.",
+        "core": "Rising fortunes mostly reflect rising company values, not redistribution. Anyone who says ‘the rich took it from the poor’ is making a different claim than this site."
+      },
+      "leave": {
+        "title": "“Tax them more and they will leave.”",
+        "steelman": "Capital is mobile. Norway raised its wealth tax in 2022 and dozens of wealthy Norwegians moved to Switzerland; the tax base shrinks and the country ends up with less revenue and fewer investors.",
+        "answer": "Norway is the best case for this objection, and the numbers are modest: {norwayLeavers} wealthy individuals left in 2022–2023 out of several thousand liable, and wealth-tax revenue rose sharply because the base is broad. The academic literature (Kleven, Landais, Muñoz & Stantcheva, Journal of Economic Perspectives 2020) finds that tax-driven migration exists but is small for most groups, especially where exit taxes exist. Germany taxes the unrealised gains of anyone who leaves with a stake of 1 % or more (§ 6 AStG), which makes emigrating with a company fortune expensive.",
+        "core": "Some people do move, and revenue estimates that ignore behaviour overstate what a tax will raise. Design matters: exit taxation, international coordination and valuation rules decide whether a tax works."
+      },
+      "twopercent": {
+        "title": "“2 % of a billion is more than 45 % of 80,000 €.”",
+        "steelman": "In absolute terms the rich pay enormous sums. The top 10 % of earners pay {taxShare} of German income tax. A billionaire paying ‘only’ 2 % of a billion hands over 20 million €, which funds hundreds of teachers. The median earner's 45 % top rate is a headline; in absolute money it is nothing in comparison.",
+        "answer": "Both things are true. The absolute sums are large, and this site's spend simulator shows exactly how much a billion buys. Tax systems, however, are built on ability to pay: a rate, not an amount, because 45 % of 80,000 € changes how a family lives and 2 % of a billion changes nothing about how the owner lives. The relevant comparison is share of resources: the top 10 % pay {taxShare} of income tax while holding {top10share} of net wealth, and income tax does not reach wealth at all until it is sold. The ‘they already pay most of the income tax’ statistic is about income, and the fortunes on this site are not income.",
+        "core": "The absolute amounts are genuinely high, and any redistribution argument that pretends the rich pay nothing is wrong. Effective rates on the very top are lower than in the middle only under definitions (b) and (c); under definition (a) they are higher."
+      },
+      "mittelstand": {
+        "title": "“German fortunes are family businesses and the Mittelstand.”",
+        "steelman": "Unlike US tech founders, German wealth sits in Lidl, Aldi, BMW, Würth, Merck: long-lived, employee-heavy firms that reinvest and stay put. Taxing their owners threatens exactly the model that makes the German economy resilient.",
+        "answer": "This is why this site marks family entries and shows per-person values where sources name the people. But ‘Mittelstand’ and ‘ten largest fortunes’ are different populations: the firms behind the top ten have tens or hundreds of thousands of employees and are among the largest companies in Europe. The inheritance-tax exemption for business assets (§ 13a ErbStG) exempted {exempt} in 2024, and the Destatis statistics show the largest exemptions go to the largest transfers, not to small firms.",
+        "core": "Family ownership with long horizons is a real strength, and rules that force a sale to pay tax would damage it. Instalment and deferral rules exist for that reason; the question is whether an unlimited exemption is needed to protect it."
+      }
+    }
+  },
+  "methodology": {
+    "title": "Methodology and sources",
+    "principle": "Credibility before impact. Every figure on this site has a source, a retrieval date, a reference period and a definition, visible through the ⓘ button next to it. Estimates are marked with ≈. Where reliable data are missing, the site says so instead of guessing.",
+    "sections": {
+      "scale": {
+        "h": "Scale and conversion",
+        "p": [
+          "Bars are drawn at a configurable scale (default: one pixel = 1,000 in the display currency). Amounts are converted between US dollars and euros with the ECB daily reference rate ({rate} USD per EUR on {date}); the original currency is always shown in the tooltip.",
+          "Money ‘scrolled’ is the sum of all bars left of the viewport edge, not the pixel distance, because bars are separated by gaps."
+        ]
+      },
+      "wealth": {
+        "h": "Wealth data",
+        "p": [
+          "Primary source for individual fortunes is the Forbes Real-Time Billionaires list, read once a month by the pipeline. The German top ten are the ten largest entries whose Forbes citizenship field says Germany, so people Forbes lists under another citizenship (for example Klaus-Michael Kühne in the real-time list) are missing and are noted separately.",
+          "Alternative estimates are attached per person: the Forbes annual list and, for Germans, the Manager Magazin list of October 2025 (taken from the Wikipedia snapshot because the magazine is paywalled). The tooltip shows the range. Rule for conflicts: the most recent reputable estimate is the headline; older or joint-family figures are shown as the range.",
+          "Family entries pool several people. A per-person value is shown only where a source names the people; otherwise the site says that no reliable data exist."
+        ]
+      },
+      "reference": {
+        "h": "Reference values",
+        "p": [
+          "German median and mean household net wealth: Bundesbank Panel on Household Finances 2023. Median earnings: Destatis earnings survey. US household income: Census Bureau. US family net worth: Federal Reserve Survey of Consumer Finances 2022 (the 2025 wave was not yet published). Lifetime earnings in Germany are a transparent multiplication (median × 45 years) cross-checked with the IAB; in the US the Georgetown CEW estimate."
+        ]
+      },
+      "prices": {
+        "h": "Prices",
+        "p": [
+          "Every item in the spend simulator has a price year. Older prices can be rebased to the latest consumer price index year of their currency (Eurostat HICP for Germany, BLS CPI-U for the US); the switch is off by default and the tooltip always shows the original."
+        ]
+      },
+      "taxes": {
+        "h": "Taxes",
+        "p": [
+          "Statutory rates come from the law texts (gesetze-im-internet.de, IRS). Effective rates come from named studies, each tagged with its denominator ((a) taxable income, (b) economic income, (c) wealth) and whether corporate taxes are attributed to the owner. The calculator implements the 2026 German tariff formula (§ 32a EStG) and the 2026 US federal brackets with the stated simplifications."
+        ]
+      },
+      "pipeline": {
+        "h": "Update pipeline",
+        "p": [
+          "A GitHub Actions workflow runs on the first of each month (and on demand). It fetches ECB rates, Eurostat HICP, BLS CPI and the Forbes lists, validates every file against a JSON schema, and commits only values that pass a plausibility check: a fetched value that deviates from the last known good value by more than {threshold} is not written but listed in an issue for review. Values that cannot be fetched automatically (surveys, studies, law parameters) carry a maximum age; when they exceed it, the same issue lists them with a hint where to find the update.",
+          "Every change is recorded in DATA-CHANGELOG.md in the repository."
+        ]
+      },
+      "weaknesses": {
+        "h": "Known weaknesses",
+        "p": [
+          "Wealth lists are estimates with wide error bars for private companies. Survey data under-cover the very top, so shares like ‘the poorer half holds 2.4 %’ are, if anything, generous to the top. Comparing a German full-time median earner with a US median household mixes an individual and a household measure; both are labelled. The tax calculator ignores state taxes in the US, church tax and children in Germany, and all deductions beyond the standard ones. Effective-rate studies are contested; the contest is summarised in the objections chapter."
+        ]
+      }
+    },
+    "dataTable": {
+      "h": "All data on this site",
+      "file": "File",
+      "key": "Entry",
+      "value": "Value",
+      "asOf": "Period",
+      "retrieved": "Retrieved",
+      "source": "Source",
+      "estimate": "Estimate"
+    },
+    "changelog": "Changelog of the numbers",
+    "repo": "Source code and data on GitHub"
+  },
+  "credits": {
+    "title": "Credits",
+    "lead": "This site rebuilds and combines three well-known visualisations. Nothing was copied from them; every part was implemented from scratch and the data are new.",
+    "originals": "Original projects",
+    "relationship": {
+      "reimplementation": "Rebuilt from scratch",
+      "inspiration": "Inspired by"
+    },
+    "linkStatus": {
+      "ok": "link checked {date}",
+      "offline": "original URL was offline when checked on {date}; the mirror link works",
+      "unverified": "could not be verified",
+      "none": "no link"
+    },
+    "license": "License",
+    "mirror": "Mirror",
+    "repo": "Repository",
+    "korostoffNote": "Matt Korostoff's site set 1 pixel = 1,000 $ and scrolled through the wealth of the 400 richest Americans. This site keeps his scale and format, adds virtual scrolling (browsers cannot render elements a billion pixels wide), euro conversion, German data and sourced tooltips.",
+    "yangNote": "Humphrey Yang's two TikTok videos (February 2020) used one grain of rice for 100,000 $ and ended with about 58 pounds of rice for Jeff Bezos' 122 billion. The rice chapter uses his scale by default.",
+    "agarwalNote": "Neal Agarwal's ‘Spend Bill Gates' Money’ (2017) is the template for the spend simulator. Ours adds public-good items, sourced prices and inflation adjustment.",
+    "otherFormats": "We looked for further widely known originals of these formats. The ‘spend the money’ idea has many clones of neal.fun; the rice idea has been repeated by others after Yang; we found no earlier originals to credit.",
+    "dataSources": "Data sources",
+    "libraries": "Open-source libraries",
+    "libScope": {
+      "build": "build",
+      "runtime": "runtime",
+      "test": "tests",
+      "pipeline": "data pipeline"
+    }
+  },
+  "imprint": {
+    "title": "Imprint (placeholder)",
+    "p": [
+      "Information according to § 5 DDG (German Digital Services Act) — to be completed by the site operator:",
+      "Name and address of the operator",
+      "Contact: e-mail address",
+      "Responsible for content according to § 18 (2) MStV: name and address",
+      "This is a non-commercial, privately operated information site."
+    ]
+  },
+  "privacy": {
+    "title": "Privacy notice (placeholder)",
+    "p": [
+      "This site is a static website hosted on GitHub Pages. It sets no cookies, uses no analytics and makes no requests to third parties at runtime; the only requests are for the site's own files and data.",
+      "GitHub, as the hosting provider, processes connection data (IP address, user agent, time) in its server logs. See GitHub's privacy statement for details. To be completed by the operator: controller name and address, contact, legal basis (Art. 6 (1) f GDPR), rights of data subjects."
+    ]
+  },
+  "footer": {
+    "text": "Open source, MIT licence. Data as of {date}. No cookies, no tracking.",
+    "github": "GitHub"
+  }
+}

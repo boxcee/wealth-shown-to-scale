@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "title": "Rice visualisation constants",
+    "description": "Physical constants used to turn money into grains, bowls, sacks and heaps of rice.",
+    "updated_at": "2026-09-26",
+    "default_max_age_months": 120,
+    "pipeline": "manual"
+  },
+  "values": {
+    "grain_weight_g": {
+      "value": 0.02165,
+      "unit": "grams",
+      "currency": null,
+      "source": "U.S. Patent 10,624,292 (Rice cultivar M-210, California Cooperative Rice Research Foundation): 1000-grain weight of milled rice 21.65 g",
+      "source_url": "https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/10624292",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2020",
+      "definition": "Mass of one grain of milled white rice, taken as the 1000-grain weight of a typical medium-grain cultivar divided by 1000 (21.65 g / 1000). Grain weights of milled rice vary by variety, roughly 15–30 mg per grain; Humphrey Yang's original measurement (58 lb for 1.22 million grains) implies about 21.6 mg per grain, which matches this value.",
+      "is_estimate": true,
+      "estimate_by": "Cultivar-specific laboratory value used as a typical grain weight",
+      "auto": false
+    },
+    "bowl_weight_g": {
+      "value": 200,
+      "unit": "grams",
+      "currency": null,
+      "source": "Definition used by this site (no external source needed): one bowl = 200 g of uncooked rice",
+      "source_url": "https://github.com/boxcee/wealth-shown-to-scale",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2026",
+      "definition": "Convention chosen for the visualisation: a rice bowl holds 200 g of uncooked rice. This is a unit definition, not an empirical claim.",
+      "is_estimate": false,
+      "auto": false
+    },
+    "sack_weight_g": {
+      "value": 25000,
+      "unit": "grams",
+      "currency": null,
+      "source": "Definition used by this site: one sack = 25 kg, a common trade sack size for rice",
+      "source_url": "https://github.com/boxcee/wealth-shown-to-scale",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2026",
+      "definition": "Convention chosen for the visualisation: a sack holds 25 kg of rice. This is a unit definition, not an empirical claim.",
+      "is_estimate": false,
+      "auto": false
+    },
+    "truck_weight_g": {
+      "value": 25000000,
+      "unit": "grams",
+      "currency": null,
+      "source": "Definition used by this site: one truckload = 25 t (typical payload of a 40-t articulated lorry)",
+      "source_url": "https://github.com/boxcee/wealth-shown-to-scale",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2026",
+      "definition": "Convention chosen for the visualisation: a truckload is 25 tonnes of rice. This is a unit definition, not an empirical claim.",
+      "is_estimate": false,
+      "auto": false
+    }
+  }
+}

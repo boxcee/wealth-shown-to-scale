@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wealth-shown-to-scale/schema/value.schema.json",
+  "title": "Sourced value",
+  "description": "Every number shown in the UI is one of these: a value plus its provenance.",
+  "type": "object",
+  "required": ["value", "unit", "currency", "source", "source_url", "retrieved_at", "definition", "is_estimate"],
+  "additionalProperties": false,
+  "properties": {
+    "value": { "type": "number" },
+    "unit": {
+      "type": "string",
+      "enum": ["currency", "currency_per_year", "currency_per_month", "percent", "index", "grams", "count", "ratio", "years"]
+    },
+    "currency": { "type": ["string", "null"], "pattern": "^[A-Z]{3}$" },
+    "source": { "type": "string", "minLength": 3 },
+    "source_url": { "type": "string", "format": "uri" },
+    "retrieved_at": { "type": "string", "format": "date" },
+    "as_of": {
+      "type": "string",
+      "description": "Reference period of the figure (e.g. 2023, 2025-04, 2026-09-25)."
+    },
+    "definition": { "type": "string", "minLength": 10 },
+    "is_estimate": { "type": "boolean" },
+    "estimate_by": { "type": "string", "description": "Who made the estimate (never this project)." },
+    "notes": { "type": "string" },
+    "auto": {
+      "type": "boolean",
+      "description": "true if the monthly pipeline refreshes this value automatically."
+    },
+    "max_age_months": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "After this many months (from as_of or retrieved_at) the pipeline flags the entry as stale and the UI shows a notice."
+    },
+    "refresh_hint": {
+      "type": "string",
+      "description": "Where a maintainer finds the next value (used in the staleness issue)."
+    },
+    "derived": {
+      "type": "object",
+      "description": "Present when the value is calculated from other sourced values.",
+      "required": ["formula", "inputs"],
+      "additionalProperties": false,
+      "properties": {
+        "formula": { "type": "string" },
+        "inputs": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "series": {
+      "type": "object",
+      "description": "Optional time series (period -> value) backing the headline value.",
+      "additionalProperties": { "type": "number" }
+    },
+    "alt_sources": {
+      "type": "array",
+      "description": "Diverging figures from other sources for the same quantity.",
+      "items": {
+        "type": "object",
+        "required": ["value", "currency", "source", "source_url", "retrieved_at"],
+        "additionalProperties": false,
+        "properties": {
+          "value": { "type": "number" },
+          "currency": { "type": ["string", "null"], "pattern": "^[A-Z]{3}$" },
+          "source": { "type": "string" },
+          "source_url": { "type": "string", "format": "uri" },
+          "retrieved_at": { "type": "string", "format": "date" },
+          "as_of": { "type": "string" },
+          "is_estimate": { "type": "boolean" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

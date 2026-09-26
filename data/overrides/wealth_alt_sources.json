@@ -1,0 +1,161 @@
+{
+  "_comment": "Manual alternative sources attached to Forbes ids by the pipeline (scripts/fetchers/forbes.ts). Manager Magazin values are taken from the Wikipedia snapshot of the 2025 list because manager-magazin.de is behind a paywall. Family entries in Manager Magazin pool several people; the note says so.",
+  "alt_sources": {
+    "dieter-schwarz": [
+      {
+        "value": 46500000000,
+        "currency": "EUR",
+        "source": "Manager Magazin, Die 500 reichsten Deutschen 2025 (via Wikipedia: Liste der reichsten Deutschen)",
+        "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-10",
+        "is_estimate": true
+      }
+    ],
+    "susanne-klatten": [
+      {
+        "value": 36100000000,
+        "currency": "EUR",
+        "source": "Manager Magazin 2025 (via Wikipedia) — reported jointly for Susanne Klatten and Stefan Quandt",
+        "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-10",
+        "is_estimate": true,
+        "notes": "Joint figure for two siblings; Forbes lists them separately."
+      }
+    ],
+    "stefan-quandt": [
+      {
+        "value": 36100000000,
+        "currency": "EUR",
+        "source": "Manager Magazin 2025 (via Wikipedia) — reported jointly for Susanne Klatten and Stefan Quandt",
+        "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-10",
+        "is_estimate": true,
+        "notes": "Joint figure for two siblings; Forbes lists them separately."
+      }
+    ],
+    "karl-albrecht-jr": [
+      {
+        "value": 27700000000,
+        "currency": "EUR",
+        "source": "Manager Magazin 2025 (via Wikipedia) — reported jointly for the families of Karl Albrecht jr. and Beate Heister",
+        "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-10",
+        "is_estimate": true,
+        "notes": "Joint figure for two family branches; Forbes lists them separately."
+      }
+    ],
+    "beate-heister": [
+      {
+        "value": 27700000000,
+        "currency": "EUR",
+        "source": "Manager Magazin 2025 (via Wikipedia) — reported jointly for the families of Karl Albrecht jr. and Beate Heister",
+        "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-10",
+        "is_estimate": true,
+        "notes": "Joint figure for two family branches; Forbes lists them separately."
+      }
+    ],
+    "theo-albrecht-jr": [
+      {
+        "value": 17600000000,
+        "currency": "EUR",
+        "source": "Manager Magazin 2025 (via Wikipedia) — families of Theo Albrecht jr. and Babette Albrecht",
+        "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-10",
+        "is_estimate": true
+      }
+    ],
+    "andreas-von-bechtolsheim": [
+      {
+        "value": 18200000000,
+        "currency": "EUR",
+        "source": "Manager Magazin 2025 (via Wikipedia)",
+        "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-10",
+        "is_estimate": true
+      }
+    ],
+    "reinhold-wuerth": [
+      {
+        "value": 14400000000,
+        "currency": "EUR",
+        "source": "Manager Magazin 2025 (via Wikipedia) — Familie Reinhold Würth",
+        "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-10",
+        "is_estimate": true
+      }
+    ],
+    "hasso-plattner": [
+      {
+        "value": 17700000000,
+        "currency": "EUR",
+        "source": "Manager Magazin 2025 (via Wikipedia) — Familie Hasso Plattner",
+        "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-10",
+        "is_estimate": true
+      }
+    ],
+    "georg-schaeffler": [
+      {
+        "value": 10100000000,
+        "currency": "EUR",
+        "source": "Manager Magazin 2025 (via Wikipedia) — Georg und Maria-Elisabeth Schaeffler jointly",
+        "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-10",
+        "is_estimate": true,
+        "notes": "Joint figure for mother and son; Forbes lists them separately."
+      }
+    ],
+    "dietmar-hopp": [
+      {
+        "value": 15800000000,
+        "currency": "EUR",
+        "source": "Manager Magazin 2025 (via Wikipedia) — Familie Dietmar Hopp",
+        "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+        "retrieved_at": "2026-09-26",
+        "as_of": "2025-10",
+        "is_estimate": true
+      }
+    ]
+  },
+  "persons_named": {
+    "karl-albrecht-jr": 1,
+    "beate-heister": 1
+  },
+  "missing_from_forbes": [
+    {
+      "name": "Klaus-Michael Kühne",
+      "source": "Manager Magazin 2025 (via Wikipedia); Forbes annual list 2026 (41.9 bn USD)",
+      "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+      "value": 23500000000,
+      "currency": "EUR",
+      "as_of": "2025-10"
+    },
+    {
+      "name": "Familie Merck",
+      "source": "Manager Magazin 2025 (via Wikipedia)",
+      "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+      "value": 24500000000,
+      "currency": "EUR",
+      "as_of": "2025-10"
+    },
+    {
+      "name": "Familie Reimann",
+      "source": "Manager Magazin 2025 (via Wikipedia)",
+      "source_url": "https://de.wikipedia.org/wiki/Liste_der_reichsten_Deutschen_(Manager_Magazin)",
+      "value": 24000000000,
+      "currency": "EUR",
+      "as_of": "2025-10"
+    }
+  ]
+}
