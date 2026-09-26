@@ -110,38 +110,39 @@ button.btn:disabled { opacity: 0.5; cursor: not-allowed; }
 .src-pop ul { padding-left: 1.1rem; margin: 0.2rem 0 0; }
 .src-close { position: absolute; top: 0.4rem; right: 0.5rem; border: 0; background: transparent; color: var(--fg); font-size: 1.3rem; cursor: pointer; line-height: 1; }
 
-/* ---------- scroll page ---------- */
-.scroll-intro { max-width: var(--max); margin: 0 auto; padding: 1rem 1rem 0.5rem; }
-.scroll-toolbar { position: sticky; top: 3.1rem; z-index: 15; display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; padding: 0.5rem 1rem; background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 0.92rem; }
-@media (max-width: 760px) { .scroll-toolbar { top: auto; position: static; } }
-.scroll-toolbar label { display: inline-flex; gap: 0.35rem; align-items: center; }
-.counter { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 1.1rem; margin-right: auto; }
-.counter small { font-weight: 400; color: var(--muted); display: block; font-size: 0.75rem; }
-.scroll-stage { position: relative; height: min(62vh, 560px); min-height: 380px; overflow: hidden; background: var(--bg); touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; outline-offset: -3px; }
-.scroll-stage:active { cursor: grabbing; }
-.scroll-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.scroll-overlay { position: absolute; inset: 0; pointer-events: none; }
-.seg-label { position: absolute; top: 14px; max-width: min(80vw, 34rem); padding: 0.35rem 0.6rem; background: color-mix(in srgb, var(--card) 88%, transparent); border: 1px solid var(--line); border-radius: 8px; font-size: 0.9rem; line-height: 1.3; pointer-events: auto; }
-.seg-label strong { display: block; font-size: 1rem; }
+/* ---------- home: blocks, then the sideways strip ---------- */
+body.home .site-header { position: static; }
+.blocks { padding: 1rem 1rem 0; }
+.blocks h1 { margin-top: 1rem; }
+.credit-line { margin-top: -0.4rem; }
+.block-item { margin: 2.8rem 0; }
+.block-item p { max-width: 62ch; margin: 0 0 0.6rem; }
+.block { background: var(--bar-ref); display: block; }
+.block.million, .block.billion { background: var(--bar-million); }
+.strip-wrap { position: relative; }
+.strip-stage { position: sticky; top: 0; height: 100vh; height: 100dvh; overflow: hidden; background: var(--bg); outline-offset: -3px; }
+.strip-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.strip-overlay { position: absolute; inset: 0; pointer-events: none; }
+.seg-label { position: absolute; max-width: min(84vw, 34rem); padding: 0.4rem 0.7rem; background: color-mix(in srgb, var(--card) 92%, transparent); border: 1px solid var(--line); border-radius: 8px; font-size: 0.95rem; line-height: 1.35; pointer-events: auto; }
+.seg-label strong { display: block; font-size: 1.05rem; }
 .seg-label .num { white-space: normal; }
-.seg-section { position: absolute; top: 0; height: 100%; border-left: 2px dashed var(--line); padding-left: 0.4rem; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; writing-mode: vertical-rl; }
-.marker { position: absolute; bottom: 14px; width: min(84vw, 22rem); padding: 0.55rem 0.75rem; background: var(--card); border-left: 4px solid var(--accent); border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); font-size: 0.88rem; pointer-events: auto; }
-.marker.objection { border-left-color: var(--bar-world); bottom: auto; top: 90px; }
-.marker.objection h4 { margin: 0 0 0.25rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
-.marker.objection p { margin: 0.2rem 0; }
+.marker { position: absolute; width: min(86vw, 22rem); padding: 0.6rem 0.8rem; background: var(--card); border-left: 4px solid var(--accent); border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.15); font-size: 0.9rem; pointer-events: auto; }
+.marker p { margin: 0.2rem 0; }
+.marker.objection { border-left-color: var(--bar-world); }
+.marker.objection h4 { margin: 0 0 0.25rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
 .marker .tick { position: absolute; left: -4px; top: 100%; width: 4px; height: 14px; background: var(--accent); }
-.scale-ruler { position: absolute; left: 0; right: 0; bottom: 0; height: 22px; font-size: 0.7rem; color: var(--muted); pointer-events: none; }
-.scale-ruler span { position: absolute; bottom: 2px; transform: translateX(-50%); white-space: nowrap; }
+.scale-ruler { position: absolute; left: 0; right: 0; height: 22px; font-size: 0.72rem; color: var(--muted); pointer-events: none; }
+.scale-ruler span { position: absolute; top: 6px; transform: translateX(-50%); white-space: nowrap; }
 .scale-ruler span::before { content: ''; position: absolute; left: 50%; bottom: 100%; width: 1px; height: 6px; background: var(--muted); }
-.minimap { position: relative; height: 26px; margin: 0 1rem; background: var(--card); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; cursor: pointer; }
+.strip-hud { position: sticky; top: calc(100vh - 72px); top: calc(100dvh - 72px); height: 72px; margin-top: -72px; display: flex; align-items: center; gap: 1rem; padding: 0 1rem; pointer-events: none; }
+.counter { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 1.15rem; background: color-mix(in srgb, var(--card) 92%, transparent); border: 1px solid var(--line); border-radius: 8px; padding: 0.3rem 0.7rem; white-space: nowrap; }
+.counter small { font-weight: 400; color: var(--muted); display: block; font-size: 0.72rem; }
+.minimap { position: relative; flex: 1; height: 22px; background: var(--card); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
 .minimap .mm-seg { position: absolute; top: 4px; bottom: 4px; }
 .minimap .mm-view { position: absolute; top: 0; bottom: 0; min-width: 3px; background: color-mix(in srgb, var(--accent) 45%, transparent); border: 1px solid var(--accent); }
-.scroll-help { max-width: var(--max); margin: 0 auto; padding: 0.7rem 1rem 0; color: var(--muted); font-size: 0.9rem; }
-.jump-list { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0.6rem 1rem 1rem; max-width: var(--max); margin: 0 auto; }
-.jump-list button { font: inherit; font-size: 0.85rem; padding: 0.25rem 0.6rem; border-radius: 999px; border: 1px solid var(--line); background: var(--card); color: var(--fg); cursor: pointer; }
-.jump-list button[aria-current="true"] { background: var(--accent); color: var(--accent-fg); border-color: transparent; }
+.after { max-width: var(--max); margin: 0 auto; padding: 1rem 1rem 0; }
+.after.chapters { padding-bottom: 2rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.end-card { max-width: var(--max); margin: 1rem auto; padding: 0 1rem; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 
 /* rice */

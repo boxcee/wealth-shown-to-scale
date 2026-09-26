@@ -2,7 +2,7 @@
 
 A bilingual (English / German) static website that makes extreme wealth tangible:
 
-- **Side-scroll** (the core): 1 pixel = 1,000 € or $ (configurable). Median incomes, median household wealth, a million, a working life, then the ten richest people in the world and the ten richest Germans, with a running counter, comparison markers and steel-manned objection cards along the way. Rendering is virtual (canvas + viewport-only DOM), so a bar several billion pixels wide never touches browser limits.
+- **Blocks and side-scroll** (the core, after Korostoff's original): one pixel of area = 1,000 € or $. Small blocks first (median earnings, median household wealth, a million, a working life, a billion), stacked vertically; then the largest German fortune and the largest fortune on Earth as a bar that moves sideways while you keep scrolling down, with a running counter, a progress bar, comparison boxes (lottery jackpots, budgets, school backlog, the poorer half of all households) and steel-manned objection cards along the way. The bar is drawn on a viewport-sized canvas, so its million-pixel width never touches browser limits. Rice and spend follow on the same page.
 - **Rice**: one grain of rice = 100,000 (Humphrey Yang's scale), converted into grains, bowls, sacks and truckloads with a sourced grain weight.
 - **Spend**: buy iPhones, teachers, child-care places, social housing, wind turbines and more from a real fortune. Every price has a source and a year; older prices can be rebased with the consumer price index.
 - **Germany in proportion**, **Taxes (nominal vs. effective, three explicit definitions, interactive calculator)**, **Objections** (strongest form, data-based answer, honest "where it has a point"), **Methodology**, **Credits**.

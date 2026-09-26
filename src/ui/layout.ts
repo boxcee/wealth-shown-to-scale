@@ -5,7 +5,7 @@ import { getCurrency, getData, isStale } from '../data';
 import { date, escapeHtml, type Currency } from '../format';
 import type { SourcedValue } from '../data/types';
 
-const NAV_PAGES: Page[] = ['scroll', 'rice', 'spend', 'germany', 'taxes', 'objections', 'methodology', 'credits'];
+const NAV_PAGES: Page[] = ['scroll', 'germany', 'taxes', 'objections', 'methodology', 'credits'];
 
 export function renderHeader(page: Page): string {
   const lang = currentLanguage().code;

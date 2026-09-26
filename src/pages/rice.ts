@@ -9,7 +9,8 @@ import { currentLanguage } from '../i18n';
 const GRAIN_VALUES = [1000, 10000, 100000, 1000000];
 const MAX_DOTS = 40000;
 
-export function render(root: HTMLElement): () => void {
+export function render(root: HTMLElement, opts: { embedded?: boolean } = {}): () => void {
+  const H = opts.embedded ? 'h2' : 'h1';
   const d = getData();
   const cur = getCurrency();
   const lang = currentLanguage().code;
@@ -21,21 +22,19 @@ export function render(root: HTMLElement): () => void {
   const truckG = rice.truck_weight_g.value;
   const topDe = d.wealth_germany.people[0];
   const topWorld = d.wealth_world.people[0];
-  const deTotal = d.wealth_germany.people.reduce((s, p) => s + inDisplay(p.wealth, cur), 0);
 
   const options: { id: string; label: string; value: number; html: string }[] = [
     { id: 'median_wealth_de', label: t('rice.options.median_wealth_de'), value: inDisplay(ref.de_median_net_wealth_household, cur), html: num(ref.de_median_net_wealth_household, { label: t('rice.options.median_wealth_de') }) },
     { id: 'median_income_de', label: t('rice.options.median_income_de'), value: inDisplay(ref.de_median_gross_annual_fulltime, cur), html: num(ref.de_median_gross_annual_fulltime, { label: t('rice.options.median_income_de') }) },
     { id: 'millionaire', label: t('rice.options.millionaire'), value: 1_000_000, html: escapeHtml(money(1_000_000, cur, { compact: false })) },
     { id: 'germany_top', label: t('rice.options.germany_top', { name: topDe.name }), value: inDisplay(topDe.wealth, cur), html: num(topDe.wealth, { label: topDe.name }) },
-    { id: 'germany_top10', label: t('rice.options.germany_top10'), value: deTotal, html: escapeHtml(money(deTotal, cur)) },
     { id: 'world_top', label: t('rice.options.world_top', { name: topWorld.name }), value: inDisplay(topWorld.wealth, cur), html: num(topWorld.wealth, { label: topWorld.name }) },
   ];
   let grainValue = 100000;
   let selected = options[3].id;
 
   root.innerHTML = `
-    <h1>${escapeHtml(t('rice.title'))}</h1>
+    <${H}>${escapeHtml(t('rice.title'))}</${H}>
     <p class="lead">${escapeHtml(t('rice.lead', { grainValue: money(100000, 'USD', { compact: false }), currency: cur }))}</p>
     ${currencyNote()}
     ${staleBanner([ref.de_median_net_wealth_household, ref.de_median_gross_annual_fulltime, topDe.wealth, topWorld.wealth])}
@@ -55,7 +54,7 @@ export function render(root: HTMLElement): () => void {
     </div>
     <div id="out"></div>
     <p class="small muted">${escapeHtml(t('rice.explain'))}</p>
-    <p><a href="${pathFor(lang, 'spend')}">${escapeHtml(t('nav.spend'))} →</a></p>
+    ${opts.embedded ? '' : `<p><a href="${pathFor(lang, 'spend')}">${escapeHtml(t('nav.spend'))} →</a></p>`}
   `;
 
   const out = root.querySelector<HTMLElement>('#out')!;

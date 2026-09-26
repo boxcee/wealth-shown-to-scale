@@ -8,9 +8,9 @@ Credibility before impact. No number without a source; no own estimates without 
 
 ## Scale and conversion
 
-- Default scale: 1 pixel = 1,000 units of the display currency; 100 and 10,000 selectable.
+- Scale: one pixel of area = 1,000 units of the display currency (a block of n pixels is n × 1,000). Blocks are squares where they fit, otherwise rectangles of the same area; the sideways bar has a fixed height, so its width × height gives the amount.
 - USD ⇄ EUR at the ECB daily reference rate (`exchange_rates.json`, refreshed monthly, `as_of` = ECB date). The tooltip always shows the original currency and value.
-- "Money scrolled" = sum of bars left of the viewport edge (pro rata inside a bar); gaps between bars carry no money.
+- "Money scrolled" = sum of bars left of the viewport edge (pro rata inside a bar); gaps between bars carry no money. Only the largest German fortune and the largest fortune on Earth are drawn.
 
 ## Wealth data
 

@@ -1,14 +1,34 @@
+/**
+ * Home page, after Matt Korostoff's original: blocks drawn to scale (1 px² = 1,000),
+ * first stacked vertically, then, when a fortune no longer fits, a strip that scrolls
+ * sideways while you keep scrolling down. Only the largest German fortune and the
+ * largest fortune on Earth are drawn; the rice and spend chapters follow on the same page.
+ */
 import { currentLanguage, t } from '../i18n';
-import { getCurrency, getData, inDisplay } from '../data';
+import { convert, getCurrency, getData, inDisplay } from '../data';
 import { escapeHtml, money, number } from '../format';
 import { num } from '../ui/source';
 import { staleBanner } from '../ui/layout';
 import { pathFor } from '../router';
-import { ScrollView, type Marker } from '../scroll/view';
+import { StripView, type Marker } from '../scroll/view';
 import type { Segment, LaidOut } from '../scroll/engine';
-import type { Person, SourcedValue } from '../data/types';
+import { render as renderRice } from './rice';
+import { render as renderSpend } from './spend';
+import type { SourcedValue } from '../data/types';
 
-const SCALES = [100, 1000, 10000];
+/** Money represented by one pixel of area. */
+export const UNIT = 1000;
+const GAP = 96;
+const BAR_MARGIN_TOP = 84;
+const BAR_MARGIN_BOTTOM = 96;
+
+/** A block of `value` money as a rectangle whose area is value / UNIT pixels, at most maxWidth wide. */
+export function blockSize(value: number, maxWidth: number): { w: number; h: number } {
+  const area = value / UNIT;
+  const side = Math.sqrt(area);
+  if (side <= maxWidth) return { w: side, h: side };
+  return { w: maxWidth, h: area / maxWidth };
+}
 
 export function render(root: HTMLElement): () => void {
   const d = getData();
@@ -16,198 +36,159 @@ export function render(root: HTMLElement): () => void {
   const lang = currentLanguage().code;
   const ref = d.reference.values;
   const dist = d.distribution.values;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // ---- segments -------------------------------------------------------------
-  const valueMap = new Map<string, SourcedValue>();
-  const personMap = new Map<string, Person>();
-  const segments: Segment[] = [];
-  const addRef = (id: string, v: SourcedValue, kind: Segment['kind'] = 'reference') => {
-    valueMap.set(id, v);
-    segments.push({ id, value: inDisplay(v, cur), kind });
-  };
-  addRef('median_income_de', ref.de_median_gross_annual_fulltime);
-  addRef('median_income_us', ref.us_median_household_income);
-  addRef('median_wealth_de', ref.de_median_net_wealth_household);
-  addRef('median_wealth_us', ref.us_median_net_worth_family);
-  segments.push({ id: 'million', value: 1_000_000, kind: 'million' });
-  addRef('lifetime_de', ref.de_lifetime_earnings_median_derived, 'lifetime');
-  addRef('lifetime_us', ref.us_lifetime_earnings_high_school, 'lifetime');
-  for (const p of d.wealth_world.people) {
-    personMap.set(`world-${p.id}`, p);
-    segments.push({ id: `world-${p.id}`, value: inDisplay(p.wealth, cur), kind: 'world' });
-  }
-  for (const p of d.wealth_germany.people) {
-    personMap.set(`de-${p.id}`, p);
-    segments.push({ id: `de-${p.id}`, value: inDisplay(p.wealth, cur), kind: 'germany' });
-  }
-
-  const medianIncome = inDisplay(ref.de_median_gross_annual_fulltime, cur);
-  const medianWealth = inDisplay(ref.de_median_net_wealth_household, cur);
-  const lifetime = inDisplay(ref.de_lifetime_earnings_median_derived, cur);
-  const worldTotal = d.wealth_world.people.reduce((s, p) => s + inDisplay(p.wealth, cur), 0);
-  const deTotal = d.wealth_germany.people.reduce((s, p) => s + inDisplay(p.wealth, cur), 0);
-  const refTotal = segments.filter((s) => !s.id.startsWith('world-') && !s.id.startsWith('de-')).reduce((s, x) => s + x.value, 0);
-  const bottom50 = (inDisplay(ref.de_total_household_net_wealth, cur) * dist.de_bottom50_net_wealth_share.value) / 100;
-
-  // ---- markers (money thresholds) and contextual objection cards ------------
+  const de1 = d.wealth_germany.people[0];
+  const world1 = d.wealth_world.people[0];
   const fm = (v: number) => money(v, cur);
+  const v = (s: SourcedValue) => inDisplay(s, cur);
+
+  // ---- vertical blocks ---------------------------------------------------------
+  const maxBlockWidth = Math.max(200, Math.min(1000, root.clientWidth - 32));
+  const block = (id: string, label: string, value: number, cls = '') => {
+    const { w, h } = blockSize(value, maxBlockWidth);
+    return `<div class="block-item" id="b-${id}"><p>${label}</p><div class="block ${cls}" style="width:${Math.max(1, w)}px;height:${Math.max(1, h)}px" role="img" aria-label="${escapeHtml(money(value, cur, { compact: false }))}"></div></div>`;
+  };
+  const blocks = [
+    block('thousand', `${escapeHtml(t('scroll.thousand', { money: money(UNIT, cur, { compact: false }) }))}<br><span class="muted small">${escapeHtml(t('scroll.thousandNote'))}</span>`, UNIT),
+    block('median_income', t('scroll.medianIncome', { value: num(ref.de_median_gross_annual_fulltime, { label: t('scroll.labels.median_income_de') }) }), v(ref.de_median_gross_annual_fulltime)),
+    block('median_wealth', t('scroll.medianWealth', { value: num(ref.de_median_net_wealth_household, { label: t('scroll.labels.median_wealth_de') }) }), v(ref.de_median_net_wealth_household)),
+    block('million', t('scroll.million', { value: escapeHtml(money(1_000_000, cur, { compact: false })) }), 1_000_000, 'million'),
+    block('lifetime', t('scroll.lifetime', { value: num(ref.de_lifetime_earnings_median_derived, { label: t('scroll.labels.lifetime_de') }) }), v(ref.de_lifetime_earnings_median_derived)),
+    block('billion', t('scroll.billion', { value: escapeHtml(money(1_000_000_000, cur, { compact: false })) }), 1_000_000_000, 'billion'),
+  ].join('');
+
+  // ---- strip segments ------------------------------------------------------------
+  const segments: Segment[] = [
+    { id: 'de1', value: v(de1.wealth), kind: 'germany' },
+    { id: 'world1', value: v(world1.wealth), kind: 'world' },
+  ];
+  const deValue = segments[0].value;
+  const worldValue = segments[1].value;
+
   const objLink = (id: string) => `<a href="${pathFor(lang, 'objections')}#${id}">${escapeHtml(t('scroll.readFull'))}</a>`;
-  const obj = (id: string, key: string, at: Marker['at'], params: Record<string, string | number> = {}): Marker => ({
-    id: `obj-${id}`,
+  const obj = (key: string, at: Marker['at'], params: Record<string, string | number> = {}): Marker => ({
+    id: `obj-${key}`,
     at,
     kind: 'objection',
     html: `<h4>${escapeHtml(t('scroll.objectionCard'))}</h4><p><strong>${escapeHtml(t(`objections.items.${key}.title`))}</strong></p><p>${escapeHtml(t(`objections.items.${key}.core`, params))}</p><p>${objLink(key)}</p>`,
   });
-  const firstWorld = `world-${d.wealth_world.people[0].id}`;
-  const firstDe = `de-${d.wealth_germany.people[0].id}`;
-  const schwarz = d.wealth_germany.people.find((p) => p.id === 'dieter-schwarz');
+  const mk = (id: string, moneyAt: number, text: string): Marker => ({ id, money: moneyAt, kind: 'marker', html: `<p>${text}</p>` });
+  const price = (id: string) => v(d.prices.items.find((i) => i.id === id)!.price);
+  const medianIncome = v(ref.de_median_gross_annual_fulltime);
+  const medianWealth = v(ref.de_median_net_wealth_household);
+  const lifetime = v(ref.de_lifetime_earnings_median_derived);
+  const bottom50 = (v(ref.de_total_household_net_wealth) * dist.de_bottom50_net_wealth_share.value) / 100;
+  const schwarzMM = de1.wealth.alt_sources?.find((a) => a.source.includes('Manager'));
+
   const markers: Marker[] = [
-    { id: 'm-median1000', money: refTotal + medianIncome * 1000, kind: 'marker', html: `<p>${escapeHtml(t('scroll.markers.median1000', { money: fm(medianIncome * 1000) }))}</p>` },
-    { id: 'm-lifetime100', money: refTotal + lifetime * 100, kind: 'marker', html: `<p>${escapeHtml(t('scroll.markers.lifetime100', { money: fm(lifetime * 100) }))}</p>` },
-    { id: 'm-households', money: refTotal + medianWealth * 100_000, kind: 'marker', html: `<p>${escapeHtml(t('scroll.markers.medianHouseholds', { money: fm(medianWealth * 100_000), n: number(100_000) }))}</p>` },
-    { id: 'm-hunger', money: refTotal + inDisplay(d.prices.items.find((i) => i.id === 'end_hunger_year')!.price, cur), kind: 'marker', html: `<p>${escapeHtml(t('scroll.markers.endHunger', { money: fm(inDisplay(d.prices.items.find((i) => i.id === 'end_hunger_year')!.price, cur)) }))}</p>` },
-    { id: 'm-schools', money: refTotal + inDisplay(d.prices.items.find((i) => i.id === 'school_investment_backlog_de')!.price, cur), kind: 'marker', html: `<p>${escapeHtml(t('scroll.markers.schoolBacklog', { money: fm(inDisplay(d.prices.items.find((i) => i.id === 'school_investment_backlog_de')!.price, cur)) }))}</p>` },
-    { id: 'm-bottom50', money: refTotal + bottom50, kind: 'marker', html: `<p>${escapeHtml(t('scroll.markers.bottom50', { money: fm(bottom50), share: `${number(dist.de_bottom50_net_wealth_share.value, 1)} %`, total: fm(inDisplay(ref.de_total_household_net_wealth, cur)) }))}</p>` },
-    { id: 'm-budget', money: refTotal + inDisplay(ref.de_federal_budget_2026, cur), kind: 'marker', html: `<p>${escapeHtml(t('scroll.markers.federalBudget', { money: fm(inDisplay(ref.de_federal_budget_2026, cur)) }))}</p>` },
-    { id: 'm-worldtotal', money: refTotal + worldTotal, kind: 'marker', html: `<p>${escapeHtml(t('scroll.markers.worldTotal', { money: fm(worldTotal) }))}</p>` },
-    { id: 'm-detotal', money: refTotal + worldTotal + deTotal, kind: 'marker', html: `<p>${escapeHtml(t('scroll.markers.germanyTotal', { money: fm(deTotal) }))}</p>` },
-    obj('paper', 'paper', { segmentId: firstWorld, offset: 260 }, { topWealth: fm(segments.find((s) => s.id === firstWorld)!.value), bmwDividend: '' }),
-    obj('earned', 'earned', { segmentId: firstWorld, offset: 2600 }),
-    obj('zerosum', 'zerosum', { segmentId: `world-${d.wealth_world.people[2].id}`, offset: 900 }, { bottom50: `${number(dist.de_bottom50_net_wealth_share.value, 1)} %` }),
-    obj('twopercent', 'twopercent', { segmentId: `world-${d.wealth_world.people[6].id}`, offset: 900 }, { taxShare: `${number(dist.de_top10_income_tax_share.value)} %` }),
-    obj('valuation', 'valuation', { segmentId: firstDe, offset: 260 }, {
-      schwarzForbes: schwarz ? fm(inDisplay(schwarz.wealth, cur)) : '',
-      schwarzMM: schwarz?.wealth.alt_sources?.find((a) => a.source.includes('Manager'))
-        ? fm(inDisplay({ ...schwarz.wealth, value: schwarz.wealth.alt_sources!.find((a) => a.source.includes('Manager'))!.value, currency: 'EUR' }, cur))
-        : '',
+    mk('m-median1000', medianIncome * 1000, t('scroll.markers.median1000', { money: fm(medianIncome * 1000) })),
+    mk('m-eurojackpot', v(ref.eurojackpot_max), t('scroll.markers.eurojackpot', { money: num(ref.eurojackpot_max, { label: t('scroll.markers.eurojackpotLabel') }) })),
+    mk('m-lifetime100', lifetime * 100, t('scroll.markers.lifetime100', { money: fm(lifetime * 100) })),
+    mk('m-powerball', v(ref.powerball_record_jackpot), t('scroll.markers.powerball', { money: num(ref.powerball_record_jackpot, { label: t('scroll.markers.powerballLabel') }) })),
+    mk('m-households', medianWealth * 100_000, t('scroll.markers.medianHouseholds', { money: fm(medianWealth * 100_000), n: number(100_000) })),
+    mk('m-hunger', price('end_hunger_year'), t('scroll.markers.endHunger', { money: fm(price('end_hunger_year')) })),
+    mk('m-schools', price('school_investment_backlog_de'), t('scroll.markers.schoolBacklog', { money: fm(price('school_investment_backlog_de')) })),
+    mk('m-bottom50', bottom50, t('scroll.markers.bottom50', { money: fm(bottom50), share: `${number(dist.de_bottom50_net_wealth_share.value, 1)} %`, total: fm(v(ref.de_total_household_net_wealth)) })),
+    mk('m-budget', v(ref.de_federal_budget_2026), t('scroll.markers.federalBudget', { money: fm(v(ref.de_federal_budget_2026)) })),
+    obj('valuation', { segmentId: 'de1', offset: 420 }, {
+      schwarzForbes: fm(deValue),
+      schwarzMM: schwarzMM ? fm(convert(schwarzMM.value, schwarzMM.currency ?? 'EUR', cur)) : '',
     }),
-    obj('mittelstand', 'mittelstand', { segmentId: `de-${d.wealth_germany.people[3].id}`, offset: 900 }, { exempt: fm(inDisplay(dist.de_inheritance_tax_exempt_business_2024, cur)) }),
-    obj('leave', 'leave', { segmentId: `de-${d.wealth_germany.people[6].id}`, offset: 900 }, { norwayLeavers: number(dist.norway_wealth_tax_leavers_2022_2023.value) }),
+    obj('mittelstand', { segmentId: 'de1', offset: 9000 }, { exempt: fm(v(dist.de_inheritance_tax_exempt_business_2024)) }),
+    obj('leave', { segmentId: 'de1', offset: 30000 }, { norwayLeavers: number(dist.norway_wealth_tax_leavers_2022_2023.value) }),
+    obj('paper', { segmentId: 'world1', offset: 420 }, { topWealth: fm(worldValue) }),
+    obj('earned', { segmentId: 'world1', offset: 12000 }),
+    obj('zerosum', { segmentId: 'world1', offset: 90000 }, { bottom50: `${number(dist.de_bottom50_net_wealth_share.value, 1)} %` }),
+    obj('twopercent', { segmentId: 'world1', offset: 400000 }, { taxShare: `${number(dist.de_top10_income_tax_share.value)} %` }),
   ];
 
-  // ---- static page parts ----------------------------------------------------
-  const top = d.wealth_world.people[0];
-  const scaleParam = new URLSearchParams(location.search).get('scale');
-  let scale = SCALES.includes(Number(scaleParam)) ? Number(scaleParam) : 1000;
-  const allValues = [...valueMap.values(), ...d.wealth_world.people.map((p) => p.wealth), ...d.wealth_germany.people.map((p) => p.wealth)];
-
   root.innerHTML = `
-    <section class="scroll-intro">
-      <h1>${escapeHtml(t('intro.title'))}</h1>
-      <p class="lead">${t('intro.lead', {
-        scale: escapeHtml(money(scale, cur)),
-        medianIncome: num(ref.de_median_gross_annual_fulltime, { label: t('scroll.segments.median_income_de') }),
-        medianPx: number(Math.round(medianIncome / scale)),
-        topName: escapeHtml(top.name),
-        topWealth: num(top.wealth, { label: top.name }),
-      })}</p>
-      <p class="small muted">${t('intro.credit', { creditsLink: `<a href="${pathFor(lang, 'credits')}">${escapeHtml(t('intro.creditsLinkText'))}</a>` })}</p>
-      ${staleBanner(allValues)}
-      <p class="small muted">${escapeHtml(t('intro.howTo'))}</p>
+    <section class="blocks">
+      <h1>${escapeHtml(t('pages.scroll.title'))}</h1>
+      <p class="small muted credit-line">${t('intro.credit', { creditsLink: `<a href="${pathFor(lang, 'credits')}">${escapeHtml(t('intro.creditsLinkText'))}</a>` })}</p>
+      ${staleBanner([ref.de_median_gross_annual_fulltime, ref.de_median_net_wealth_household, ref.de_lifetime_earnings_median_derived, de1.wealth, world1.wealth])}
+      ${blocks}
+      <div class="block-item"><p>${t('scroll.germanyIntro', { name: escapeHtml(de1.name), value: num(de1.wealth, { label: de1.name }) })}</p></div>
     </section>
-    <div class="scroll-toolbar">
-      <div class="counter" aria-live="off"><span id="counter">${escapeHtml(money(0, cur))}</span><small>${escapeHtml(t('scroll.counter'))}</small></div>
-      <label>${escapeHtml(t('scroll.scale'))}
-        <select id="scale">${SCALES.map((s) => `<option value="${s}" ${s === scale ? 'selected' : ''}>${escapeHtml(t('scroll.scaleOption', { money: money(s, cur, { compact: false }) }))}</option>`).join('')}</select>
-      </label>
-      <label>${escapeHtml(t('scroll.jump'))}
-        <select id="jump"><option value=""></option>${segments.map((s) => `<option value="${s.id}">${escapeHtml(plainLabel(s.id))}</option>`).join('')}</select>
-      </label>
-      <button type="button" class="btn" id="play" aria-pressed="false">▶ ${escapeHtml(t('scroll.play'))}</button>
-      <label>${escapeHtml(t('scroll.speed'))}
-        <select id="speed"><option value="120">${escapeHtml(t('scroll.speedSlow'))}</option><option value="300" selected>${escapeHtml(t('scroll.speedNormal'))}</option><option value="900">${escapeHtml(t('scroll.speedFast'))}</option></select>
-      </label>
-      <button type="button" class="btn" id="share">${escapeHtml(t('scroll.share'))}</button>
+    <div class="strip-wrap" id="strip">
+      <div class="strip-stage" id="stage" role="region" aria-label="${escapeHtml(t('scroll.regionLabel'))}">
+      </div>
+      <div class="strip-hud" aria-hidden="true">
+        <div class="counter"><span id="counter">${escapeHtml(money(0, cur))}</span><small>${escapeHtml(t('scroll.counter'))}</small></div>
+        <div class="minimap" id="minimap"></div>
+      </div>
     </div>
-    <div class="scroll-stage" id="stage" role="region" aria-label="${escapeHtml(t('scroll.regionLabel'))}"></div>
-    <div class="minimap" id="minimap" aria-hidden="true"></div>
     <p class="sr-only" id="live" aria-live="polite"></p>
-    <div class="jump-list" id="jumplist" role="group" aria-label="${escapeHtml(t('scroll.jump'))}">
-      ${segments.map((s) => `<button type="button" data-jump="${s.id}">${escapeHtml(plainLabel(s.id))}</button>`).join('')}
-    </div>
-    <section class="end-card card" id="end" hidden>
+    <section class="after" id="end">
       <h2>${escapeHtml(t('scroll.end.title'))}</h2>
       <p id="end-text"></p>
-      <p>${t('scroll.end.next', { riceLink: `<a href="${pathFor(lang, 'rice')}">${escapeHtml(t('scroll.end.riceLink'))}</a>`, spendLink: `<a href="${pathFor(lang, 'spend')}">${escapeHtml(t('scroll.end.spendLink'))}</a>` })}</p>
+    </section>
+    <section class="after" id="rice"></section>
+    <section class="after" id="spend"></section>
+    <section class="after chapters">
+      <h2>${escapeHtml(t('scroll.more'))}</h2>
+      <ul>
+        <li><a href="${pathFor(lang, 'germany')}">${escapeHtml(t('pages.germany.title'))}</a></li>
+        <li><a href="${pathFor(lang, 'taxes')}">${escapeHtml(t('pages.taxes.title'))}</a></li>
+        <li><a href="${pathFor(lang, 'objections')}">${escapeHtml(t('pages.objections.title'))}</a></li>
+        <li><a href="${pathFor(lang, 'methodology')}">${escapeHtml(t('pages.methodology.title'))}</a></li>
+      </ul>
     </section>
   `;
 
-  function plainLabel(id: string): string {
-    const p = personMap.get(id);
-    if (p) return t(id.startsWith('world-') ? 'scroll.segments.world' : 'scroll.segments.germany', { rank: p.rank, name: p.name });
-    return t(`scroll.segments.${id}`);
-  }
-
-  function labelFor(it: LaidOut): string {
-    const p = personMap.get(it.id);
-    if (p) {
-      const fam = p.is_family ? `<span class="badge">${escapeHtml(t('common.family'))}</span>` : '';
-      return `<strong>${escapeHtml(plainLabel(it.id))}${fam}</strong>${num(p.wealth, { label: p.name })}<br><span class="muted small">${escapeHtml(t('scroll.segmentSub.person', { source: p.source_of_wealth, country: p.country }))}</span>`;
-    }
-    if (it.id === 'million') return `<strong>${escapeHtml(t('scroll.segments.million'))}</strong>${escapeHtml(money(1_000_000, cur, { compact: false }))}<br><span class="muted small">${escapeHtml(t('scroll.segmentSub.million'))}</span>`;
-    const v = valueMap.get(it.id)!;
-    const sub = it.kind === 'lifetime' ? `<br><span class="muted small">${escapeHtml(t('scroll.segmentSub.lifetime'))}</span>` : '';
-    return `<strong>${escapeHtml(plainLabel(it.id))}</strong>${num(v, { label: plainLabel(it.id) })}${sub}`;
-  }
-
-  function sectionFor(it: LaidOut): string | null {
-    if (it.id === 'median_income_de') return t('scroll.sections.reference');
-    if (it.id === firstWorld) return t('scroll.sections.world');
-    if (it.id === firstDe) return t('scroll.sections.germany');
-    return null;
-  }
-
-  const css = getComputedStyle(document.documentElement);
-  const colors: Record<string, string> = {
-    reference: css.getPropertyValue('--bar-ref').trim(),
-    lifetime: css.getPropertyValue('--bar-ref').trim(),
-    million: css.getPropertyValue('--bar-million').trim(),
-    world: css.getPropertyValue('--bar-world').trim(),
-    germany: css.getPropertyValue('--bar-de').trim(),
-  };
-
+  const wrap = root.querySelector<HTMLElement>('#strip')!;
   const stage = root.querySelector<HTMLElement>('#stage')!;
   const counter = root.querySelector<HTMLElement>('#counter')!;
   const live = root.querySelector<HTMLElement>('#live')!;
   const minimap = root.querySelector<HTMLElement>('#minimap')!;
-  const endCard = root.querySelector<HTMLElement>('#end')!;
   const endText = root.querySelector<HTMLElement>('#end-text')!;
-  const jumpButtons = [...root.querySelectorAll<HTMLButtonElement>('[data-jump]')];
+
+  const css = getComputedStyle(document.documentElement);
+  const colors: Record<string, string> = {
+    germany: css.getPropertyValue('--bar-de').trim(),
+    world: css.getPropertyValue('--bar-world').trim(),
+  };
+
+  function labelFor(it: LaidOut): string {
+    if (it.id === 'de1') {
+      const fam = de1.is_family ? `<span class="badge">${escapeHtml(t('common.family'))}</span>` : '';
+      return `<strong>${escapeHtml(t('scroll.bar.germany', { name: de1.name }))}${fam}</strong>${num(de1.wealth, { label: de1.name })}<br><span class="muted small">${escapeHtml(de1.source_of_wealth)}</span>`;
+    }
+    return `<strong>${escapeHtml(t('scroll.bar.world', { name: world1.name }))}</strong>${num(world1.wealth, { label: world1.name })}<br><span class="muted small">${escapeHtml(t('scroll.worldIntro', { deName: de1.name, ratio: number(worldValue / deValue, 1) }))}</span>`;
+  }
+
+  const geometry = () => {
+    const h = Math.max(240, stage.clientHeight - BAR_MARGIN_TOP - BAR_MARGIN_BOTTOM);
+    return { barTop: BAR_MARGIN_TOP, barHeight: h, scale: UNIT * h };
+  };
+  let g = geometry();
   let lastAnnounced = '';
   let announceTimer = 0;
   let hashTimer = 0;
 
-  let view: ScrollView | undefined;
-  view = new ScrollView({
+  let view: StripView | undefined;
+  view = new StripView({
     stage,
     segments,
-    scale,
+    scale: g.scale,
+    gap: GAP,
+    barTop: g.barTop,
+    barHeight: g.barHeight,
     markers,
     labelFor,
-    sectionFor,
-    colorFor: (it) => colors[it.kind] ?? colors.reference,
-    formatMoney: (v) => money(v, cur),
-    reducedMotion: reduced,
-    onMove: ({ x, money: m, item, progress }) => {
-      if (!view) return; // constructor renders once before the reference exists
+    colorFor: (it) => colors[it.kind] ?? colors.world,
+    formatMoney: (x) => money(x, cur),
+    onMove: ({ x, money: m, item }) => {
+      if (!view) return;
       counter.textContent = money(m, cur, { compact: m >= 1e6 });
-      const vw = stage.clientWidth;
-      const mmWidth = minimap.clientWidth;
       const viewEl = minimap.querySelector<HTMLElement>('.mm-view');
-      if (viewEl && view.layout.totalWidth > 0) {
-        viewEl.style.left = `${(x / view.layout.totalWidth) * mmWidth}px`;
-        viewEl.style.width = `${Math.max(3, (vw / view.layout.totalWidth) * mmWidth)}px`;
+      const total = view.layout.totalWidth || 1;
+      if (viewEl) {
+        viewEl.style.left = `${(x / total) * 100}%`;
+        viewEl.style.width = `${Math.max(0.5, (stage.clientWidth / total) * 100)}%`;
       }
-      const near = view.layout.totalWidth - x <= vw * 1.05;
-      if (near !== !endCard.hidden) {
-        endCard.hidden = !near;
-        if (near) endText.textContent = t('scroll.end.text', { money: money(view.layout.totalMoney, cur), px: number(Math.round(view.layout.totalWidth)), km: number(view.layout.totalWidth / 3780 / 1000, 0) });
-      }
-      const label = item ? plainLabel(item.id) : '';
+      const label = item ? (item.id === 'de1' ? de1.name : world1.name) : '';
       if (label !== lastAnnounced) {
         lastAnnounced = label;
-        jumpButtons.forEach((b) => b.setAttribute('aria-current', String(b.dataset.jump === item?.id)));
         clearTimeout(announceTimer);
         announceTimer = window.setTimeout(() => {
           live.textContent = `${t('scroll.nowAt', { label })} ${t('scroll.counterAria', { money: money(m, cur) })}`;
@@ -215,76 +196,79 @@ export function render(root: HTMLElement): () => void {
       }
       clearTimeout(hashTimer);
       hashTimer = window.setTimeout(() => {
-        const h = `#x=${Math.round(x)}`;
+        const h = x > 0 ? `#x=${Math.round(x)}` : '';
         if (location.hash !== h) history.replaceState(null, '', `${location.pathname}${location.search}${h}`);
       }, 250);
-      void progress;
     },
   });
 
-  view.render();
-
-  // minimap
   const buildMinimap = () => {
-    const total = view.layout.totalWidth || 1;
+    const total = view!.layout.totalWidth || 1;
     minimap.innerHTML =
-      view.layout.items
+      view!.layout.items
         .map((it) => `<div class="mm-seg" style="left:${(it.x0 / total) * 100}%;width:${Math.max(0.15, ((it.x1 - it.x0) / total) * 100)}%;background:${colors[it.kind]}"></div>`)
         .join('') + '<div class="mm-view"></div>';
   };
-  buildMinimap();
-  minimap.addEventListener('click', (e) => {
-    const r = minimap.getBoundingClientRect();
-    view.moveTo(((e.clientX - r.left) / r.width) * view.layout.totalWidth - stage.clientWidth / 2);
-  });
-
-  // deep links: #x=<px> or #at=<segmentId>
-  const hash = new URLSearchParams(location.hash.replace(/^#/, ''));
-  if (hash.get('at')) view.jumpToSegment(hash.get('at')!);
-  else if (hash.get('x')) view.moveTo(Number(hash.get('x')), false);
-
-  // controls
-  root.querySelector<HTMLSelectElement>('#scale')!.addEventListener('change', (e) => {
-    scale = Number((e.target as HTMLSelectElement).value);
-    view.setScale(scale);
-    buildMinimap();
-    const params = new URLSearchParams(location.search);
-    params.set('scale', String(scale));
-    history.replaceState(null, '', `${location.pathname}?${params.toString()}${location.hash}`);
-  });
-  root.querySelector<HTMLSelectElement>('#jump')!.addEventListener('change', (e) => {
-    const id = (e.target as HTMLSelectElement).value;
-    if (id) view.jumpToSegment(id);
-    stage.focus({ preventScroll: true });
-  });
-  jumpButtons.forEach((b) => b.addEventListener('click', () => { view.jumpToSegment(b.dataset.jump!); stage.focus({ preventScroll: true }); }));
-  const playBtn = root.querySelector<HTMLButtonElement>('#play')!;
-  const speedSel = root.querySelector<HTMLSelectElement>('#speed')!;
-  const updatePlay = () => {
-    const on = view.autoScrolling;
-    playBtn.setAttribute('aria-pressed', String(on));
-    playBtn.textContent = on ? `⏸ ${t('scroll.pause')}` : `▶ ${t('scroll.play')}`;
+  const sizeWrapper = () => {
+    wrap.style.height = `calc(100vh + ${Math.round(view!.maxX)}px)`;
   };
-  playBtn.addEventListener('click', () => {
-    view.setAutoScroll(view.autoScrolling ? 0 : Number(speedSel.value));
-    updatePlay();
-  });
-  speedSel.addEventListener('change', () => { if (view.autoScrolling) view.setAutoScroll(Number(speedSel.value)); });
-  const playPoll = window.setInterval(updatePlay, 500);
-  root.querySelector<HTMLButtonElement>('#share')!.addEventListener('click', async (e) => {
-    const btn = e.currentTarget as HTMLButtonElement;
-    const url = `${location.origin}${location.pathname}${location.search}#x=${Math.round(view.x)}`;
-    try {
-      await navigator.clipboard.writeText(url);
-      btn.textContent = t('scroll.shared');
-      setTimeout(() => (btn.textContent = t('scroll.share')), 1500);
-    } catch {
-      prompt(t('scroll.share'), url);
+  buildMinimap();
+  sizeWrapper();
+  endText.textContent = t('scroll.end.text', { money: money(view.layout.totalMoney, cur), px: number(Math.round(view.layout.totalWidth * g.barHeight)) });
+
+  // The vertical scroll position drives the horizontal position of the strip.
+  let ticking = false;
+  const sync = () => {
+    ticking = false;
+    const top = wrap.getBoundingClientRect().top + window.scrollY;
+    view!.setX(window.scrollY - top);
+  };
+  const onScroll = () => {
+    if (!ticking) {
+      ticking = true;
+      requestAnimationFrame(sync);
     }
-  });
+  };
+  const onResize = () => {
+    g = geometry();
+    view!.resize();
+    view!.relayout(g.scale, g.barTop, g.barHeight);
+    buildMinimap();
+    sizeWrapper();
+    sync();
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onResize);
+
+  // deep link: #x=<px>
+  const hash = new URLSearchParams(location.hash.replace(/^#/, ''));
+  if (hash.get('x')) {
+    const top = wrap.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: top + Number(hash.get('x')), behavior: 'auto' });
+  }
+  sync();
+
+  // Keyboard: arrows move sideways when the stage has focus (Page keys and space keep native behaviour).
+  stage.tabIndex = 0;
+  const onKey = (e: KeyboardEvent) => {
+    if (document.activeElement !== stage) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      window.scrollBy({ top: (e.key === 'ArrowRight' ? 1 : -1) * (e.shiftKey ? 1000 : 120), behavior: 'auto' });
+      e.preventDefault();
+    }
+  };
+  window.addEventListener('keydown', onKey);
+
+  // The rice and spend chapters follow on the same page.
+  const cleanRice = renderRice(root.querySelector<HTMLElement>('#rice')!, { embedded: true });
+  const cleanSpend = renderSpend(root.querySelector<HTMLElement>('#spend')!, { embedded: true });
 
   return () => {
-    clearInterval(playPoll);
-    view.dispose();
+    window.removeEventListener('scroll', onScroll);
+    window.removeEventListener('resize', onResize);
+    window.removeEventListener('keydown', onKey);
+    view?.dispose();
+    cleanRice();
+    cleanSpend();
   };
 }

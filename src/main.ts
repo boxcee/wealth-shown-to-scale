@@ -52,6 +52,7 @@ async function boot(): Promise<void> {
   if (desc) desc.setAttribute('content', t(`pages.${route.page}.description`));
 
   const mod = await pages[route.page]();
+  document.body.classList.toggle('home', route.page === 'scroll');
   app.innerHTML = pageShell(route.page, '');
   const main = app.querySelector<HTMLElement>('main')!;
   cleanup = mod.render(main);

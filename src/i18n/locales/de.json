@@ -23,7 +23,7 @@
   "pages": {
     "scroll": {
       "title": "Reichtum, maßstabsgetreu",
-      "description": "Extremer Reichtum zum Seitwärtsscrollen: 1 Pixel = 1.000 Euro oder Dollar, jede Zahl mit Quelle."
+      "description": "Extremer Reichtum maßstabsgetreu: ein Pixel sind 1.000 Euro oder Dollar. Erst Blöcke, dann ein Balken, der seitwärts am größten deutschen Vermögen und an Elon Musk vorbeiführt."
     },
     "rice": {
       "title": "Vermögen in Reiskörnern",
@@ -113,73 +113,52 @@
     "and": "und"
   },
   "intro": {
-    "title": "Wie viel ist eine Milliarde? Scroll und finde es heraus.",
-    "lead": "Jeder Balken auf dieser Seite ist im selben Maßstab gezeichnet: ein Pixel ist {scale}. Der mittlere Vollzeitverdiener in Deutschland bekommt {medianIncome} im Jahr, ein Balken von etwa {medianPx} Pixeln. Der reichste Mensch der Welt ist {topName} mit {topWealth}. Scroll weiter.",
-    "credit": "Eine Neuauflage von „Wealth, shown to scale“ von Matt Korostoff, ergänzt um Humphrey Yangs Reis-Visualisierung und Neal Agarwals „Spend Bill Gates' Money“. Siehe {creditsLink}.",
-    "creditsLinkText": "Credits",
-    "howTo": "Scroll mit Mausrad, Trackpad, Pfeiltasten oder durch Ziehen. Mit der Sprungliste springst du voraus, mit Play scrollt die Seite von selbst."
+    "credit": "Nach „Wealth, shown to scale“ von Matt Korostoff, mit Humphrey Yangs Reis-Visualisierung und Neal Agarwals „Spend Bill Gates' Money“. Siehe {creditsLink}.",
+    "creditsLinkText": "Credits"
   },
   "scroll": {
-    "counter": "Bisher gescrollt",
+    "thousand": "Das sind {money}.",
+    "thousandNote": "Ein Pixel. Jeder Block auf dieser Seite ist im selben Maßstab gezeichnet: ein Pixel Fläche ist eintausend. Tipp auf ⓘ neben einer Zahl für die Quelle.",
+    "medianIncome": "Das ist ein Jahr Median-Vollzeitverdienst in Deutschland: {value}.",
+    "medianWealth": "Das ist das Nettovermögen des deutschen Medianhaushalts: {value}.",
+    "million": "Das ist eine Million: {value}.",
+    "lifetime": "So viel verdient ein Medianverdiener in Deutschland in einem ganzen Arbeitsleben, 45 Jahre: {value}.",
+    "germanyIntro": "Jetzt das größte Vermögen in Deutschland: {name}, {value}. Es passt nicht mehr auf den Bildschirm. Scroll weiter: Ab hier bewegt sich die Seite seitwärts.",
+    "bar": {
+      "germany": "{name}, das größte Vermögen in Deutschland",
+      "world": "{name}, das größte Vermögen der Welt"
+    },
+    "worldIntro": "Das war {deName}. Dieser Balken ist {ratio}-mal so lang. Scroll weiter.",
+    "counter": "bisher gescrollt",
     "counterAria": "Bisher gescrolltes Geld: {money}",
-    "scale": "Maßstab",
-    "scaleOption": "1 px = {money}",
-    "currency": "Währung",
-    "jump": "Springe zu…",
-    "play": "Auto-Scroll",
-    "pause": "Pause",
-    "speed": "Tempo",
-    "speedSlow": "langsam",
-    "speedNormal": "normal",
-    "speedFast": "schnell",
-    "position": "Position",
-    "share": "Link zu dieser Stelle kopieren",
-    "shared": "Link kopiert",
-    "regionLabel": "Vermögens-Scroll. Mit den Pfeiltasten bewegen, Bild auf und Bild ab für größere Schritte, Pos1 und Ende für Anfang und Ende.",
+    "regionLabel": "Vermögen im Maßstab. Scroll weiter nach unten oder nutze die Pfeiltasten, um seitwärts am Balken entlangzufahren.",
     "nowAt": "Du siehst gerade: {label}",
-    "sections": {
-      "reference": "Referenzgrößen",
-      "world": "Die zehn reichsten Menschen der Welt",
-      "germany": "Die zehn reichsten Menschen in Deutschland",
-      "end": "Das Ende"
-    },
-    "segments": {
+    "labels": {
       "median_income_de": "Ein Jahr Median-Vollzeitverdienst, Deutschland",
-      "median_income_us": "Ein Jahr Median-Haushaltseinkommen, USA",
       "median_wealth_de": "Median-Nettovermögen eines Haushalts, Deutschland",
-      "median_wealth_us": "Median-Nettovermögen einer Familie, USA",
-      "million": "Eine Million",
-      "lifetime_de": "Brutto-Lebenseinkommen eines Medianverdieners, Deutschland (45 Jahre)",
-      "lifetime_us": "Mittleres Lebenseinkommen, USA, Highschool-Abschluss",
-      "world": "{rank}. {name}",
-      "germany": "{rank}. {name}"
-    },
-    "segmentSub": {
-      "million": "So sieht eine Million aus. Alles davor passt auf ein paar Bildschirme.",
-      "lifetime": "Ein ganzes Arbeitsleben. Merk dir die Breite dieses Balkens.",
-      "person": "{source} · {country}"
+      "lifetime_de": "Brutto-Lebenseinkommen eines Medianverdieners, Deutschland (45 Jahre)"
     },
     "markers": {
       "median1000": "Du hast jetzt {money} passiert: 1.000 Jahre Medianverdienst in Deutschland.",
-      "medianHouseholds": "{money}: das Nettovermögen von {n} deutschen Medianhaushalten.",
+      "eurojackpot": "{money}: der höchstmögliche Eurojackpot. Der größte Lottogewinn Europas ist dieses schmale Stück.",
+      "eurojackpotLabel": "Eurojackpot-Maximum",
       "lifetime100": "{money}: 100 Arbeitsleben eines Medianverdieners.",
-      "schoolBacklog": "{money}: der gesamte Investitionsrückstand der Schulgebäude in Deutschland laut KfW-Kommunalpanel.",
+      "powerball": "{money}: der größte je ausgezahlte Lotto-Jackpot, der Powerball vom November 2022.",
+      "powerballLabel": "Powerball-Rekordjackpot",
+      "medianHouseholds": "{money}: das Nettovermögen von {n} deutschen Medianhaushalten.",
       "endHunger": "{money}: die zusätzlichen Jahresausgaben, mit denen das Ceres2030-Konsortium den Hunger von 490 Millionen Menschen beenden würde.",
-      "federalBudget": "{money}: der gesamte Bundeshaushalt 2026.",
-      "worldTotal": "Die zehn reichsten Menschen der Welt: zusammen {money}.",
-      "germanyTotal": "Die zehn reichsten Deutschen: zusammen {money}.",
-      "bottom50": "{money}: ungefähr das gesamte Nettovermögen der ärmeren Hälfte aller deutschen Haushalte ({share} von {total})."
+      "schoolBacklog": "{money}: der gesamte Investitionsrückstand der Schulgebäude in Deutschland laut KfW-Kommunalpanel.",
+      "bottom50": "{money}: ungefähr das gesamte Nettovermögen der ärmeren Hälfte aller deutschen Haushalte ({share} von {total}).",
+      "federalBudget": "{money}: der gesamte Bundeshaushalt 2026."
     },
     "objectionCard": "Ein Einwand",
     "readFull": "Ganze Antwort",
     "end": {
       "title": "Du bist am Ende.",
-      "text": "Du hast {money} gescrollt. In diesem Maßstab sind das {px} Pixel, etwa {km} Kilometer Bildschirm.",
-      "next": "Weiter: dieselben Vermögen als {riceLink}, oder {spendLink}.",
-      "riceLink": "Reiskörner",
-      "spendLink": "versuch, sie auszugeben"
+      "text": "Du hast {money} gescrollt, eine Fläche von {px} Pixeln."
     },
-    "rangeNote": "Bandbreite der Quellen: {range}"
+    "more": "Weitere Kapitel",
+    "billion": "Das ist eine Milliarde: {value}. Tausend Millionen. Ab hier ist jeder Block dieser Größe eine Milliarde."
   },
   "rice": {
     "title": "Vermögen in Reiskörnern",
@@ -213,7 +192,6 @@
       "median_income_de": "Ein Jahr Median-Vollzeitverdienst, Deutschland",
       "millionaire": "Ein Millionär",
       "germany_top": "Reichster Deutscher: {name}",
-      "germany_top10": "Die zehn reichsten Deutschen zusammen",
       "world_top": "Reichster Mensch der Welt: {name}"
     }
   },

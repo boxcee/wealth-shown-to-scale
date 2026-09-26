@@ -5,12 +5,14 @@ import { num } from '../ui/source';
 import { currencyNote, staleBanner } from '../ui/layout';
 import type { PriceItem } from '../data/types';
 
-export function render(root: HTMLElement): () => void {
+export function render(root: HTMLElement, opts: { embedded?: boolean } = {}): () => void {
+  const H = opts.embedded ? 'h2' : 'h1';
   const d = getData();
   const cur = getCurrency();
+  // Only the two fortunes drawn on the home page: the largest in Germany and the largest on Earth.
   const budgets = [
-    ...d.wealth_world.people.map((p) => ({ id: `world-${p.id}`, label: `${p.name} (${t('nav.scroll') === 'Scroll' ? 'world' : 'Welt'} #${p.rank})`, value: inDisplay(p.wealth, cur), v: p.wealth })),
-    ...d.wealth_germany.people.map((p) => ({ id: `de-${p.id}`, label: `${p.name} (DE #${p.rank})`, value: inDisplay(p.wealth, cur), v: p.wealth })),
+    ...d.wealth_germany.people.slice(0, 1).map((p) => ({ id: `de-${p.id}`, label: t('scroll.bar.germany', { name: p.name }), value: inDisplay(p.wealth, cur), v: p.wealth })),
+    ...d.wealth_world.people.slice(0, 1).map((p) => ({ id: `world-${p.id}`, label: t('scroll.bar.world', { name: p.name }), value: inDisplay(p.wealth, cur), v: p.wealth })),
   ];
   let budgetId = budgets.find((b) => b.id.startsWith('de-'))!.id;
   let inflation = false;
@@ -30,7 +32,7 @@ export function render(root: HTMLElement): () => void {
   };
 
   root.innerHTML = `
-    <h1>${escapeHtml(t('spend.title'))}</h1>
+    <${H}>${escapeHtml(t('spend.title'))}</${H}>
     <p class="lead">${escapeHtml(t('spend.lead'))}</p>
     ${currencyNote()}
     ${staleBanner(d.prices.items.map((i) => i.price))}

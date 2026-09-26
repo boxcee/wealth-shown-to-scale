@@ -35,6 +35,8 @@ Decisions taken while building the site autonomously, with the reasoning. Newest
 
 ## Frontend
 
+- **Home page redesign (second iteration, after user feedback)**: back to the original's block logic. Scale is an *area* scale: 1 px² = 1,000, so a million is a 32×32 block, a billion a 1000×1000 block, and the strip's bar height × width encodes the money (on narrow screens blocks become rectangles of the same area). Only the largest German fortune and the largest fortune on Earth are drawn, in that order, so the jump in scale is felt. The strip is a sticky stage inside a tall wrapper: plain vertical scrolling (wheel, touch, keyboard, scrollbar) drives the sideways movement, no wheel hijacking, no auto-scroll, no jump list, no scale switch. Rice and spend simulator are embedded below the strip; their standalone pages remain. Lottery comparisons (Eurojackpot cap, Powerball record) were added as sourced markers.
+
 - **Vite + vanilla TypeScript** (no framework): the core is a canvas renderer with a small DOM overlay; a framework would add weight without helping. Build target ES2022 (native class fields; the ES2020 lowering produced a helper-ordering bug in the minified scroll chunk).
 - **Virtual scrolling**: the strip is laid out in pure numbers (`src/scroll/engine.ts`); only bars intersecting the viewport are drawn on a viewport-sized canvas; labels and cards are absolutely positioned DOM elements created on entry and removed on exit. Total width at 1 px = 1,000 is about 3.3 billion pixels; nothing in the DOM is wider than the viewport.
 - **"Money scrolled"** counts bar values left of the viewport edge (partial bars pro rata), not pixels, because bars are separated by gaps.

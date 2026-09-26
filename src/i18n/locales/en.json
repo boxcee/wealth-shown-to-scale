@@ -23,7 +23,7 @@
   "pages": {
     "scroll": {
       "title": "Wealth, shown to scale",
-      "description": "A side-scrolling visualisation of extreme wealth: 1 pixel = 1,000 dollars or euros, with every number sourced."
+      "description": "Extreme wealth drawn to scale: one pixel is 1,000 euros or dollars. Blocks first, then a bar that scrolls sideways past the largest German fortune and Elon Musk."
     },
     "rice": {
       "title": "Wealth in grains of rice",
@@ -113,73 +113,52 @@
     "and": "and"
   },
   "intro": {
-    "title": "How much is a billion? Scroll and find out.",
-    "lead": "Every bar on this page is drawn to the same scale: one pixel is {scale}. The median full-time earner in Germany makes {medianIncome} a year, a bar about {medianPx} pixels wide. The richest person on Earth is {topName} with {topWealth}. Keep scrolling.",
-    "credit": "A rebuild of “Wealth, shown to scale” by Matt Korostoff, plus Humphrey Yang's rice visualisation and Neal Agarwal's “Spend Bill Gates' Money”. See {creditsLink}.",
-    "creditsLinkText": "Credits",
-    "howTo": "Scroll with your mouse wheel, trackpad, arrow keys or by dragging. Use the jump list to skip ahead, or press play to let the page scroll for you."
+    "credit": "After “Wealth, shown to scale” by Matt Korostoff, with Humphrey Yang's rice visualisation and Neal Agarwal's “Spend Bill Gates' Money”. See {creditsLink}.",
+    "creditsLinkText": "Credits"
   },
   "scroll": {
-    "counter": "Scrolled so far",
+    "thousand": "This is {money}.",
+    "thousandNote": "One pixel. Every block on this page is drawn to the same scale: one pixel of area is one thousand. Tap ⓘ on any number for its source.",
+    "medianIncome": "This is one year of median full-time earnings in Germany: {value}.",
+    "medianWealth": "This is the net wealth of the median German household: {value}.",
+    "million": "This is one million: {value}.",
+    "lifetime": "This is what a median earner in Germany makes in a whole working life, 45 years: {value}.",
+    "germanyIntro": "Now the largest fortune in Germany: {name}, {value}. It no longer fits on the screen. Keep scrolling: from here on, the page moves sideways.",
+    "bar": {
+      "germany": "{name}, the largest fortune in Germany",
+      "world": "{name}, the largest fortune on Earth"
+    },
+    "worldIntro": "That was {deName}. This bar is {ratio} times as long. Keep scrolling.",
+    "counter": "scrolled so far",
     "counterAria": "Money scrolled so far: {money}",
-    "scale": "Scale",
-    "scaleOption": "1 px = {money}",
-    "currency": "Currency",
-    "jump": "Jump to…",
-    "play": "Auto-scroll",
-    "pause": "Pause",
-    "speed": "Speed",
-    "speedSlow": "slow",
-    "speedNormal": "normal",
-    "speedFast": "fast",
-    "position": "Position",
-    "share": "Copy link to this spot",
-    "shared": "Link copied",
-    "regionLabel": "Wealth scroll. Use the arrow keys to move, Page Up and Page Down for larger steps, Home and End to jump to the start or end.",
+    "regionLabel": "Wealth to scale. Keep scrolling down, or use the arrow keys, to move sideways along the bar.",
     "nowAt": "You are looking at: {label}",
-    "sections": {
-      "reference": "Reference sizes",
-      "world": "The ten richest people in the world",
-      "germany": "The ten richest people in Germany",
-      "end": "The end"
-    },
-    "segments": {
+    "labels": {
       "median_income_de": "One year of median full-time earnings, Germany",
-      "median_income_us": "One year of median household income, USA",
       "median_wealth_de": "Median household net wealth, Germany",
-      "median_wealth_us": "Median family net worth, USA",
-      "million": "One million",
-      "lifetime_de": "Gross lifetime earnings of a median earner, Germany (45 years)",
-      "lifetime_us": "Median lifetime earnings, US high-school diploma",
-      "world": "{rank}. {name}",
-      "germany": "{rank}. {name}"
-    },
-    "segmentSub": {
-      "million": "This is what a million looks like. Everything before it fits inside a few screens.",
-      "lifetime": "A whole working life. Remember the width of this bar.",
-      "person": "{source} · {country}"
+      "lifetime_de": "Gross lifetime earnings of a median earner, Germany (45 years)"
     },
     "markers": {
       "median1000": "You have now passed {money}: 1,000 years of median earnings in Germany.",
-      "medianHouseholds": "{money}: the net wealth of {n} median German households.",
+      "eurojackpot": "{money}: the maximum Eurojackpot prize. The biggest lottery win in Europe is this small a slice.",
+      "eurojackpotLabel": "Eurojackpot maximum",
       "lifetime100": "{money}: 100 working lives of a median earner.",
-      "schoolBacklog": "{money}: the entire investment backlog of Germany's school buildings, according to the KfW municipal panel.",
+      "powerball": "{money}: the largest lottery jackpot ever paid, the Powerball of November 2022.",
+      "powerballLabel": "Powerball record jackpot",
+      "medianHouseholds": "{money}: the net wealth of {n} median German households.",
       "endHunger": "{money}: the additional annual spending the Ceres2030 consortium estimated would end hunger for 490 million people.",
-      "federalBudget": "{money}: the whole German federal budget for 2026.",
-      "worldTotal": "The ten richest people in the world: {money} in total.",
-      "germanyTotal": "The ten richest Germans: {money} in total.",
-      "bottom50": "{money}: roughly the combined net wealth of the poorer half of all German households ({share} of {total})."
+      "schoolBacklog": "{money}: the entire investment backlog of Germany's school buildings, according to the KfW municipal panel.",
+      "bottom50": "{money}: roughly the combined net wealth of the poorer half of all German households ({share} of {total}).",
+      "federalBudget": "{money}: the whole German federal budget for 2026."
     },
     "objectionCard": "An objection",
     "readFull": "Full answer",
     "end": {
       "title": "You have reached the end.",
-      "text": "You scrolled {money}. At this scale that is {px} pixels, about {km} kilometres of screen.",
-      "next": "Next: see the same fortunes as {riceLink}, or {spendLink}.",
-      "riceLink": "grains of rice",
-      "spendLink": "try spending them"
+      "text": "You scrolled {money}, an area of {px} pixels."
     },
-    "rangeNote": "Range across sources: {range}"
+    "more": "More chapters",
+    "billion": "This is one billion: {value}. A thousand million. From here on, every block of this size is one billion."
   },
   "rice": {
     "title": "Wealth in grains of rice",
@@ -213,7 +192,6 @@
       "median_income_de": "One year of median full-time earnings, Germany",
       "millionaire": "A millionaire",
       "germany_top": "Richest German: {name}",
-      "germany_top10": "Ten richest Germans combined",
       "world_top": "Richest person on Earth: {name}"
     }
   },

@@ -4,8 +4,8 @@ const LANGS = ['en', 'de'] as const;
 const PAGES = ['', 'rice/', 'spend/', 'germany/', 'taxes/', 'objections/', 'methodology/', 'credits/', 'imprint/', 'privacy/'];
 
 const H1: Record<string, Record<string, RegExp>> = {
-  en: { '': /How much is a billion/, 'rice/': /grains of rice/, 'spend/': /Spend a billionaire/, 'germany/': /Germany in proportion/, 'taxes/': /Taxes: nominal/, 'objections/': /Objections/, 'methodology/': /Methodology/, 'credits/': /Credits/, 'imprint/': /Imprint/, 'privacy/': /Privacy/ },
-  de: { '': /Wie viel ist eine Milliarde/, 'rice/': /Reiskörnern/, 'spend/': /Milliardärs ausgeben/, 'germany/': /Deutschland im Verhältnis/, 'taxes/': /Steuern: nominal/, 'objections/': /Einwände/, 'methodology/': /Methodik/, 'credits/': /Credits/, 'imprint/': /Impressum/, 'privacy/': /Datenschutz/ },
+  en: { '': /Wealth, shown to scale/, 'rice/': /grains of rice/, 'spend/': /Spend a billionaire/, 'germany/': /Germany in proportion/, 'taxes/': /Taxes: nominal/, 'objections/': /Objections/, 'methodology/': /Methodology/, 'credits/': /Credits/, 'imprint/': /Imprint/, 'privacy/': /Privacy/ },
+  de: { '': /Reichtum, maßstabsgetreu/, 'rice/': /Reiskörnern/, 'spend/': /Milliardärs ausgeben/, 'germany/': /Deutschland im Verhältnis/, 'taxes/': /Steuern: nominal/, 'objections/': /Einwände/, 'methodology/': /Methodik/, 'credits/': /Credits/, 'imprint/': /Impressum/, 'privacy/': /Datenschutz/ },
 };
 
 async function noConsoleErrors(page: Page): Promise<string[]> {
@@ -50,25 +50,34 @@ test('language switcher keeps the page and the browser language redirect works',
   await expect(page).toHaveURL(/\/de\/$/);
 });
 
-test('scroll page: counter grows, jump marks and deep links work', async ({ page }) => {
+test('home: blocks to scale, sideways strip driven by vertical scroll, rice and spend on the same page', async ({ page }) => {
   await page.goto('en/');
-  const stage = page.locator('#stage');
-  await expect(stage).toBeVisible();
+  // five blocks whose area is value / 1000 pixels
+  await expect(page.locator('.block')).toHaveCount(6);
+  const million = await page.locator('#b-million .block').boundingBox();
+  expect(Math.round(million!.width * million!.height)).toBeGreaterThan(990);
+  expect(Math.round(million!.width * million!.height)).toBeLessThan(1_010);
+  const billion = await page.locator('#b-billion .block').boundingBox();
+  expect(Math.round(billion!.width * billion!.height)).toBeGreaterThan(990_000);
+  // the strip wrapper is tall: scrolling down moves the bar sideways
   const counter = page.locator('#counter');
   await expect(counter).toHaveText(/€0|\$0/);
-  await stage.focus();
-  await page.keyboard.press('End');
+  const top = await page.evaluate(() => document.getElementById('strip')!.getBoundingClientRect().top + window.scrollY);
+  await page.evaluate((y) => window.scrollTo(0, y + 500), top);
   await expect.poll(async () => (await counter.textContent()) ?? '').not.toMatch(/^[€$]0$/);
-  await expect(page.locator('#end')).toBeVisible();
-  await page.locator('[data-jump="million"]').click();
-  await expect(page.locator('.seg-label', { hasText: 'One million' })).toBeVisible();
+  await expect(page.locator('.seg-label').first()).toBeVisible();
+  await expect(page.locator('.marker.objection').first()).toBeVisible();
   await expect.poll(() => page.url()).toMatch(/#x=\d+/);
+  // deep link restores the position
   const url = page.url();
   await page.goto(url);
-  await expect(page.locator('.seg-label', { hasText: 'One million' })).toBeVisible();
-  // objection card appears inside the scroll
-  await page.locator('#jump').selectOption({ index: 8 });
-  await expect(page.locator('.marker.objection').first()).toBeVisible();
+  await expect.poll(async () => (await counter.textContent()) ?? '').not.toMatch(/^[€$]0$/);
+  // the end of the strip, then rice and spend
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await expect(page.locator('#end')).toBeVisible();
+  await expect(page.locator('#rice h2').first()).toHaveText(/rice/i);
+  await expect(page.locator('#spend h2').first()).toHaveText(/Spend/);
+  await expect(page.locator('#spend #budget option')).toHaveCount(2);
 });
 
 test('currency switch converts amounts', async ({ page }) => {

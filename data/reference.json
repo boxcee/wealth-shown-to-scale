@@ -232,6 +232,33 @@
       "auto": false,
       "max_age_months": 14,
       "refresh_hint": "Forbes publishes the annual list each spring; the pipeline reads https://www.forbes.com/forbesapi/person/billionaires/<year>/position/true.json"
+    },
+    "eurojackpot_max": {
+      "value": 120000000,
+      "unit": "currency",
+      "currency": "EUR",
+      "source": "LOTTO.de, Eurojackpot-Höchstgewinne: in Gewinnklasse 1 sind seit dem 25. März 2022 maximal 120 Millionen Euro möglich",
+      "source_url": "https://www.lotto.de/eurojackpot/hoechstgewinne",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2026",
+      "definition": "Maximum prize in Eurojackpot prize category 1 (jackpot cap) under the rules valid since 25 March 2022; reached several times, e.g. 23 September 2025 (Germany) and 26 May 2026 (Czechia).",
+      "is_estimate": false,
+      "auto": false,
+      "max_age_months": 36,
+      "refresh_hint": "LOTTO.de Eurojackpot rules / Höchstgewinne page."
+    },
+    "powerball_record_jackpot": {
+      "value": 2040000000,
+      "unit": "currency",
+      "currency": "USD",
+      "source": "Powerball (Multi-State Lottery Association): Ticket in California wins world record $2.04 billion Powerball jackpot, 8 November 2022",
+      "source_url": "https://www.powerball.com/ticket-california-wins-world-record-204-billion-powerball-jackpot",
+      "retrieved_at": "2026-09-26",
+      "as_of": "2022-11-08",
+      "definition": "Largest lottery jackpot ever, as an annuity value (30 payments); the winner took the lump sum of 997.6 million USD before taxes.",
+      "is_estimate": false,
+      "auto": false,
+      "max_age_months": 240
     }
   }
 }
