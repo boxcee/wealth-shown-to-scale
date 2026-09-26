@@ -128,7 +128,7 @@ export class StripView {
     const w = this.viewportWidth;
     const h = this.opts.stage.clientHeight;
     const ctx = this.ctx;
-    ctx.fillStyle = getComputedStyle(this.opts.stage).backgroundColor || '#fff';
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#fff';
     ctx.fillRect(0, 0, w, h);
 
     const { barTop, barHeight } = this.opts;
@@ -194,7 +194,7 @@ export class StripView {
         }
         node.style.left = `${Math.min(screen, w - width - 8)}px`;
         const row = this.markerRows.get(m.id) ?? 0;
-        node.style.top = m.kind === 'objection' ? `${barTop + barHeight * 0.22 + row * 40}px` : `${barTop + barHeight * (0.56 + row * 0.19)}px`;
+        node.style.top = m.kind === 'objection' ? `${barTop + barHeight * 0.22 + row * 40}px` : `${barTop + barHeight * (0.5 + row * 0.19)}px`;
       } else if (el) {
         el.remove();
         this.markerEls.delete(m.id);

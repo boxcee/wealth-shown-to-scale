@@ -109,12 +109,15 @@ export function render(root: HTMLElement): () => void {
       ${blocks}
       <div class="block-item"><p>${t('scroll.germanyIntro', { name: escapeHtml(de1.name), value: num(de1.wealth, { label: de1.name }) })}</p></div>
     </section>
-    <div class="strip-wrap" id="strip">
-      <div class="strip-stage" id="stage" role="region" aria-label="${escapeHtml(t('scroll.regionLabel'))}">
-      </div>
-      <div class="strip-hud" aria-hidden="true">
-        <div class="counter"><span id="counter">${escapeHtml(money(0, cur))}</span><small>${escapeHtml(t('scroll.counter'))}</small></div>
-        <div class="minimap" id="minimap"></div>
+    <div class="strip" id="strip" role="region" tabindex="0" aria-label="${escapeHtml(t('scroll.regionLabel'))}">
+      <div class="strip-inner" id="strip-inner">
+        <div class="strip-sticky">
+          <div class="strip-stage" id="stage"></div>
+          <div class="strip-hud" aria-hidden="true">
+            <div class="counter"><span id="counter">${escapeHtml(money(0, cur))}</span><small>${escapeHtml(t('scroll.counter'))}</small></div>
+            <div class="minimap" id="minimap"></div>
+          </div>
+        </div>
       </div>
     </div>
     <p class="sr-only" id="live" aria-live="polite"></p>
@@ -135,7 +138,9 @@ export function render(root: HTMLElement): () => void {
     </section>
   `;
 
-  const wrap = root.querySelector<HTMLElement>('#strip')!;
+  const strip = root.querySelector<HTMLElement>('#strip')!;
+  const inner = root.querySelector<HTMLElement>('#strip-inner')!;
+  const sticky = root.querySelector<HTMLElement>('.strip-sticky')!;
   const stage = root.querySelector<HTMLElement>('#stage')!;
   const counter = root.querySelector<HTMLElement>('#counter')!;
   const live = root.querySelector<HTMLElement>('#live')!;
@@ -160,6 +165,7 @@ export function render(root: HTMLElement): () => void {
     const h = Math.max(240, stage.clientHeight - BAR_MARGIN_TOP - BAR_MARGIN_BOTTOM);
     return { barTop: BAR_MARGIN_TOP, barHeight: h, scale: UNIT * h };
   };
+  sticky.style.width = `${strip.clientWidth}px`;
   let g = geometry();
   let lastAnnounced = '';
   let announceTimer = 0;
@@ -209,19 +215,22 @@ export function render(root: HTMLElement): () => void {
         .map((it) => `<div class="mm-seg" style="left:${(it.x0 / total) * 100}%;width:${Math.max(0.15, ((it.x1 - it.x0) / total) * 100)}%;background:${colors[it.kind]}"></div>`)
         .join('') + '<div class="mm-view"></div>';
   };
-  const sizeWrapper = () => {
-    wrap.style.height = `calc(100vh + ${Math.round(view!.maxX)}px)`;
+  // The strip is a real horizontal scroll container: its scroll width is the strip's
+  // total width (an empty spacer), the canvas sticks to the left edge and is redrawn
+  // from scrollLeft. Native horizontal swiping, scrollbars and arrow keys just work.
+  const sizeSpacer = () => {
+    inner.style.width = `${Math.round(view!.layout.totalWidth + 48)}px`;
+    // The sticky host must be as wide as the visible strip, not as the spacer.
+    sticky.style.width = `${strip.clientWidth}px`;
   };
   buildMinimap();
-  sizeWrapper();
+  sizeSpacer();
   endText.textContent = t('scroll.end.text', { money: money(view.layout.totalMoney, cur), px: number(Math.round(view.layout.totalWidth * g.barHeight)) });
 
-  // The vertical scroll position drives the horizontal position of the strip.
   let ticking = false;
   const sync = () => {
     ticking = false;
-    const top = wrap.getBoundingClientRect().top + window.scrollY;
-    view!.setX(window.scrollY - top);
+    view!.setX(strip.scrollLeft);
   };
   const onScroll = () => {
     if (!ticking) {
@@ -234,39 +243,42 @@ export function render(root: HTMLElement): () => void {
     view!.resize();
     view!.relayout(g.scale, g.barTop, g.barHeight);
     buildMinimap();
-    sizeWrapper();
+    sizeSpacer();
+    strip.scrollLeft = view!.x;
     sync();
   };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onResize);
-
-  // deep link: #x=<px>
-  const hash = new URLSearchParams(location.hash.replace(/^#/, ''));
-  if (hash.get('x')) {
-    const top = wrap.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({ top: top + Number(hash.get('x')), behavior: 'auto' });
-  }
-  sync();
-
-  // Keyboard: arrows move sideways when the stage has focus (Page keys and space keep native behaviour).
-  stage.tabIndex = 0;
-  const onKey = (e: KeyboardEvent) => {
-    if (document.activeElement !== stage) return;
-    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-      window.scrollBy({ top: (e.key === 'ArrowRight' ? 1 : -1) * (e.shiftKey ? 1000 : 120), behavior: 'auto' });
+  // A vertical mouse wheel over the strip moves it sideways, but only while it can still
+  // move; at either end the wheel scrolls the page as usual, so you never get trapped.
+  const onWheel = (e: WheelEvent) => {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return; // trackpad horizontal: native
+    const factor = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? strip.clientWidth : 1;
+    const dy = e.deltaY * factor;
+    const max = strip.scrollWidth - strip.clientWidth;
+    if ((dy > 0 && strip.scrollLeft < max - 1) || (dy < 0 && strip.scrollLeft > 1)) {
+      strip.scrollLeft += dy;
       e.preventDefault();
     }
   };
-  window.addEventListener('keydown', onKey);
+  strip.addEventListener('scroll', onScroll, { passive: true });
+  strip.addEventListener('wheel', onWheel, { passive: false });
+  window.addEventListener('resize', onResize);
+
+  // deep link: #x=<px> (position along the strip)
+  const hash = new URLSearchParams(location.hash.replace(/^#/, ''));
+  if (hash.get('x')) {
+    strip.scrollLeft = Number(hash.get('x'));
+    strip.scrollIntoView({ block: 'start' });
+  }
+  sync();
 
   // The rice and spend chapters follow on the same page.
   const cleanRice = renderRice(root.querySelector<HTMLElement>('#rice')!, { embedded: true });
   const cleanSpend = renderSpend(root.querySelector<HTMLElement>('#spend')!, { embedded: true });
 
   return () => {
-    window.removeEventListener('scroll', onScroll);
+    strip.removeEventListener('scroll', onScroll);
+    strip.removeEventListener('wheel', onWheel);
     window.removeEventListener('resize', onResize);
-    window.removeEventListener('keydown', onKey);
     view?.dispose();
     cleanRice();
     cleanSpend();

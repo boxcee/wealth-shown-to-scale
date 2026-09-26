@@ -50,7 +50,7 @@ test('language switcher keeps the page and the browser language redirect works',
   await expect(page).toHaveURL(/\/de\/$/);
 });
 
-test('home: blocks to scale, sideways strip driven by vertical scroll, rice and spend on the same page', async ({ page }) => {
+test('home: blocks to scale, a sideways strip, rice and spend on the same page', async ({ page, isMobile }) => {
   await page.goto('en/');
   // five blocks whose area is value / 1000 pixels
   await expect(page.locator('.block')).toHaveCount(6);
@@ -59,15 +59,21 @@ test('home: blocks to scale, sideways strip driven by vertical scroll, rice and 
   expect(Math.round(million!.width * million!.height)).toBeLessThan(1_010);
   const billion = await page.locator('#b-billion .block').boundingBox();
   expect(Math.round(billion!.width * billion!.height)).toBeGreaterThan(990_000);
-  // the strip wrapper is tall: scrolling down moves the bar sideways
+  // the strip is a horizontal scroll container: scrolling it sideways moves the bar
   const counter = page.locator('#counter');
   await expect(counter).toHaveText(/€0|\$0/);
-  const top = await page.evaluate(() => document.getElementById('strip')!.getBoundingClientRect().top + window.scrollY);
-  await page.evaluate((y) => window.scrollTo(0, y + 500), top);
+  await page.locator('#strip').scrollIntoViewIfNeeded();
+  await page.evaluate(() => { document.getElementById('strip')!.scrollLeft = 500; });
   await expect.poll(async () => (await counter.textContent()) ?? '').not.toMatch(/^[€$]0$/);
   await expect(page.locator('.seg-label').first()).toBeVisible();
   await expect(page.locator('.marker.objection').first()).toBeVisible();
   await expect.poll(() => page.url()).toMatch(/#x=\d+/);
+  // a vertical mouse wheel over the strip moves it sideways (desktop only: phones swipe)
+  if (!isMobile) {
+    await page.locator('#strip').hover();
+    await page.mouse.wheel(0, 300);
+    await expect.poll(() => page.evaluate(() => document.getElementById('strip')!.scrollLeft)).toBeGreaterThan(700);
+  }
   // deep link restores the position
   const url = page.url();
   await page.goto(url);
