@@ -2,19 +2,19 @@
   "meta": {
     "title": "Exchange rates",
     "description": "Euro foreign exchange reference rates published by the European Central Bank (one rate per working day, around 16:00 CET).",
-    "updated_at": "2026-09-26",
+    "updated_at": "2026-10-01",
     "default_max_age_months": 2,
     "pipeline": "scripts/fetchers/ecb.ts"
   },
   "values": {
     "usd_per_eur": {
-      "value": 1.1403,
+      "value": 1.1355,
       "unit": "ratio",
       "currency": null,
-      "source": "European Central Bank, euro foreign exchange reference rates, 2026-09-25",
+      "source": "European Central Bank, euro foreign exchange reference rates, 2026-09-30",
       "source_url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html",
-      "retrieved_at": "2026-09-26",
-      "as_of": "2026-09-25",
+      "retrieved_at": "2026-10-01",
+      "as_of": "2026-09-30",
       "definition": "US dollars per one euro, ECB daily reference rate (mid-rate based on the daily concertation procedure between central banks). Used to convert all USD figures on this site into EUR and vice versa.",
       "is_estimate": false,
       "auto": true,

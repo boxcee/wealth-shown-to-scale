@@ -2,7 +2,7 @@
   "meta": {
     "title": "Consumer price indices",
     "description": "Annual average consumer price indices used to inflation-adjust prices: HICP for Germany (Eurostat, 2015 = 100) and CPI-U for the United States (BLS, 1982–84 = 100).",
-    "updated_at": "2026-09-26",
+    "updated_at": "2026-10-01",
     "default_max_age_months": 14,
     "pipeline": "scripts/fetchers/inflation.ts"
   },
@@ -13,7 +13,7 @@
       "currency": null,
       "source": "Eurostat, HICP – annual data (prc_hicp_aind), Germany, all-items, annual average index (2015 = 100), dataset updated 2026-02-06",
       "source_url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_aind/default/table",
-      "retrieved_at": "2026-09-26",
+      "retrieved_at": "2026-10-01",
       "as_of": "2025",
       "definition": "Harmonised Index of Consumer Prices for Germany, annual average, 2015 = 100. A euro price from year A is rebased to year B by multiplying with index(B) / index(A).",
       "is_estimate": false,
@@ -45,7 +45,7 @@
       "currency": null,
       "source": "U.S. Bureau of Labor Statistics, CPI-U all items, U.S. city average, not seasonally adjusted (series CUUR0000SA0), annual average of monthly values; latest month 2026-08: 334.98",
       "source_url": "https://www.bls.gov/cpi/",
-      "retrieved_at": "2026-09-26",
+      "retrieved_at": "2026-10-01",
       "as_of": "2025",
       "definition": "Consumer Price Index for All Urban Consumers, 1982–84 = 100, annual average calculated from the published monthly values (October 2025 was never published because of the federal funding lapse; 2025 is the average of the other eleven months). A dollar price from year A is rebased to year B by multiplying with index(B) / index(A).",
       "is_estimate": false,
